@@ -1,0 +1,639 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/image/favicon.ico" />
+  <title>A&M</title>
+  <style>
+    :root {
+      --dark-blue: #11114d;
+      --white: #ffffff;
+      --red: #d72638;
+      --light-gray: #f5f5f5;    
+      --section-bg-alt: #eaeaea;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--white);
+      color: var(--text-gray);
+    }
+
+    .nav {
+      background-color: var(--dark-blue);
+      padding: 15px;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-container a {
+      margin-right: auto;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      gap: 25px;
+      margin-left: 60px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: large;
+      color: var(--white);
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--red);
+    }
+
+    header nav img {
+      position: relative;
+      left: 10px;
+      top: 10px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+
+    #home {
+      position: relative;
+      background-image: url("C:/Users/Admin/Downloads/8d921552-497d-4c11-8cc1-57e719bdaabd.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    #home::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(15, 23, 46, 0.4); 
+      z-index: -1;
+    }
+
+    .hero-content {
+      padding: 20px 40px;
+    }
+
+    .company-name {
+      font-size: 12rem;
+      margin: 0;
+      color: var(--white);
+    }
+
+  .red-amp {
+    color: var(--red);
+  }
+    .tagline {
+      font-size: 2rem;
+      margin-top: 10px;
+      color: var(--white);
+    }
+
+    .fade-in.slide-up {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeSlideUp 1.5s forwards ease-out;
+    }
+
+    .fade-in.slide-up.company-name {
+      animation-delay: 0.3s;
+    }
+
+    .fade-in.slide-up.tagline {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes fadeSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      padding: 70px 30px;
+    }
+
+    section h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      color: var(--red);
+      margin-bottom: 30px;
+    }
+
+    section p {
+      font-size: 1.2rem;
+      max-width: 900px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+      color: var(--text-gray);
+    }
+#about {
+  background-color: var(--light-gray);
+  padding: 70px 30px 70px;
+  text-align: center;
+}
+
+#about h1 {
+  font-size: 4rem; 
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--red);
+  margin-top: 0%;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#about p {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #333333;
+  font-family: 'Georgia', serif;
+  font-style: normal;
+  font-weight: 400;
+  text-align: justify;
+  text-indent: 30px;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid var(--red);
+   border-right: 5px solid var(--red);
+}
+
+    #mission-vision {
+      background-color: var(--section-bg-alt);
+      padding: 60px 20px;
+    }
+
+    .mission-vision {
+      max-width: 900px;
+      margin: 0 auto 40px;
+      background-color: var(--white);
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      color: var(--text-gray);
+    }
+
+    .mission-vision h1 {
+      font-size: 2.2rem;
+      color: var(--red);
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .mission-vision p {
+      font-size: 1.1rem;
+      text-align: justify;
+    }
+
+   .expertise-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.expertise-card {
+  flex: 1 1 300px;
+  background: white;
+  padding: 25px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 5px solid var(--red);
+  border-right: 5px solid var(--red);
+}
+
+.expertise-card h2 {
+  color: var(--dark-blue);
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+.expertise-card p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-gray);
+}
+
+.expertise-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+}
+
+#why-us {
+  background: linear-gradient(135deg, #fdf6f0, #f8e8e4);
+  padding: 80px 20px;
+  color: #2c2c54;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  position: relative;
+  text-align: center; /* center all text inside */
+}
+
+#why-us h1 {
+  font-size: 3.5rem;
+  color: #d93a3a;
+  font-weight: 900;
+  letter-spacing: 3px;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+  opacity: 1; /* remove animation */
+}
+
+.why-us-container p {
+  font-size: 1.3rem;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+  color: #3b3b66;
+  text-align: justify; /* makes paragraphs look neat */
+  opacity: 1;
+}
+
+.why-us-container h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #190c4e;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 3px solid #d93a3a;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.why-us-list {
+  list-style: none;
+  padding-left: 0;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  text-align: left; /* align list text to left for readability */
+}
+
+.why-us-list li {
+  font-size: 1.2rem;
+  margin-bottom: 22px;
+  padding-left: 35px;
+  position: relative;
+  font-weight: 600;
+  color: #4b4b7d;
+  user-select: none;
+  line-height: 1.5;
+}
+
+.why-us-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 1.4rem;
+  color: #d93a3a;
+}
+
+.why-us-container p:last-child {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.25rem;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #2c2c54;
+  text-align: center;
+  opacity: 1;
+}
+
+
+
+    #about, #mission-vision, #why-us, #expertise {
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+    }
+
+    #contact {
+      background-color: var(--dark-blue);
+      color: var(--white);
+      padding: 60px 20px;
+    }
+
+    #contact h1 {
+      font-size: 2.5rem;
+      color: var(--red);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    #contact a {
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+    form input,
+    form textarea {
+      padding: 15px;
+      border: 1px solid var(--red);
+      margin: 5px 0;
+      border-radius: 5px;
+      font-size: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    form button {
+      background-color: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+      margin-top: 10px;
+    }
+
+    form button:hover {
+      background-color: #a81e2f;
+    }
+
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .contact-info p {
+      font-size: 1.1rem;
+      margin: 0 0 15px 0;
+    }
+    
+.mission-vision-bg {
+  position: relative;
+  background-color: #a81e2f;
+  padding: 80px 20px;
+  z-index: 1;
+  color: white;
+}
+
+.mission-vision-bg h1 {
+  text-align: center;
+  font-size: 3rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  margin-bottom: 60px;
+  letter-spacing: 1px;
+  animation: fadeIn 2s ease forwards;
+}
+
+.mission-vision-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.card {
+  flex: 1 1 400px;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #333;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(6, 5, 5, 0.2);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 1s forwards;
+}
+
+.card h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 15px;
+  color: var(--red);
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.card p {
+  font-size: 1.1rem;
+  font-family: 'Georgia', serif;
+  line-height: 1.7;
+  text-align: justify;
+  text-indent: 25px;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+.slide-up {
+  animation: slideUp 1.2s ease forwards;
+}
+
+.delay {
+  animation-delay: 0.5s;
+}
+
+@media (max-width: 768px) {
+  .mission-vision-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.fade-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-scroll.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="nav">
+      <div class="nav-container">
+        <a href="#home">
+          <img src="C:\Users\Admin\Downloads\IMG-20250603-WA0007.jpg" alt="A&M Logo" />
+        </a>
+        <ul id="nav-bar">
+          <li><a href="#home"><b>Home</b></a></li>
+          <li><a href="#about"><b>About Us</b></a></li>
+          <li><a href="#why-us"><b>Why Us</b></a></li>
+          <li><a href="#expertise"><b>Our Expertise</b></a></li>
+          <li><a href="#contact"><b>Contact Us</b></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+ <section id="home"> 
+  <div class="hero-content">
+    <h1 class="fade-in slide-up company-name">
+      A<span class="red-amp">&amp;</span>M
+    </h1>
+    <h1 class="fade-in slide-up tagline">Advisory excellence, Building the Future Together.</h1>
+  </div>
+</section>
+
+  <main>
+    <section id="about">
+      <h1>About Us</h1>
+      <p>A&M Advisory is a forward-thinking Indian real estate services enterprise, driven by a team of seasoned professionals from diverse domains. Our strength lies in the depth of our experience and the values we bring to every partnership.
+
+We are committed to accelerating the success of our clients by fostering a culture built on service excellence, strategic insight, and meaningful engagement. At A&M, we recognize that today’s organizations seek more than just space management—they demand efficient use of facilities, smart asset strategies, value-added engineering, and tangible improvements in employee satisfaction.
+
+Our experts deliver measurable value by identifying untapped opportunities within our clients' facilities and portfolios, helping them meet their business objectives with confidence. Through operational efficiency, cost optimization, and risk mitigation, we craft impactful, lasting solutions.
+
+What sets us apart is our ability to offer a comprehensive suite of services, fully customizable to suit the unique needs of each client and facility. At A&M Advisory, we don’t believe in one-size-fits-all. We believe in the right fit—for every space, every project, every time.
+
+</p>
+    </section>
+
+   
+  <div class="mission-vision-bg">
+    <h1 class="fade-in">Our Mission & Vision</h1>
+    <div class="mission-vision-wrapper">
+      <div class="card fade-in slide-up">
+        <h2>Our Mission</h2>
+        <p>
+          Our mission is to help our clients create such high levels of value that together we set new standards of excellence in respective industries.
+        </p>
+      </div>
+      <div class="card fade-in slide-up delay">
+        <h2>Our Vision</h2>
+        <p>
+          To maintain an uncompromised standard of ethics and a commitment to provide innovative and value-added solutions to our clients. To strive to exceed our client’s expectations by meeting their needs in an innovative and open manner.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <section id="expertise">
+  <h1>Our Expertise</h1>
+  <div class="expertise-cards">
+    <div class="expertise-card fade-scroll">
+      <h2>Mergers & Acquisitions</h2>
+      <p>Guiding complex transactions with strategic insight and due diligence.</p>
+    </div>
+    <div class="expertise-card fade-scroll">
+      <h2>Market Analysis</h2>
+      <p>Delivering deep data-driven insights to support informed real estate decisions.</p>
+    </div>
+    <div class="expertise-card fade-scroll">
+      <h2>Operational Excellence</h2>
+      <p>Optimizing operations to improve efficiency, performance, and ROI.</p>
+    </div>
+  </div>
+</section>
+
+    <section id="why-us">
+  <h1>Why Choose Us</h1>
+  <div class="why-us-container">
+    <p>
+      At <strong>A&M Advisory</strong>, we offer comprehensive property management and consultancy services backed by deep industry expertise and a results-driven approach. From residential and commercial properties to specialized slum rehabilitation projects, our team delivers end-to-end solutions designed for impact.
+    <br>
+      Whether supporting industry leaders like <strong>Navbharat Mega Developers Pvt. Ltd.</strong> or working with new ventures, our foundation of integrity, transparency, and professionalism earns us long-standing trust and continued success across all partnerships.
+    </p>
+    <h2>What Sets Us Apart</h2>
+    <ul class="why-us-list">
+      <li> A diverse team of professionals with hands-on experience across sectors</li>
+      <li> Advanced systems and proprietary in-house software for efficient, cost-effective, performance-focused service delivery</li>
+      <li> Strong emphasis on risk mitigation and operational optimization</li>
+      <li> On-site consultancy with direct project deployment for real-time vendor collaboration</li>
+      <li> Deep local market insights combined with specialized industry knowledge</li>
+    </ul>
+    
+  </div>
+</section>
+
+    <section id="contact">
+      <h1><u>Contact Us</u></h1>
+      <div class="contact-container">
+        <div class="contact-info">
+          <p><b>Phone no:</b> <a href="tel:+911234567890">+91 1234567890</a></p>
+          <p><b>Email:</b> <a href="mailto:acquireandmanage@gmail.com">acquireandmanage@gmail.com</a></p>
+          <p><b>Address:</b> Hallmark Business Plaza, 1106, Jagat Vidya Marg, Sant Dnyaneshwar Nagar, Bandra East, Mumbai, Maharashtra - 400051.</p>
+        </div>
+        <form action="https://formsubmit.co/naiksiddhics232410@gmail.com" method="POST">
+          <input type="hidden" name="_next" value="https://siddhi124github.github.io/satkshi/thankyou.html" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="name" minlength="3" maxlength="40" placeholder="Name" required />
+          <input type="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" />
+          <textarea name="address" rows="5" minlength="3" maxlength="500" placeholder="Address" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  });
+
+  document.querySelectorAll(".fade-scroll").forEach(el => observer.observe(el));
+</script>
+
+</html>
