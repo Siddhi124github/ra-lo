@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -211,6 +212,38 @@
       margin-left: 0.5rem;
     }
 
+    /* Header & Navigation */
+    header {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .header-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -2;
+      background-image: url("Screenshot 2025-06-04 200537.png");
+    }
+
+    .header-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(11, 28, 44, 0.9) 0%, rgba(16, 42, 67, 0.8) 100%);
+      z-index: -1;
+    }
     /* Header & Navigation */
     header {
       position: relative;
@@ -1564,30 +1597,10 @@
     });
     
     // Header background slideshow
-    const headerBg = document.querySelector('.header-bg');
-    const images = [
-     "Screenshot 2025-06-04 200537.png",
-     "Screenshot 2025-06-07 154306.png",
-      "Screenshot 2025-06-07 154232.png"
-    ];  
-    
-    let currentImage = 0;
-    
-    function changeBackground() {
-      headerBg.style.opacity = 0;
-      
-      setTimeout(() => {
-        currentImage = (currentImage + 1) % images.length;
-        headerBg.style.backgroundImage = `url(${images[currentImage]})`;
-        headerBg.style.opacity = 1;
-      }, 1000);
-    }
+   
     
     // Set initial background
-    headerBg.style.backgroundImage = `url(${images[0]})`;
     
-    // Change background every 5 seconds
-    setInterval(changeBackground, 5000);
   </script>
 </body>
 </html>
