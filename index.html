@@ -3,26 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RA Logistics</title>
+  <title>RA Logistics - Premium Warehouse Solutions</title>
+  <meta name="description" content="RA Logistics provides state-of-the-art warehouse construction and logistics solutions for businesses across India.">
 
-  <!-- Preload and optimize font -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+  <!-- Preload and optimize assets -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
   <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
-
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
   <style>
     :root {
       --primary: #0056b3;
+      --primary-light: #3a7fc4;
       --primary-dark: #003d82;
       --secondary: #102a43;
+      --secondary-light: #2d4a66;
       --light: #f5f7fa;
       --dark: #0b1c2c;
       --text: #334e68;
+      --text-light: #627d98;
       --white: #ffffff;
       --gray: #e9edf2;
+      --accent: #ff7d00;
+      --success: #28a745;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+      --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+      --border-radius: 8px;
+      --border-radius-lg: 12px;
+      --max-width: 1400px;
     }
 
     * {
@@ -32,247 +45,400 @@
       font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     }
 
-    html, body {
-      height: 100%;
+    html {
       scroll-behavior: smooth;
+      font-size: 100%;
+    }
+
+    body {
       background-color: var(--light);
-      font-size-adjust: 0.5;
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    ::selection {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    /* Utility Classes */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-primary {
+      color: var(--primary);
+    }
+
+    .bg-primary {
+      background-color: var(--primary);
+    }
+
+    .bg-secondary {
+      background-color: var(--secondary);
+    }
+
+    .bg-light {
+      background-color: var(--light);
+    }
+
+    .bg-white {
+      background-color: var(--white);
+    }
+
+    .section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .section-heading {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .text-center .section-heading::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .section-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 2rem;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      border: 2px solid transparent;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border-color: white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background-color: white;
+      color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-accent {
+      background-color: var(--accent);
+      color: white;
+    }
+
+    .btn-accent:hover {
+      background-color: #e67300;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-lg {
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+    }
+
+    .btn-icon {
+      margin-left: 0.5rem;
     }
 
     /* Header & Navigation */
     header {
-      background: center/cover no-repeat;
-      height: 100vh;
-      color: white;
       position: relative;
+      height: 100vh;
+      min-height: 700px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
       overflow: hidden;
-      transition: background-image 1s ease-in-out;
     }
 
-    header::before {
-      content: '';
+    .header-bg {
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.6);
-      z-index: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: opacity 1.5s ease-in-out;
+      z-index: -2;
     }
 
-    nav {
+    .header-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(11, 28, 44, 0.9) 0%, rgba(16, 42, 67, 0.8) 100%);
+      z-index: -1;
+    }
+
+    /* Navbar */
+    .navbar {
+      width: 100%;
+      padding: 1.5rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      transition: all 0.4s ease;
+    }
+
+    .navbar.scrolled {
+      background-color: rgba(255, 255, 255, 0.98);
+      padding: 1rem 0;
+      box-shadow: var(--shadow-md);
+    }
+
+    .navbar.scrolled .nav-logo img {
+      height: 50px;
+    }
+
+    .navbar.scrolled .nav-link {
+      color: var(--secondary);
+    }
+
+    .navbar.scrolled .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .navbar-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
-      position: absolute;
-      top: 0;
-      z-index: 1;
-      background-color: var(--white);
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
     }
 
-    nav img {
+    .nav-logo img {
       height: 60px;
-      width: auto;
-      display: block;
-      border: none;
-      outline: none;
-      padding: 0;
-      margin: 0;
-      background-color: var(--white);
+      transition: all 0.4s ease;
     }
 
-    nav ul {
+    .nav-menu {
       display: flex;
+      align-items: center;
       list-style: none;
     }
 
-    nav ul li {
-      margin-left: 30px;
+    .nav-item {
+      margin-left: 2rem;
       position: relative;
     }
 
-    nav ul li a {
-      text-decoration: none;
-      color: var(--secondary);
-      font-weight: 600;
-      font-size: 1rem;
-      transition: 0.3s ease-in-out;
-      padding-bottom: 5px;
+    .nav-link {
+      color: white;
+      font-weight: 500;
       position: relative;
+      padding: 0.5rem 0;
     }
 
-    nav ul li a::after {
+    .nav-link::after {
       content: '';
       position: absolute;
       left: 0;
       bottom: 0;
       width: 0;
       height: 2px;
-      background: var(--primary);
-      transition: 0.4s ease-in-out;
+      background-color: var(--primary);
+      transition: width 0.4s ease;
     }
 
-    nav ul li a:hover::after {
+    .nav-link:hover::after {
       width: 100%;
     }
 
-    nav ul li a:hover {
+    .nav-link.active {
       color: var(--primary);
+    }
+
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
     }
 
     /* Hero Section */
     .hero {
-      position: relative;
-      z-index: 1;
-      animation: fadeInSmooth 2s ease forwards;
-      animation-delay: 0.5s;
-      opacity: 0;
-      padding: 0 20px;
-      width: 100%;
-      max-width: 1200px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 6rem 0;
     }
 
-    .hero h1 {
-      font-size: clamp(3.5rem, 10vw, 8rem);
-      margin-bottom: 20px;
-      line-height: 1.1;
-      letter-spacing: -0.05em;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      font-weight: 700;
-    }
-
-    .hero p {
-      font-size: clamp(1.4rem, 3vw, 1.8rem);
-      line-height: 1.5;
-      letter-spacing: -0.01em;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    .hero-content {
       max-width: 800px;
-      margin: 0 auto 40px;
+      margin: 0 auto;
+      text-align: center;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      margin-bottom: 1.5rem;
+      color: white;
+      line-height: 1.2;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 3rem;
       font-weight: 300;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 15px 30px;
-      background-color: var(--primary);
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      border: 2px solid var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 1rem;
-      margin: 10px;
-    }
-
-    .btn:hover {
-      background-color: transparent;
-      color: white;
-    }
-
-    .btn-outline {
-      background-color: transparent;
-      border-color: white;
-    }
-
-    .btn-outline:hover {
-      background-color: white;
-      color: var(--primary);
-    }
-
-    /* Main Content Sections */
-    .page-section {
-      padding: 100px 20px;
-      background-color: var(--white);
-    }
-
-    @media (min-width: 768px) {
-      .page-section {
-        padding: 120px 80px;
-      }
-    }
-
-    .section-dark {
-      background-color: var(--secondary);
-      color: white;
-    }
-
-    .section-gray {
-      background-color: var(--gray);
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 5vw, 3rem);
-      margin-bottom: 50px;
-      color: var(--secondary);
-      text-align: center;
-      position: relative;
-      font-weight: 700;
-      background-color: transparent;
-      border: none;
-      padding: 0;
-    }
-
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 4px;
-      background: var(--primary);
-      margin: 15px auto 0;
-    }
-
-    .section-dark .section-title {
-      color: white;
-    }
-
-    .section-dark .section-title::after {
-      background: white;
-    }
-
-    .section-text {
-      font-size: clamp(1rem, 1.5vw, 1.1rem);
-      line-height: 1.9;
-      color: var(--text);
-      max-width: 1000px;
-      margin: 0 auto 30px;
-      text-align: center;
-    }
-
-    .section-dark .section-text {
-      color: rgba(255, 255, 255, 0.9);
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
     }
 
     /* About Section */
-    .about-content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    .about {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 4rem;
       align-items: center;
-      gap: 50px;
-      max-width: 1200px;
-      margin: 0 auto;
+    }
+
+    .about-content {
+      position: relative;
+    }
+
+    .about-title {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
     }
 
     .about-text {
-      flex: 1;
-      min-width: 300px;
-      text-align: left;
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+
+    .about-features {
+      margin: 2rem 0;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-icon {
+      flex-shrink: 0;
+      width: 50px;
+      height: 50px;
+      background-color: rgba(0, 86, 179, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1.5rem;
+      color: var(--primary);
+      font-size: 1.25rem;
+    }
+
+    .feature-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--secondary);
     }
 
     .about-image {
-      flex: 1;
-      min-width: 300px;
-      border-radius: 8px;
+      position: relative;
+      border-radius: var(--border-radius-lg);
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--shadow-xl);
+      transform: perspective(1000px) rotateY(-5deg);
+      transition: var(--transition);
+    }
+
+    .about-image:hover {
+      transform: perspective(1000px) rotateY(0deg);
     }
 
     .about-image img {
@@ -282,207 +448,376 @@
     }
 
     /* Services Section */
-    .services-grid {
+    .services {
+      background-color: var(--gray);
+      position: relative;
+    }
+
+    .services-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
+      gap: 2rem;
     }
 
     .service-card {
-      background: var(--white);
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
       text-align: center;
-      padding: 40px 30px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background-color: var(--primary);
+      transition: var(--transition);
+      z-index: -1;
     }
 
     .service-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-card:hover::before {
+      height: 100%;
+    }
+
+    .service-card:hover .service-icon {
+      color: white;
+    }
+
+    .service-card:hover .service-title,
+    .service-card:hover .service-text {
+      color: white;
     }
 
     .service-icon {
       font-size: 3rem;
       color: var(--primary);
-      margin-bottom: 20px;
+      margin-bottom: 1.5rem;
+      transition: var(--transition);
     }
 
     .service-title {
       font-size: 1.5rem;
-      margin-bottom: 15px;
+      margin-bottom: 1rem;
       color: var(--secondary);
+      transition: var(--transition);
     }
 
     .service-text {
-      font-size: 1rem;
-      color: var(--text);
-      line-height: 1.7;
+      color: var(--text-light);
+      transition: var(--transition);
+    }
+
+    /* Stats Section */
+    .stats {
+      background-color: var(--secondary);
+      color: white;
+      padding: 4rem 0;
+      position: relative;
+    }
+
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stat-title {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
     }
 
     /* Expertise Section */
-    .expertise-container {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
     .expertise-item {
       display: flex;
-      margin-bottom: 40px;
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
       align-items: flex-start;
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 30px;
-      border-radius: 8px;
+    }
+
+    .expertise-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
     }
 
     .expertise-number {
       font-size: 2.5rem;
       font-weight: 700;
       color: var(--primary);
-      margin-right: 20px;
+      margin-right: 1.5rem;
+      line-height: 1;
       min-width: 50px;
     }
 
     .expertise-content h3 {
       font-size: 1.5rem;
-      margin-bottom: 10px;
-      color: var(--white);
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background-color: var(--gray);
+    }
+
+    .testimonial-card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      margin: 1rem;
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 4rem;
+      color: rgba(0, 86, 179, 0.1);
+      font-family: serif;
+      line-height: 1;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+
+    .author-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 1rem;
+      object-fit: cover;
+    }
+
+    .author-info h4 {
+      margin-bottom: 0.25rem;
+      font-size: 1.1rem;
+    }
+
+    .author-info p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 0;
     }
 
     /* Contact Section */
-    .contact-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 50px;
-      max-width: 1200px;
-      margin: 0 auto;
+    .contact {
+      background-color: var(--secondary);
+      color: white;
     }
 
-    .contact-info {
-      flex: 1;
-      min-width: 300px;
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
     }
 
     .contact-info h3 {
       font-size: 1.8rem;
-      margin-bottom: 20px;
-      color: var(--white);
+      margin-bottom: 1.5rem;
+      color: rgb(48, 36, 214);
     }
 
     .contact-details {
-      margin-bottom: 30px;
+      margin-bottom: 2rem;
     }
 
-    .contact-details p {
+    .contact-detail {
       display: flex;
-      align-items: center;
-      margin-bottom: 15px;
-      font-size: 1.1rem;
-      text-align: left;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
     }
 
-    .contact-details i {
-      margin-right: 15px;
+    .contact-icon {
+      font-size: 1.25rem;
       color: var(--primary);
-      font-size: 1.5rem;
-      width: 25px;
+      margin-right: 1rem;
+      margin-top: 0.25rem;
     }
 
-    .contact-form {
+    .contact-text {
       flex: 1;
-      min-width: 300px;
-      background: var(--white);
-      padding: 40px;
-      border-radius: 8px;
-      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
     }
 
-    .form-group {
-      margin-bottom: 20px;
+    .contact-text h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
     }
 
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: var(--secondary);
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px 15px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-size: 1rem;
-      transition: border 0.3s ease;
-    }
-
-    .form-group textarea {
-      min-height: 150px;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      background-color: var(--dark);
-      color: #ccc;
-      padding: 50px 20px 30px;
-      font-size: 1rem;
-      animation: fadeIn 2s ease;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 30px;
-    }
-
-    .footer-links a {
-      color: #ccc;
-      text-decoration: none;
-      margin: 0 15px;
-      transition: color 0.3s ease;
-    }
-
-    .footer-links a:hover {
-      color: white;
+    .contact-text a:hover {
+      color: var(--primary-light);
     }
 
     .social-links {
-      margin-bottom: 30px;
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
     }
 
-    .social-links a {
-      display: inline-block;
-      color: white;
-      background: rgba(255, 255, 255, 0.1);
+    .social-link {
       width: 40px;
       height: 40px;
-      line-height: 40px;
       border-radius: 50%;
-      margin: 0 10px;
-      transition: all 0.3s ease;
+      background-color: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
     }
 
-    .social-links a:hover {
-      background: var(--primary);
+    .social-link:hover {
+      background-color: var(--primary);
       transform: translateY(-3px);
     }
 
+    .contact-form {
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--secondary);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.2);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--dark);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-logo {
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-logo img {
+      height: 50px;
+    }
+
+    .footer-about p {
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links h3 {
+      color: white;
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .footer-links h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 40px;
+      height: 2px;
+      background-color: var(--primary);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
     .copyright {
-      margin-top: 30px;
-      color: rgba(255, 255, 255, 0.5);
       font-size: 0.9rem;
     }
 
@@ -496,375 +831,763 @@
       }
     }
 
-    @keyframes fadeInSmooth {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     @keyframes fadeInUp {
       from {
-        transform: translateY(40px);
         opacity: 0;
+        transform: translateY(30px);
       }
       to {
-        transform: translateY(0);
         opacity: 1;
+        transform: translateY(0);
       }
     }
 
-    /* Responsive Adjustments */
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Reveal Animation */
+    .reveal {
+      position: relative;
+      opacity: 0;
+      transition: all 1s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+    }
+
+    .active.fade-bottom {
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .active.fade-left {
+      animation: fadeInLeft 1s ease forwards;
+    }
+
+    .active.fade-right {
+      animation: fadeInRight 1s ease forwards;
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .section {
+        padding: 4rem 0;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+      }
+
+      .about-container {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        order: -1;
+      }
+    }
+
     @media (max-width: 768px) {
-      nav {
-        padding: 15px 20px;
+      .mobile-menu-btn {
+        display: block;
       }
 
-      nav ul li {
-        margin-left: 15px;
+      .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        transition: all 0.4s ease;
+        box-shadow: var(--shadow-md);
       }
 
-      .hero h1 {
-        font-size: 2.8rem;
+      .nav-menu.active {
+        left: 0;
       }
 
-      .hero p {
+      .nav-item {
+        margin: 1rem 0;
+      }
+
+      .nav-link {
+        color: var(--secondary);
         font-size: 1.2rem;
       }
 
-      .page-section {
-        padding: 80px 20px;
+      .hero-title {
+        font-size: 2.8rem;
       }
 
-      .about-content {
+      .hero-buttons {
         flex-direction: column;
+        gap: 1rem;
       }
 
-      .about-text {
-        text-align: center;
-      }
-
-      .contact-container {
-        flex-direction: column;
-      }
-
-      .contact-details p {
+      .btn {
+        width: 100%;
         justify-content: center;
       }
-      
+
+      .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 576px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      .section-heading {
+        font-size: 2rem;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .stats-container {
+        grid-template-columns: 1fr;
+      }
+
       .expertise-item {
         flex-direction: column;
-        padding: 20px;
       }
-      
+
       .expertise-number {
-        margin-bottom: 15px;
+        margin-bottom: 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Home Page -->
-  <header id="header">
-    <nav>
-      <img src="Screenshot 2025-05-26 203647.png" alt="RA Logistics Logo" />
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+  <!-- Header & Navigation -->
+  <header id="home">
+    <div class="header-bg"></div>
+    <div class="header-overlay"></div>
+    
+    <nav class="navbar">
+      <div class="container navbar-container">
+        <a href="#" class="nav-logo">
+          <img src="ra logo.jpg" alt="RA Logistics Logo">
+        </a>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+        
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item">
+            <a href="#home" class="nav-link active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#services" class="nav-link">Services</a>
+          </li>
+          <li class="nav-item">
+            <a href="#expertise" class="nav-link">Expertise</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Contact</a>
+          </li>
+        </ul>
+      </div>
     </nav>
-    <div class="hero" id="home">
-      <h1>RA LOGISTICS</h1>
-      <p>Building Warehouses That Power Your Business</p>
-      <div class="hero-buttons">
-        <a href="#services" class="btn">Our Services</a>
-        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    
+    <div class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Building The Future of <span class="text-primary">Logistics</span></h1>
+          <p class="hero-subtitle">State-of-the-art warehouse solutions designed to power your business growth and efficiency</p>
+          <div class="hero-buttons">
+            <a href="#services" class="btn btn-primary btn-lg">
+              Our Services <i class="fas fa-arrow-right btn-icon"></i>
+            </a>
+            <a href="#contact" class="btn btn-outline btn-lg">
+              Get In Touch <i class="fas fa-phone btn-icon"></i>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- About Us Page -->
-  <section id="about" class="page-section">
-    <h2 class="section-title">About Us</h2>
-    <p class="section-text">
-      RA Logistics is a leading warehouse construction and logistics solution company. 
-      With years of experience and a team of professionals, we ensure state-of-the-art 
-      solutions for all industrial and storage needs.
-    </p>
-    <div class="about-content">
-      <div class="about-text">
-        <p class="section-text" style="text-align: left; margin-bottom: 20px;">
-          Founded in 2010, RA Logistics has grown to become one of India's most trusted names 
-          in warehouse design and industrial construction. Our team of experts brings together 
-          decades of combined experience in logistics infrastructure development.
-        </p>
-        <p class="section-text" style="text-align: left; margin-bottom: 20px;">
-          We pride ourselves on delivering innovative, sustainable, and scalable solutions 
-          that meet the evolving needs of modern businesses. Our client-centric approach 
-          ensures that every project receives personalized attention from conception to completion.
-        </p>
-        <div style="text-align: center;">
-          <a href="#services" class="btn" style="margin: 0;">Our Services</a>
-        </div>
+  <!-- About Section -->
+  <section id="about" class="section bg-white">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-heading">About <span class="text-primary">RA Logistics</span></h2>
+        <p class="section-subtitle">We are India's leading warehouse construction and logistics solution provider with a decade of excellence</p>
       </div>
-      <div class="about-image">
-        <img src="Screenshot 2025-06-07 163610.png" alt="RA Logistics Warehouse">
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Page -->
-  <section id="services" class="page-section section-gray">
-    <h2 class="section-title">Our Services</h2>
-    <p class="section-text">
-      We provide comprehensive logistics solutions tailored to meet diverse business needs. 
-      Our end-to-end services ensure seamless operations from start to finish.
-    </p>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-warehouse"></i>
-        </div>
-        <h3 class="service-title">Warehouse Construction</h3>
-        <p class="service-text">
-          Custom-designed warehouses built to your specifications with the highest quality 
-          materials and construction standards.
-        </p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-truck"></i>
-        </div>
-        <h3 class="service-title">Logistics Infrastructure</h3>
-        <p class="service-text">
-          Complete logistics solutions including loading docks, transportation hubs, and 
-          distribution center design.
-        </p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-boxes"></i>
-        </div>
-        <h3 class="service-title">Storage Solutions</h3>
-        <p class="service-text">
-          Innovative storage systems designed to maximize space utilization and improve 
-          operational efficiency.
-        </p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-chart-line"></i>
-        </div>
-        <h3 class="service-title">Consulting Services</h3>
-        <p class="service-text">
-          Expert advice on warehouse optimization, supply chain management, and logistics 
-          strategy development.
-        </p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-cogs"></i>
-        </div>
-        <h3 class="service-title">Automation Solutions</h3>
-        <p class="service-text">
-          State-of-the-art automation systems to streamline your warehouse operations and 
-          reduce labor costs.
-        </p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-leaf"></i>
-        </div>
-        <h3 class="service-title">Sustainable Design</h3>
-        <p class="service-text">
-          Eco-friendly warehouse solutions that reduce environmental impact while maintaining 
-          operational efficiency.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Mission & Vision Page -->
-  <section id="mission" class="page-section section-dark">
-    <h2 class="section-title">Our Mission & Vision</h2>
-    <div class="expertise-container">
-      <div class="expertise-item">
-        <div class="expertise-number">01</div>
-        <div class="expertise-content">
-          <h3>Our Mission</h3>
-          <p class="section-text" style="text-align: left;">
-            To revolutionize warehouse construction and logistics operations with sustainable 
-            and scalable infrastructure for businesses of all sizes. We are committed to 
-            delivering innovative solutions that enhance efficiency, reduce costs, and 
-            support our clients' growth.
-          </p>
-        </div>
-      </div>
-      <div class="expertise-item">
-        <div class="expertise-number">02</div>
-        <div class="expertise-content">
-          <h3>Our Vision</h3>
-          <p class="section-text" style="text-align: left;">
-            To be India's most trusted name in warehouse design and industrial construction 
-            through continuous innovation, uncompromising quality, and exceptional customer 
-            satisfaction. We aim to set new benchmarks in the logistics infrastructure industry.
-          </p>
-        </div>
-      </div>
-      <div class="expertise-item">
-        <div class="expertise-number">03</div>
-        <div class="expertise-content">
-          <h3>Our Values</h3>
-          <p class="section-text" style="text-align: left;">
-            Integrity, innovation, and excellence form the foundation of everything we do. 
-            We believe in building lasting relationships through transparency, reliability, 
-            and a relentless focus on delivering value to our clients.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Expertise Page -->
-  <section id="expertise" class="page-section">
-    <h2 class="section-title">Our Expertise</h2>
-    <p class="section-text">
-      With specialized knowledge across all aspects of logistics infrastructure, we bring 
-      unparalleled expertise to every project.
-    </p>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-ruler-combined"></i>
-        </div>
-        <h3 class="service-title">High-Capacity Design</h3>
-        <p class="service-text">
-          Innovative designs that maximize storage capacity without compromising accessibility 
-          or operational efficiency.
-        </p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-network-wired"></i>
-        </div>
-        <h3 class="service-title">Advanced Infrastructure</h3>
-        <p class="service-text">
-          Cutting-edge logistics infrastructure incorporating the latest technology and 
-          industry best practices.
-        </p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-coins"></i>
-        </div>
-        <h3 class="service-title">Cost Efficiency</h3>
-        <p class="service-text">
-          Solutions designed to optimize your investment, delivering maximum value through 
-          smart design and planning.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Page -->
-  <section id="contact" class="page-section section-dark">
-    <h2 class="section-title">Contact Us</h2>
-    <p class="section-text">
-      Get in touch with our team to discuss your logistics needs and how we can help 
-      power your business growth.
-    </p>
-    <div class="contact-container">
-      <div class="contact-info">
-        <h3>Our Office</h3>
-        <div class="contact-details">
-          <p><i class="fas fa-map-marker-alt"></i> 123 Industrial Park, Pune, Maharashtra 411045</p>
-          <p><i class="fas fa-phone"></i> +91-12345-67890</p>
-          <p><i class="fas fa-envelope"></i> info@ralogistics.com</p>
-          <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
-        </div>
-      </div>
-      <div class="contact-form">
-        <form>
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" required>
+      
+      <div class="about-container">
+        <div class="about-content reveal fade-left">
+          <h3 class="about-title">Innovative Solutions for Modern Logistics Challenges</h3>
+          <p class="about-text">Founded in 2018, RA Logistics has grown to become one of India's most trusted names in warehouse design and industrial construction. Our team of experts brings together decades of combined experience in logistics infrastructure development.</p>
+          
+          <div class="about-features">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-award"></i>
+              </div>
+              <div class="feature-content">
+                <h4 class="feature-title">Industry Experience</h4>
+                <p>12+ years delivering premium warehouse solutions</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-project-diagram"></i>
+              </div>
+              <div class="feature-content">
+                <h4 class="feature-title">Completed Projects</h4>
+                <p>150+ successful warehouse constructions nationwide</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="feature-content">
+                <h4 class="feature-title">Client Focus</h4>
+                <p>100+ satisfied clients across multiple industries</p>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone">
-          </div>
-          <div class="form-group">
-            <label for="message">Your Message</label>
-            <textarea id="message" required></textarea>
-          </div>
-          <button type="submit" class="btn" style="width: 100%;">Send Message</button>
-        </form>
+          
+          <a href="#services" class="btn btn-primary">
+            Explore Our Services <i class="fas fa-arrow-right btn-icon"></i>
+          </a>
+        </div>
+        
+        <div class="about-image reveal fade-right">
+          <img src="Screenshot 2025-06-07 163610.png" alt="RA Logistics Warehouse Facility">
+        </div>
       </div>
     </div>
   </section>
 
-  <footer>
-    <div class="footer-links">
-      <a href="#home">Home</a>
-      <a href="#about">About Us</a>
-      <a href="#services">Services</a>
-      <a href="#expertise">Expertise</a>
-      <a href="#contact">Contact</a>
+  <!-- Services Section -->
+  <section id="services" class="section bg-light">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-heading">Our <span class="text-primary">Services</span></h2>
+        <p class="section-subtitle">Comprehensive logistics solutions tailored to meet diverse business needs</p>
+      </div>
+      
+      <div class="services-container">
+        <div class="service-card reveal fade-bottom">
+          <div class="service-icon">
+            <i class="fas fa-warehouse"></i>
+          </div>
+          <h3 class="service-title">Warehouse Construction</h3>
+          <p class="service-text">Custom-designed warehouses built to your specifications with the highest quality materials and construction standards.</p>
+        </div>
+        
+        <div class="service-card reveal fade-bottom" style="transition-delay: 0.1s;">
+          <div class="service-icon">
+            <i class="fas fa-truck"></i>
+          </div>
+          <h3 class="service-title">Logistics Infrastructure</h3>
+          <p class="service-text">Complete logistics solutions including loading docks, transportation hubs, and distribution center design.</p>
+        </div>
+        
+        <div class="service-card reveal fade-bottom" style="transition-delay: 0.2s;">
+          <div class="service-icon">
+            <i class="fas fa-boxes"></i>
+          </div>
+          <h3 class="service-title">Storage Solutions</h3>
+          <p class="service-text">Innovative storage systems designed to maximize space utilization and improve operational efficiency.</p>
+        </div>
+        
+        <div class="service-card reveal fade-bottom" style="transition-delay: 0.3s;">
+          <div class="service-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="service-title">Consulting Services</h3>
+          <p class="service-text">Expert advice on warehouse optimization, supply chain management, and logistics strategy development.</p>
+        </div>
+        
+        <div class="service-card reveal fade-bottom" style="transition-delay: 0.4s;">
+          <div class="service-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3 class="service-title">Automation Solutions</h3>
+          <p class="service-text">State-of-the-art automation systems to streamline your warehouse operations and reduce labor costs.</p>
+        </div>
+        
+        <div class="service-card reveal fade-bottom" style="transition-delay: 0.5s;">
+          <div class="service-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3 class="service-title">Sustainable Design</h3>
+          <p class="service-text">Eco-friendly warehouse solutions that reduce environmental impact while maintaining operational efficiency.</p>
+        </div>
+      </div>
     </div>
-    
-    <p class="copyright">
-      &copy; 2025 RA Logistics. All rights reserved.<br>
-      Registered Office: 123 Industrial Park, Pune, Maharashtra 411045
-    </p>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-container">
+        <div class="stat-item reveal fade-bottom">
+          <div class="stat-number">12+</div>
+          <div class="stat-title">Years Experience</div>
+        </div>
+        
+        <div class="stat-item reveal fade-bottom" style="transition-delay: 0.1s;">
+          <div class="stat-number">150+</div>
+          <div class="stat-title">Projects Completed</div>
+        </div>
+        
+        <div class="stat-item reveal fade-bottom" style="transition-delay: 0.2s;">
+          <div class="stat-number">100+</div>
+          <div class="stat-title">Happy Clients</div>
+        </div>
+        
+        <div class="stat-item reveal fade-bottom" style="transition-delay: 0.3s;">
+          <div class="stat-number">24/7</div>
+          <div class="stat-title">Support Available</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision Section -->
+  <section id="mission" class="section bg-secondary">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-heading" style="color: white;">Our <span class="text-primary">Mission</span> & Vision</h2>
+      </div>
+      
+      <div class="expertise-container">
+        <div class="expertise-item reveal fade-left">
+          <div class="expertise-number">01</div>
+          <div class="expertise-content">
+            <h3 style="color: rgb(9, 38, 118);">Our Mission</h3>
+            <p style="color: rgba(8, 6, 6, 0.8);">To revolutionize warehouse construction and logistics operations with sustainable and scalable infrastructure for businesses of all sizes. We are committed to delivering innovative solutions that enhance efficiency, reduce costs, and support our clients' growth.</p>
+          </div>
+        </div>
+        
+        <div class="expertise-item reveal fade-right">
+          <div class="expertise-number">02</div>
+          <div class="expertise-content">
+            <h3 style="color: rgb(9, 38, 118);">Our Vision</h3>
+            <p style="color: rgba(8, 6, 6, 0.8);">To be India's most trusted name in warehouse design and industrial construction through continuous innovation, uncompromising quality, and exceptional customer satisfaction. We aim to set new benchmarks in the logistics infrastructure industry.</p>
+          </div>
+        </div>
+        
+        <div class="expertise-item reveal fade-left">
+          <div class="expertise-number">03</div>
+          <div class="expertise-content">
+            <h3 style="color: rgb(9, 38, 118);">Our Values</h3>
+            <p style="color: rgba(8, 6, 6, 0.8);">Integrity, innovation, and excellence form the foundation of everything we do. We believe in building lasting relationships through transparency, reliability, and a relentless focus on delivering value to our clients.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise Section -->
+  <section id="expertise" class="section bg-white">
+       <div class="container">
+      <div class="text-center">
+        <h2 class="section-heading">Our <span class="text-primary">Expertise</span></h2>
+        <p class="section-subtitle">Specialized knowledge and skills that set us apart in the logistics industry</p>
+      </div>
+      
+      <div class="expertise-container">
+        <div class="expertise-item reveal fade-left">
+          <div class="expertise-number">01</div>
+          <div class="expertise-content">
+            <h3>Custom Warehouse Design</h3>
+            <p>Our team of architects and engineers create tailored warehouse designs that perfectly match your operational requirements, inventory flow, and future growth plans.</p>
+          </div>
+        </div>
+        
+        <div class="expertise-item reveal fade-right">
+          <div class="expertise-number">02</div>
+          <div class="expertise-content">
+            <h3>Cold Storage Solutions</h3>
+            <p>Specialized temperature-controlled facilities for pharmaceuticals, food products, and other perishable goods with precise climate control systems.</p>
+          </div>
+        </div>
+        
+        <div class="expertise-item reveal fade-left">
+          <div class="expertise-number">03</div>
+          <div class="expertise-content">
+            <h3>High-Bay Warehousing</h3>
+            <p>Vertical storage solutions that maximize cubic space utilization, ideal for operations with high inventory turnover and limited footprint.</p>
+          </div>
+        </div>
+        
+        <div class="expertise-item reveal fade-right">
+          <div class="expertise-number">04</div>
+          <div class="expertise-content">
+            <h3>Cross-Docking Facilities</h3>
+            <p>Efficient distribution centers designed to minimize storage time and accelerate product flow through your supply chain.</p>
+          </div>
+        </div>
+        
+        <div class="expertise-item reveal fade-left">
+          <div class="expertise-number">05</div>
+          <div class="expertise-content">
+            <h3>Hazardous Material Storage</h3>
+            <p>Secure and compliant storage solutions for dangerous goods, with all necessary safety systems and regulatory certifications.</p>
+          </div>
+        </div>
+        
+        <div class="expertise-item reveal fade-right">
+          <div class="expertise-number">06</div>
+          <div class="expertise-content">
+            <h3>Last-Mile Distribution Hubs</h3>
+            <p>Strategically located urban warehouses designed to optimize final delivery logistics and reduce transit times to end customers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-heading">Get In <span class="text-primary">Touch</span></h2>
+        <p class="section-subtitle">Ready to discuss your warehouse and logistics needs? Contact us today.</p>
+      </div>
+      
+      <div class="contact-container">
+        <div class="contact-info reveal fade-left">
+          <h3>Contact Information</h3>
+          
+          <div class="contact-details">
+            <div class="contact-detail">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Head Office</h4>
+                <p>123 Industrial Park, Sector 18, Gurugram, Haryana 122015</p>
+              </div>
+            </div>
+            
+            <div class="contact-detail">
+              <div class="contact-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Phone</h4>
+                <p><a href="tel:+911234567890">+91 12345 67890</a></p>
+              </div>
+            </div>
+            
+            <div class="contact-detail">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Email</h4>
+                <p><a href="mailto:info@ralogistics.com">info@ralogistics.com</a></p>
+              </div>
+            </div>
+            
+            <div class="contact-detail">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Working Hours</h4>
+                <p>Monday - Saturday: 9:00 AM - 7:00 PM</p>
+              </div>
+            </div>
+          </div>
+          
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="contact-form reveal fade-right">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name" class="form-label">Your Name</label>
+              <input type="text" id="name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" id="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="tel" id="phone" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="service" class="form-label">Service Interested In</label>
+              <select id="service" class="form-control">
+                <option value="">Select a service</option>
+                <option value="warehouse">Warehouse Construction</option>
+                <option value="logistics">Logistics Infrastructure</option>
+                <option value="storage">Storage Solutions</option>
+                <option value="consulting">Consulting Services</option>
+                <option value="automation">Automation Solutions</option>
+                <option value="sustainable">Sustainable Design</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="form-label">Your Message</label>
+              <textarea id="message" class="form-control" rows="5"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+              Send Message <i class="fas fa-paper-plane btn-icon"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <img src="https://via.placeholder.com/180x60?text=RA+Logistics" alt="RA Logistics Logo">
+          </div>
+          <p>RA Logistics is a premier warehouse construction and logistics solutions provider in India, delivering innovative infrastructure solutions since 2010.</p>
+          <div class="social-links">
+           
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        
+       
+        
+        <div class="footer-links">
+          <h3>Contact Info</h3>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Industrial Park, Gurugram</li>
+            <li><i class="fas fa-phone-alt"></i> +91 12345 67890</li>
+            <li><i class="fas fa-envelope"></i> info@ralogistics.com</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2023 RA Logistics. All Rights Reserved.</p>
+      </div>
+    </div>
   </footer>
 
+  <!-- Back to Top Button -->
+  <a href="#home" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <style>
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+    
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+  </style>
+
+  <!-- JavaScript -->
   <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking a nav link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      const backToTop = document.getElementById('backToTop');
+      
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+        backToTop.classList.add('active');
+      } else {
+        navbar.classList.remove('scrolled');
+        backToTop.classList.remove('active');
+      }
+    });
+    
+    // Scroll reveal animation
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal');
+      
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const revealTop = reveals[i].getBoundingClientRect().top;
+        const revealPoint = 100;
+        
+        if (revealTop < windowHeight - revealPoint) {
+          reveals[i].classList.add('active');
+        }
+      }
+    }
+    
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+    
+    // Form submission
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value;
+      
+      // Here you would typically send the data to a server
+      console.log({ name, email, phone, service, message });
+      
+      // Show success message
+      alert('Thank you for your message! We will contact you soon.');
+      contactForm.reset();
+    });
+    
+    // Header background slideshow
+    const headerBg = document.querySelector('.header-bg');
     const images = [
      "Screenshot 2025-06-04 200537.png",
      "Screenshot 2025-06-07 154306.png",
       "Screenshot 2025-06-07 154232.png"
-    ];    
+    ];  
+    
     let currentImage = 0;
-    const header = document.getElementById("header");
-
-    // Preload all background images
-    function preloadImages() {
-      images.forEach(img => {
-        const image = new Image();
-        image.src = img;
-      });
-    }
-
+    
     function changeBackground() {
-      header.style.backgroundImage = `url('${images[currentImage]}')`;
-      currentImage = (currentImage + 1) % images.length;
+      headerBg.style.opacity = 0;
+      
+      setTimeout(() => {
+        currentImage = (currentImage + 1) % images.length;
+        headerBg.style.backgroundImage = `url(${images[currentImage]})`;
+        headerBg.style.opacity = 1;
+      }, 1000);
     }
-
-    window.onload = () => {
-      preloadImages();
-      changeBackground();
-      setInterval(changeBackground, 4000);
-    };
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
+    
+    // Set initial background
+    headerBg.style.backgroundImage = `url(${images[0]})`;
+    
+    // Change background every 5 seconds
+    setInterval(changeBackground, 5000);
   </script>
 </body>
 </html>
