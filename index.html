@@ -1374,54 +1374,51 @@
           </div>
           
          
-        
-        <div class="contact-form reveal fade-right">
-          <form id="contactForm" action="https://formsubmit.co/naiksiddhics232410@gmail.com" method="POST">
+       <div class="contact-form reveal fade-right">
+  <form id="contactForm" action="https://formsubmit.co/naiksiddhics232410@gmail.com" method="POST">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_next" value="https://siddhi124github.github.io/ra-lo/thankyou.html">
     <input type="hidden" name="_template" value="table">
-          <form id="contactForm">
-            <div class="form-group">
-              <label for="name" class="form-label">Your Name</label>
-              <input type="text" id="name" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="email" class="form-label">Email Address</label>
-              <input type="email" id="email" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="phone" class="form-label">Phone Number</label>
-              <input type="tel" id="phone" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="service" class="form-label">Service Interested In</label>
-              <select id="service" class="form-control">
-                <option value="">Select a service</option>
-                <option value="warehouse">Warehouse Construction</option>
-                <option value="logistics">Logistics Infrastructure</option>
-                <option value="storage">Storage Solutions</option>
-                <option value="consulting">Consulting Services</option>
-                <option value="automation">Automation Solutions</option>
-                <option value="sustainable">Sustainable Design</option>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="message" class="form-label">Your Message</label>
-              <textarea id="message" class="form-control" rows="5"></textarea>
-            </div>
-            
-            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-              Send Message <i class="fas fa-paper-plane btn-icon"></i>
-            </button>
-          </form>
-        </div>
-      </div>
+
+    <div class="form-group">
+      <label for="name" class="form-label">Your Name</label>
+      <input type="text" id="name" name="name" class="form-control" required>
     </div>
-  </section>
+
+    <div class="form-group">
+      <label for="email" class="form-label">Email Address</label>
+      <input type="email" id="email" name="email" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="phone" class="form-label">Phone Number</label>
+      <input type="tel" id="phone" name="phone" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="service" class="form-label">Service Interested In</label>
+      <select id="service" name="service" class="form-control" required>
+        <option value="">Select a service</option>
+        <option value="warehouse">Warehouse Construction</option>
+        <option value="logistics">Logistics Infrastructure</option>
+        <option value="storage">Storage Solutions</option>
+        <option value="consulting">Consulting Services</option>
+        <option value="automation">Automation Solutions</option>
+        <option value="sustainable">Sustainable Design</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="message" class="form-label">Your Message</label>
+      <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+      Send Message <i class="fas fa-paper-plane btn-icon"></i>
+    </button>
+  </form>
+</div>
+
 
   <!-- Footer -->
   <footer class="footer">
@@ -1556,26 +1553,7 @@
     window.addEventListener('load', revealOnScroll);
     
     // Form submission
-    const contactForm = document.getElementById('contactForm');
-    
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      // Get form values
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const phone = document.getElementById('phone').value;
-      const service = document.getElementById('service').value;
-      const message = document.getElementById('message').value;
-      
-      // Here you would typically send the data to a server
-      console.log({ name, email, phone, service, message });
-      
-      // Show success message
-      alert('Thank you for your message! We will contact you soon.');
-      contactForm.reset();
-    });
-    
+  
     // Header background slideshow
    
     
