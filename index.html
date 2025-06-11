@@ -618,63 +618,6 @@
       margin-bottom: 1rem;
       color: var(--secondary);
     }
-
-    /* Testimonials */
-    .testimonials {
-      background-color: var(--gray);
-    }
-
-    .testimonial-card {
-      background-color: white;
-      border-radius: var(--border-radius);
-      padding: 2rem;
-      box-shadow: var(--shadow-sm);
-      margin: 1rem;
-      position: relative;
-    }
-
-    .testimonial-card::before {
-      content: '"';
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      font-size: 4rem;
-      color: rgba(0, 86, 179, 0.1);
-      font-family: serif;
-      line-height: 1;
-    }
-
-    .testimonial-text {
-      font-style: italic;
-      margin-bottom: 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-    }
-
-    .author-img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      margin-right: 1rem;
-      object-fit: cover;
-    }
-
-    .author-info h4 {
-      margin-bottom: 0.25rem;
-      font-size: 1.1rem;
-    }
-
-    .author-info p {
-      color: var(--text-light);
-      font-size: 0.9rem;
-      margin-bottom: 0;
-    }
-
     /* Contact Section */
     .contact {
       background-color: var(--secondary);
@@ -722,29 +665,6 @@
     .contact-text a:hover {
       color: var(--primary-light);
     }
-
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .social-link {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-    }
-
-    .social-link:hover {
-      background-color: var(--primary);
-      transform: translateY(-3px);
-    }
-
     .contact-form {
       background-color: white;
       border-radius: var(--border-radius);
@@ -1374,7 +1294,7 @@
           </div>
           
          
-       <div class="contact-form reveal fade-right">
+      
   <form id="contactForm" action="https://formsubmit.co/hr@ra-logistics.in" method="POST">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_next" value="https://siddhi124github.github.io/ra-lo/thankyou.html">
@@ -1497,9 +1417,7 @@
     }
   </style>
 
-  <!-- JavaScript -->
   <script>
-    // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navMenu = document.getElementById('navMenu');
     
@@ -1517,8 +1435,7 @@
         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
       });
     });
-    
-    // Navbar scroll effect
+  
     window.addEventListener('scroll', () => {
       const navbar = document.querySelector('.navbar');
       const backToTop = document.getElementById('backToTop');
@@ -1532,7 +1449,6 @@
       }
     });
     
-    // Scroll reveal animation
     function revealOnScroll() {
       const reveals = document.querySelectorAll('.reveal');
       
@@ -1548,15 +1464,7 @@
     }
     
     window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
-    
-    // Form submission
-  
-    // Header background slideshow
-   
-    
-    // Set initial background
-    
+    window.addEventListener('load', revealOnScroll);  
   </script>
 </body>
 </html>
