@@ -1124,31 +1124,28 @@
   </section>
 
   <!-- Stats Section -->
-  <section class="stats">
-    <div class="container">
-      <div class="stats-container">
-        <div class="stat-item reveal fade-bottom">
-          <div class="stat-number">8+</div>
-          <div class="stat-title">Years Experience</div>
-        </div>
-        
-        <div class="stat-item reveal fade-bottom" style="transition-delay: 0.1s;">
-          <div class="stat-number">150+</div>
-          <div class="stat-title">Projects Completed</div>
-        </div>
-        
-        <div class="stat-item reveal fade-bottom" style="transition-delay: 0.2s;">
-          <div class="stat-number">100+</div>
-          <div class="stat-title">Happy Clients</div>
-        </div>
-        
-        <div class="stat-item reveal fade-bottom" style="transition-delay: 0.3s;">
-          <div class="stat-number">24/7</div>
-          <div class="stat-title">Support Available</div>
-        </div>
-      </div>
+<div class="stats">
+  <div class="stats-container">
+    <div class="stat-item">
+      <div class="stat-number" data-target="8">0</div>
+      <div class="stat-title">Years Experience</div>
     </div>
-  </section>
+    <div class="stat-item">
+      <div class="stat-number" data-target="150">0</div>
+      <div class="stat-title">Projects Completed</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="100">0</div>
+      <div class="stat-title">Happy Clients</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number no-animate">24/7</div>
+      <div class="stat-title">Support Available</div>
+    </div>
+  </div>
+</div>
+
+
 
   <!-- Mission & Vision Section -->
   <section id="mission" class="section bg-secondary">
@@ -1474,5 +1471,42 @@
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);  
   </script>
+          <script>
+  const counters = document.querySelectorAll('.stat-number:not(.no-animate)');
+  const speed = 200;
+
+  const animateCounter = counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const increment = target / speed;
+
+      if (count < target) {
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(updateCount, 15);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCount();
+  };
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (!entry.target.classList.contains('no-animate')) {
+          animateCounter(entry.target);
+        }
+        entry.target.parentElement.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.stat-number').forEach(counter => {
+    observer.observe(counter);
+  });
+</script>
+
 </body>
 </html>
