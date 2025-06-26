@@ -618,55 +618,91 @@
       margin-bottom: 1rem;
       color: var(--secondary);
     }
-    /* Contact Section */
-  .contact-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: flex-start;
-  padding: 2rem 0;
-}
+      /* Contact Section */
+    .contact {
+      background-color: var(--secondary);
+      color: white;
+    }
 
-.contact-info {
-  padding: 2rem;
-  background-color: var(--secondary);
-  border-radius: var(--border-radius);
-}
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
 
-.contact-form {
-  background-color: white;
-  padding: 2.5rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-lg);
-  max-width: 100%;
-}
+    .contact-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: rgb(48, 36, 214);
+    }
 
-.contact-form form {
-  display: flex;
-  flex-direction: column;
-}
+    .contact-details {
+      margin-bottom: 2rem;
+    }
 
-.contact-form .form-group {
-  margin-bottom: 1.2rem;
-}
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
 
-.contact-form .form-control,
-.contact-form textarea {
-  width: 100%;
-}
+    .contact-icon {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-right: 1rem;
+      margin-top: 0.25rem;
+    }
 
-.contact-form button {
-  margin-top: 1rem;
-}
+    .contact-text {
+      flex: 1;
+    }
 
-/* Responsive for mobile */
-@media (max-width: 768px) {
-  .contact-container {
-    grid-template-columns: 1fr;
-  }
-}
+    .contact-text h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
 
- 
+    .contact-text a:hover {
+      color: var(--primary-light);
+    }
+    .contact-form {
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--secondary);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.2);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
     .footer {
       background-color: var(--dark);
       color: rgba(255, 255, 255, 0.7);
@@ -1208,111 +1244,104 @@
 
 
   <!-- Contact Section -->
- <!-- Contact Section -->
-<section id="contact" class="section contact">
-  <div class="container">
-    <div class="text-center">
-      <h2 class="section-heading">Get In <span class="text-primary">Touch</span></h2>
-      <p class="section-subtitle">Ready to discuss your warehouse and logistics needs? Contact us today.</p>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-heading">Get In <span class="text-primary">Touch</span></h2>
+        <p class="section-subtitle">Ready to discuss your warehouse and logistics needs? Contact us today.</p>
+      </div>
+      
+      <div class="contact-container">
+        <div class="contact-info reveal fade-left">
+          <h3>Contact Information</h3>
+          
+          <div class="contact-details">
+            <div class="contact-detail">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Head Office</h4>
+                <p> Unit No-1007, 10 Th floor Supreme Headquater corner of 14th Road and 33rd Road Bandra West Mumbai-400050 Maharashtra, India</p>
+              </div>
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Site address</h4>
+                <p>Survey No. 83/17, 83/18, 84/4, 84/8, 84/9, Survey No.30/01 to 30/6, 31/1 to 31/3, 32, 86/5/A/3,
+86/11, POGAON, POGAON, BHIWANDI, Kharbav, Thane, Maharashtra, 421302</p>
+              </div>
+            </div>
+            
+            
+            
+            <div class="contact-detail">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Email</h4>
+                <p><a href="mailto:hr@ra-logistics.in">hr@ra-logistics.in</a></p>
+              </div>
+            </div>
+            
+            <div class="contact-detail">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Working Hours</h4>
+                <p>Monday - Saturday: 9:30 AM - 6:30 PM</p>
+              </div>
+            </div>
+          </div>
+          
+         
+       <div class="contact-form reveal fade-right">
+  <form id="contactForm" action="https://formsubmit.co/hr@ra-logistics.in" method="POST">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://siddhi124github.github.io/ra-lo/thankyou.html">
+    <input type="hidden" name="_template" value="table">
+
+    <div class="form-group">
+      <label for="name" class="form-label">Your Name</label>
+      <input type="text" id="name" name="name" class="form-control"  required>
     </div>
 
-    <div class="contact-container">
-      <!-- LEFT SIDE: Contact Info -->
-      <div class="contact-info">
-        <h3>Contact Information</h3>
-
-        <div class="contact-details">
-
-          <div class="contact-detail">
-            <div class="contact-icon">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div class="contact-text">
-              <h4>Head Office</h4>
-              <p>Unit No-1007, 10 Th floor Supreme Headquater corner of 14th Road and 33rd Road Bandra West Mumbai-400050 Maharashtra, India</p>
-            </div>
-          </div>
-
-          <div class="contact-detail">
-            <div class="contact-icon">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div class="contact-text">
-              <h4>Site Address</h4>
-              <p>Survey No. 83/17, 83/18, 84/4, 84/8, 84/9, Survey No.30/01 to 30/6, 31/1 to 31/3, 32, 86/5/A/3,
-                86/11, POGAON, POGAON, BHIWANDI, Kharbav, Thane, Maharashtra, 421302</p>
-            </div>
-          </div>
-
-          <div class="contact-detail">
-            <div class="contact-icon">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <div class="contact-text">
-              <h4>Email</h4>
-              <p><a href="mailto:hr@ra-logistics.in">hr@ra-logistics.in</a></p>
-            </div>
-          </div>
-
-          <div class="contact-detail">
-            <div class="contact-icon">
-              <i class="fas fa-clock"></i>
-            </div>
-            <div class="contact-text">
-              <h4>Working Hours</h4>
-              <p>Monday - Saturday: 9:30 AM - 6:30 PM</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- RIGHT SIDE: Contact Form -->
-      <div class="contact-form">
-        <form id="contactForm" action="https://formsubmit.co/hr@ra-logistics.in" method="POST">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://siddhi124github.github.io/ra-lo/thankyou.html">
-          <input type="hidden" name="_template" value="table">
-
-          <div class="form-group">
-            <label for="name" class="form-label">Your Name</label>
-            <input type="text" id="name" name="name" class="form-control" required>
-          </div>
-
-          <div class="form-group">
-            <label for="email" class="form-label">Email Address</label>
-            <input type="email" id="email" name="email" class="form-control" required>
-          </div>
-
-          <div class="form-group">
-            <label for="phone" class="form-label">Phone Number</label>
-            <input type="tel" id="phone" name="phone" class="form-control" required>
-          </div>
-
-          <div class="form-group">
-            <label for="service" class="form-label">Service Interested In</label>
-            <select id="service" name="service" class="form-control" required>
-              <option value="">Select a service</option>
-              <option value="warehouse">Warehouse Construction</option>
-              <option value="logistics">Logistics Infrastructure</option>
-              <option value="storage">Storage Solutions</option>
-              <option value="sustainable">Sustainable Design</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="message" class="form-label">Your Message</label>
-            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-            Send Message <i class="fas fa-paper-plane btn-icon"></i>
-          </button>
-        </form>
-      </div>
+    <div class="form-group">
+      <label for="email" class="form-label">Email Address</label>
+      <input type="email" id="email" name="email" class="form-control" required>
     </div>
-  </div>
-</section>
+
+    <div class="form-group">
+      <label for="phone" class="form-label">Phone Number</label>
+      <input type="tel" id="phone" name="phone" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="service" class="form-label">Service Interested In</label>
+      <select id="service" name="service" class="form-control" required>
+        <option value="">Select a service</option>
+        <option value="warehouse">Warehouse Construction</option>
+        <option value="logistics">Logistics Infrastructure</option>
+        <option value="storage">Storage Solutions</option>
+        <option value="sustainable">Sustainable Design</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="message" class="form-label">Your Message</label>
+      <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg" style="width: 30%;">
+      Send Message <i class="fas fa-paper-plane btn-icon"></i>
+    </button>
+  </form>
+</div>
 
 
   <!-- Footer -->
