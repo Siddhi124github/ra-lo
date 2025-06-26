@@ -769,6 +769,33 @@
   margin-top: 3rem;
 }
 
+.image-slider {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 2rem;
+}
+
+.slider-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slider-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slider-image.active {
+  opacity: 1;
+  z-index: 1;
+}
 
 
     .copyright {
@@ -1183,6 +1210,14 @@
       </div>
     </div>
   </section>
+<section class="image-slider">
+  <div class="slider-wrapper">
+    <img src="https://source.unsplash.com/1600x600/?warehouse,interior" class="slider-image active" alt="Warehouse 1">
+    <img src="https://source.unsplash.com/1600x600/?warehouse,storage" class="slider-image" alt="Warehouse 2">
+    <img src="https://source.unsplash.com/1600x600/?logistics,warehouse" class="slider-image" alt="Warehouse 3">
+    <img src="https://source.unsplash.com/1600x600/?industrial,warehouse" class="slider-image" alt="Warehouse 4">
+  </div>
+</section>
 
   <!-- Expertise Section -->
   <section id="expertise" class="section bg-white">
@@ -1510,6 +1545,23 @@
   document.querySelectorAll('.stat-number').forEach(counter => {
     observer.observe(counter);
   });
+</script>
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slider-image');
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  setInterval(nextSlide, 3000); // change every 3 seconds
 </script>
 
 </body>
