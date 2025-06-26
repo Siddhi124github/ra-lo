@@ -768,19 +768,17 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin-top: 3rem;
 }
-
 .image-slider {
   width: 100%;
-  height: 500px;
+  height: 450px;
   overflow: hidden;
   position: relative;
-  margin-top: 2rem;
 }
 
 .slider-wrapper {
+  position: relative;
   width: 100%;
   height: 100%;
-  position: relative;
 }
 
 .slider-image {
@@ -794,7 +792,7 @@
 
 .slider-image.active {
   opacity: 1;
-  z-index: 1;
+  z-index: 2;
 }
 
 
@@ -1211,15 +1209,13 @@
     </div>
   </section>
 
-   <section class="image-slider">
-  <div class="slider-wrapper">
-    <img src="https://stock.adobe.com/images/modern-warehouse-interior/107182962" class="slider-image active" alt="Warehouse 1">
-    <img src="https://www.renderhub.com/shadowraze/warehouse-interior-render-scene" class="slider-image" alt="Warehouse 2">
-    <img src="https://3docean.net/item/warehouse-interior-12/21335004" class="slider-image" alt="Warehouse 3">
-    <img src="https://www.avantauk.com/key-factors-for-great-warehouse-design/" class="slider-image" alt="Warehouse 4">
   </div>
 </section>
-
+<section class="image-slider">
+  <div class="slider-wrapper">
+    <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437ae" class="slider-image active" alt="Warehouse 1">
+    <img src="https://images.unsplash.com/photo-1613640531355-9422b6ba7154" class="slider-image" alt="Warehouse 2">
+    <img src="https://images.unsplash.com/photo-1605902711801-029f8aa28c2b" class="slider-image" alt="Warehouse 3">
   </div>
 </section>
 
@@ -1550,22 +1546,16 @@
     observer.observe(counter);
   });
 </script>
+
 <script>
-  let currentSlide = 0;
-  const slides = document.querySelectorAll('.slider-image');
+  let current = 0;
+  const images = document.querySelectorAll('.slider-image');
 
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-    });
-  }
-
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-  }
-
-  setInterval(nextSlide, 3000); // change every 3 seconds
+  setInterval(() => {
+    images[current].classList.remove('active');
+    current = (current + 1) % images.length;
+    images[current].classList.add('active');
+  }, 3000);
 </script>
 
 </body>
