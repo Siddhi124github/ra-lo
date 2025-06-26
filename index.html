@@ -703,27 +703,22 @@
       resize: vertical;
     }
 
-    .footer {
-      background-color: var(--dark);
-      color: rgba(255, 255, 255, 0.7);
-      padding: 4rem 0 2rem;
-    }
+   .footer {
+  background-color: var(--dark);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 4rem 2rem 2rem; /* added horizontal padding */
+  width: 100vw; /* full viewport width */
+  margin: 0;
+  box-sizing: border-box;
+}
 
-    .footer-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 3rem;
-      margin-bottom: 3rem;
-    }
-
-    .footer-logo {
-      margin-bottom: 1.5rem;
-    }
-
-    .footer-logo img {
-      height: 50px;
-    }
-
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+  max-width: 1400px; /* controls max inner width */
+  margin: 0 auto;
+}
     .footer-about p {
       margin-bottom: 1.5rem;
     }
@@ -1231,7 +1226,7 @@
           </div>
         </div>
         
-        <div class="expertise-item reveal fade-right">
+        <div class="expertise-item">
           <div class="expertise-number">06</div>
           <div class="expertise-content">
             <h3>Last-Mile Distribution Hubs</h3>
@@ -1300,7 +1295,7 @@
           </div>
           
          
-       <div class="contact-form reveal fade-right">
+       <div class="contact-form ">
   <form id="contactForm" action="https://formsubmit.co/hr@ra-logistics.in" method="POST">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_next" value="https://siddhi124github.github.io/ra-lo/thankyou.html">
@@ -1346,7 +1341,6 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container">
       <div class="footer-container">
         <div class="footer-about">
          
