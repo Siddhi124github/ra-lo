@@ -769,27 +769,48 @@
   margin-top: 3rem;
 }
 .image-slider {
-      width: 100%;
-      height: 450px;
-      position: relative;
-      overflow: hidden;
-      background: #f0f0f0;
-    }
-    .slider-wrapper {
-      width: 100%;
-      height: 100%;
-    }
-    .slider-image {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-    .slider-image.active {
-      opacity: 1;
-    }
+  width: 100%;
+  height: 450px;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.slider-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slider-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.05); /* subtle zoom */
+  transition: opacity 1.2s ease, transform 1.5s ease;
+}
+
+.slider-image.active {
+  opacity: 1;
+  transform: scale(1); /* zooms in smoothly */
+  z-index: 1;
+}
+
+.slider-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+  z-index: 2;
+  pointer-events: none;
+}
+
 
 
     .copyright {
@@ -1209,10 +1230,10 @@
 <section class="image-slider">
     <div class="slider-wrapper">
       <!-- VERIFIED WAREHOUSE IMAGES -->
-      <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80" class="slider-image active" alt="Large Industrial Warehouse">
-      <img src="https://images.unsplash.com/photo-1605346576608-92f1346b67d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80" class="slider-image" alt="Warehouse Shelving">
-      <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80" class="slider-image" alt="Modern Warehouse">
-      <img src="https://images.unsplash.com/photo-1556740734-9f9ca6f3718a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80" class="slider-image" alt="Warehouse Interior">
+      <img src="https://images.unsplash.com/photo-1669003750593-5cef469ce172?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="slider-image active" alt="Large Industrial Warehouse">
+      <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="slider-image" alt="Warehouse Shelving">
+      <img src="https://plus.unsplash.com/premium_photo-1733266897023-8ef16ad9350a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="slider-image" alt="Modern Warehouse">
+      <img src="https://plus.unsplash.com/premium_photo-1682146487085-456de01b8633?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="slider-image" alt="Warehouse Interior">
     </div>
 </section>
   <!-- Expertise Section -->
