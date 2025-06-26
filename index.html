@@ -769,31 +769,27 @@
   margin-top: 3rem;
 }
 .image-slider {
-  width: 100%;
-  height: 450px;
-  overflow: hidden;
-  position: relative;
-}
-
-.slider-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.slider-image {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-.slider-image.active {
-  opacity: 1;
-  z-index: 2;
-}
+      width: 100%;
+      height: 450px;
+      position: relative;
+      overflow: hidden;
+      background: #f0f0f0;
+    }
+    .slider-wrapper {
+      width: 100%;
+      height: 100%;
+    }
+    .slider-image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .slider-image.active {
+      opacity: 1;
+    }
 
 
     .copyright {
@@ -1211,14 +1207,13 @@
 
   </div>
 <section class="image-slider">
-  <div class="slider-wrapper">
-    <img src="https://images.unsplash.com/photo-1586864387784-11d4c78b1a5b?auto=format&fit=crop&w=1400&q=80" class="slider-image active" alt="Warehouse 1">
-    <img src="https://images.unsplash.com/photo-1612197551689-9f0971f84a18?auto=format&fit=crop&w=1400&q=80" class="slider-image" alt="Warehouse 2">
-    <img src="https://images.unsplash.com/photo-1553531889-56c12ef07c35?auto=format&fit=crop&w=1400&q=80" class="slider-image" alt="Warehouse 3">
-    <img src="https://images.unsplash.com/photo-1600853803522-3ed3e1b6fcde?auto=format&fit=crop&w=1400&q=80" class="slider-image" alt="Warehouse 4">
-  </div>
-</section>
-
+    <div class="slider-wrapper">
+      <!-- VERIFIED WAREHOUSE IMAGES -->
+      <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80" class="slider-image active" alt="Large Industrial Warehouse">
+      <img src="https://images.unsplash.com/photo-1605346576608-92f1346b67d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80" class="slider-image" alt="Warehouse Shelving">
+      <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80" class="slider-image" alt="Modern Warehouse">
+      <img src="https://images.unsplash.com/photo-1556740734-9f9ca6f3718a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80" class="slider-image" alt="Warehouse Interior">
+    </div>
 
   <!-- Expertise Section -->
   <section id="expertise" class="section bg-white">
@@ -1547,17 +1542,22 @@
     observer.observe(counter);
   });
 </script>
-
 <script>
-  let current = 0;
-  const images = document.querySelectorAll('.slider-image');
-
-  setInterval(() => {
-    images[current].classList.remove('active');
-    current = (current + 1) % images.length;
-    images[current].classList.add('active');
-  }, 3000);
-</script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const images = document.querySelectorAll('.slider-image');
+      let current = 0;
+      
+      function cycleImages() {
+        images[current].classList.remove('active');
+        current = (current + 1) % images.length;
+        images[current].classList.add('active');
+      }
+      
+      if (images.length > 0) {
+        setInterval(cycleImages, 3000);
+      }
+    });
+  </script>
 
 </body>
 </html>
