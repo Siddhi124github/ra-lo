@@ -1471,23 +1471,26 @@
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);  
   </script>
-          <script>
+         <script>
   const counters = document.querySelectorAll('.stat-number:not(.no-animate)');
   const speed = 200;
 
   const animateCounter = counter => {
+    const target = +counter.getAttribute('data-target');
+    const suffix = counter.getAttribute('data-suffix') || "";
+    
     const updateCount = () => {
-      const target = +counter.getAttribute('data-target');
-      const count = +counter.innerText;
+      const count = +counter.innerText.replace(/[^0-9]/g, ''); // Remove suffix
       const increment = target / speed;
 
       if (count < target) {
-        counter.innerText = Math.ceil(count + increment);
+        counter.innerText = Math.ceil(count + increment) + suffix;
         setTimeout(updateCount, 15);
       } else {
-        counter.innerText = target;
+        counter.innerText = target + suffix;
       }
     };
+
     updateCount();
   };
 
