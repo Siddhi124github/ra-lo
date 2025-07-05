@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Our Clients - RA Logistics</title>
 
-  <!-- Font & Icons -->
+  <!-- Fonts & Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
@@ -28,57 +28,85 @@
 
     /* Navbar */
     .navbar {
-      background-color: white;
+      width: 100%;
+      padding: 0.8rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      transition: all 0.4s ease;
+      background-color: rgba(255, 255, 255, 0.98);
+    }
+
+    .navbar.scrolled {
+      background-color: rgba(255, 255, 255, 0.98);
+      padding: 1rem 0;
       box-shadow: var(--shadow-md);
-      padding: 1rem 2rem;
+    }
+
+    .navbar-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .nav-logo img {
+      height: 60px;
+      transition: all 0.4s ease;
+    }
+
+    .navbar.scrolled .nav-logo img {
       height: 50px;
     }
 
     .nav-menu {
       display: flex;
-      gap: 2rem;
+      align-items: center;
       list-style: none;
       margin: 0;
       padding: 0;
     }
 
-    .nav-menu a {
-      text-decoration: none;
+    .nav-item {
+      margin-left: 2rem;
+      position: relative;
+    }
+
+    .nav-link {
       color: var(--secondary);
       font-weight: 500;
       position: relative;
+      padding: 0.5rem 0;
+      text-decoration: none;
       transition: var(--transition);
     }
 
-    .nav-menu a::after {
-      content: "";
+    .nav-link::after {
+      content: '';
       position: absolute;
-      bottom: -4px;
       left: 0;
-      height: 2px;
+      bottom: 0;
       width: 0;
+      height: 2px;
       background-color: var(--primary);
-      transition: width 0.3s ease;
+      transition: width 0.4s ease;
     }
 
-    .nav-menu a:hover::after,
-    .nav-menu a.active::after {
+    .nav-link:hover::after,
+    .nav-link.active::after {
       width: 100%;
     }
 
-    .nav-menu a:hover {
+    .nav-link:hover {
       color: var(--primary);
     }
 
     /* Clients Section */
     .client-section {
-      padding: 6rem 2rem 4rem;
+      padding: 7rem 2rem 4rem;
       max-width: 1200px;
       margin: 0 auto;
       text-align: center;
@@ -137,16 +165,16 @@
     footer {
       background-color: var(--dark);
       color: rgba(255, 255, 255, 0.8);
-      padding: 3rem 2rem;
+      padding: 4rem 2rem 2rem;
     }
 
     .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
     }
 
     .footer-column h3 {
@@ -203,17 +231,19 @@
 
   <!-- Navbar -->
   <nav class="navbar">
-    <a href="index.html" class="nav-logo">
-      <img src="Screenshot 2025-05-26 203647.png" alt="RA Logo">
-    </a>
-    <ul class="nav-menu">
-      <li><a href="index.html#home">Home</a></li>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#services">Services</a></li>
-      <li><a href="index.html#expertise">Expertise</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-      <li><a href="clients.html" class="active">Clients</a></li>
-    </ul>
+    <div class="navbar-container">
+      <a href="index.html" class="nav-logo">
+        <img src="Screenshot 2025-05-26 203647.png" alt="RA Logo">
+      </a>
+      <ul class="nav-menu">
+        <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#expertise">Expertise</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link active" href="clients.html">Clients</a></li>
+      </ul>
+    </div>
   </nav>
 
   <!-- Clients -->
@@ -226,7 +256,6 @@
         <h4>ABC Logistics</h4>
         <p>Specialized in FMCG warehousing and distribution across India.</p>
       </div>
-
       <div class="client-card">
         <img src="client2-logo.png" alt="Client 2 Logo">
         <h4>NextGen Retail</h4>
@@ -259,8 +288,8 @@
       <div class="footer-column">
         <h3>Contact Info</h3>
         <ul>
-          <li><i class="fas fa-map-marker-alt"></i> Unit No-1007, 10th Floor, Supreme HQ, Bandra West, Mumbai</li>
-          <li><i class="fas fa-map-marker-alt"></i> Site: Bhiwandi, Kharbav, Thane, Maharashtra</li>
+          <li><i class="fas fa-map-marker-alt"></i> Unit No-1007, 10 Th floor Supreme Headquater corner of 14th Road and 33rd Road Bandra West Mumbai-400050 Maharashtra, India</li>
+          <li><i class="fas fa-map-marker-alt"></i> Survey No. 83/17, 83/18, 84/4, 84/8, 84/9, Survey No.30/01 to 30/6, 31/1 to 31/3, 32, 86/5/A/3, 86/11, POGAON, POGAON, BHIWANDI, Kharbav, Thane, Maharashtra, 421302</li>
           <li><i class="fas fa-envelope"></i> hr@ra-logistics.in</li>
         </ul>
       </div>
@@ -272,5 +301,17 @@
       </p>
     </div>
   </footer>
+
+  <!-- Optional Scroll Script for navbar -->
+  <script>
+    window.addEventListener("scroll", function () {
+      const navbar = document.querySelector(".navbar");
+      if (window.scrollY > 10) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
 </body>
 </html>
