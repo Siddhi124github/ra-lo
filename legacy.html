@@ -447,15 +447,37 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Footer */
-    .footer {
-      background-color: var(--dark);
-      color: rgba(255, 255, 255, 0.8);
-      padding: 4rem 0 2rem;
-      border-left: 20px solid white;
-      border-right: 20px solid white;
-      border-bottom: 20px solid white;
-    }
+ 
+   /* Footer */
+.footer {
+  background-color: var(--dark);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 4rem 0 2rem;
+}
+
+/* Desktop/Tablet - 80px white borders */
+@media (min-width: 769px) {
+  .footer {
+    border-left: 80px solid white;
+    border-right: 80px solid white;
+    border-bottom: 80px solid white;
+  }
+  
+  .footer-inner {
+    padding: 0; /* Remove padding to account for borders */
+  }
+}
+
+/* Mobile - no borders */
+@media (max-width: 768px) {
+  .footer {
+    border: none;
+  }
+  
+  .footer-inner {
+    padding: 0 1.5rem; /* Add some padding on mobile */
+  }
+}
 
     .footer-inner {
       max-width: 1100px;
