@@ -6,14 +6,13 @@
   <title>Our Clients - RA Logistics</title>
   <meta name="description" content="Prestigious clients who trust RA Logistics">
 
-  <!-- Same assets as index.html -->
+  <!-- Preload and optimize assets -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
   <style>
-    /* EXACT SAME CSS AS INDEX.HTML */
     :root {
       --primary: #0056b3;
       --primary-light: #3a7fc4;
@@ -197,7 +196,7 @@
       margin-left: 0.5rem;
     }
 
-    /* Header/Navbar - Same as index.html */
+    /* Header/Navbar */
     header {
       position: relative;
       height: 100vh;
@@ -349,15 +348,26 @@
       font-weight: 300;
     }
 
-    /* Clients Section Specific Styles */
+    /* Enhanced Clients Section */
     .clients-section {
       padding: 6rem 0;
       background-color: var(--white);
     }
 
+    .client-intro {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+    .client-intro p {
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
     .client-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-top: 3rem;
     }
@@ -369,11 +379,15 @@
       text-align: center;
       box-shadow: var(--shadow-sm);
       transition: var(--transition);
+      border: 1px solid var(--gray);
+      display: flex;
+      flex-direction: column;
     }
 
     .client-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow-md);
+      border-color: var(--primary-light);
     }
 
     .client-logo {
@@ -393,29 +407,134 @@
     .client-industry {
       color: var(--primary);
       font-weight: 500;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
     }
 
-    /* Footer - Same as index.html */
+    .client-desc {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .client-stats {
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid var(--gray);
+      padding-top: 1rem;
+      margin-top: auto;
+    }
+
+    .client-stat {
+      text-align: center;
+    }
+
+    .client-stat-value {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .client-stat-label {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    /* Become Client Form Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1001;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 2.5rem;
+      border-radius: var(--border-radius);
+      width: 90%;
+      max-width: 500px;
+      box-shadow: var(--shadow-xl);
+      position: relative;
+      animation: fadeInUp 0.4s ease-out;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-light);
+      transition: var(--transition);
+    }
+
+    .close-modal:hover {
+      color: var(--primary);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--secondary);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.2);
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* Improved Footer */
     .footer {
       background-color: var(--dark);
       color: rgba(255, 255, 255, 0.8);
-      width: 100%; 
-      margin: 0;
-      padding: 4rem 3rem 2rem;
-      box-sizing: border-box;
+      padding: 4rem 0 2rem;
+      border-top: 15px solid var(--white);
     }
 
     .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       gap: 2rem;
-      width: 100%;
     }
 
     .footer-column {
       flex: 1 1 300px;
-      min-width: 280px;
     }
 
     .footer-column h3 {
@@ -459,8 +578,8 @@
     .footer-bottom {
       text-align: center;
       padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
       margin-top: 3rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .copyright {
@@ -569,7 +688,11 @@
       }
 
       .client-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .modal-content {
+        padding: 2rem 1.5rem;
       }
     }
 
@@ -581,11 +704,25 @@
       .section-heading {
         font-size: 2rem;
       }
+
+      .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Header - Same as index.html -->
+  <!-- Header -->
   <header id="home">
     <div class="header-bg"></div>
     <div class="header-overlay"></div>
@@ -627,14 +764,14 @@
       <div class="container">
         <div class="hero-content">
           <h1 class="hero-title">Our <span class="text-primary">Prestigious</span> Clients</h1>
-          <p class="hero-subtitle">Trusted by industry leaders across India for warehouse solutions</p>
+          <p class="hero-subtitle">Trusted by industry leaders across India for innovative warehouse solutions</p>
           <div class="hero-buttons">
             <a href="#clients" class="btn btn-primary btn-lg">
               View Clients <i class="fas fa-arrow-right btn-icon"></i>
             </a>
-            <a href="index.html#contact" class="btn btn-outline btn-lg">
+            <button class="btn btn-outline btn-lg" id="becomeClientBtn">
               Become a Client <i class="fas fa-phone btn-icon"></i>
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -646,56 +783,205 @@
     <div class="container">
       <div class="text-center">
         <h2 class="section-heading">Our <span class="text-primary">Clients</span></h2>
-        <p class="section-subtitle">Trusted by leading companies across industries</p>
+        <p class="section-subtitle">We partner with leading companies to deliver exceptional logistics infrastructure</p>
+      </div>
+      
+      <div class="client-intro">
+        <p>At RA Logistics, we've had the privilege of working with some of India's most respected companies. Our client relationships are built on trust, innovation, and a shared commitment to operational excellence. Each project is tailored to meet our clients' unique requirements, ensuring optimal efficiency and scalability for their supply chain needs.</p>
       </div>
       
       <div class="client-grid">
         <!-- Client 1 -->
         <div class="client-card reveal fade-bottom">
-          <img src="https://via.placeholder.com/180x100?text=Client+Logo" alt="Client Logo" class="client-logo">
+          <img src="https://via.placeholder.com/180x100?text=Reliance" alt="Reliance Retail" class="client-logo">
           <h3 class="client-name">Reliance Retail</h3>
           <p class="client-industry">Retail & Distribution</p>
+          <p class="client-desc">Designed and built a 50,000 sq.ft regional distribution center with advanced inventory management systems and automated sorting capabilities.</p>
+          <div class="client-stats">
+            <div class="client-stat">
+              <div class="client-stat-value">50K</div>
+              <div class="client-stat-label">Sq.Ft.</div>
+            </div>
+            <div class="client-stat">
+              <div class="client-stat-value">2019</div>
+              <div class="client-stat-label">Completed</div>
+            </div>
+            <div class="client-stat">
+              <div class="client-stat-value">30%</div>
+              <div class="client-stat-label">Efficiency ↑</div>
+            </div>
+          </div>
         </div>
         
         <!-- Client 2 -->
         <div class="client-card reveal fade-bottom" style="transition-delay: 0.1s;">
-          <img src="https://via.placeholder.com/180x100?text=Client+Logo" alt="Client Logo" class="client-logo">
+          <img src="https://via.placeholder.com/180x100?text=Tata+Steel" alt="Tata Steel" class="client-logo">
           <h3 class="client-name">Tata Steel</h3>
           <p class="client-industry">Manufacturing</p>
+          <p class="client-desc">Engineered a heavy-duty storage facility for raw materials with 120,000 sq.ft capacity, featuring specialized racking systems.</p>
+          <div class="client-stats">
+            <div class="client-stat">
+              <div class="client-stat-value">120K</div>
+              <div class="client-stat-label">Sq.Ft.</div>
+            </div>
+            <div class="client-stat">
+              <div class="client-stat-value">2020</div>
+              <div class="client-stat-label">Completed</div>
+            </div>
+            <div class="client-stat">
+              <div class="client-stat-value">25%</div>
+              <div class="client-stat-label">Cost ↓</div>
+            </div>
+          </div>
         </div>
         
         <!-- Client 3 -->
         <div class="client-card reveal fade-bottom" style="transition-delay: 0.2s;">
-          <img src="https://via.placeholder.com/180x100?text=Client+Logo" alt="Client Logo" class="client-logo">
+          <img src="https://via.placeholder.com/180x100?text=Flipkart" alt="Flipkart" class="client-logo">
           <h3 class="client-name">Flipkart</h3>
           <p class="client-industry">E-commerce</p>
+          <p class="client-desc">Developed an automated fulfillment center with robotic picking systems, increasing processing capacity by 40%.</p>
+          <div class="client-stats">
+            <div class="client-stat">
+              <div class="client-stat-value">75K</div>
+              <div class="client-stat-label">Sq.Ft.</div>
+            </div>
+            <div class="client-stat">
+              <div class="client-stat-value">2021</div>
+              <div class="client-stat-label">Completed</div>
+            </div>
+            <div class="client-stat">
+              <div class="client-stat-value">40%</div>
+              <div class="client-stat-label">Capacity ↑</div>
+            </div>
+          </div>
         </div>
         
         <!-- Client 4 -->
         <div class="client-card reveal fade-bottom" style="transition-delay: 0.3s;">
-          <img src="https://via.placeholder.com/180x100?text=Client+Logo" alt="Client Logo" class="client-logo">
+          <img src="https://via.placeholder.com/180x100?text=DHL" alt="DHL Supply Chain" class="client-logo">
           <h3 class="client-name">DHL Supply Chain</h3>
           <p class="client-industry">Logistics</p>
+          <p class="client-desc">Implemented a cross-docking facility with advanced tracking systems, reducing transit times by 35%.</p>
+          <div class="client-stats">
+            <div class="client-stat">
+              <div class="client-stat-value">200K</div>
+              <div class="client-stat-label">Sq.Ft.</div>
+            </div>
+            <div class="client-stat">
+              <div class="client-stat-value">2022</div>
+              <div class="client-stat-label">Completed</div>
+            </div>
+            <div class="client-stat">
+              <div class="client-stat-value">35%</div>
+              <div class="client-stat-label">Time ↓</div>
+            </div>
+          </div>
         </div>
         
         <!-- Client 5 -->
         <div class="client-card reveal fade-bottom" style="transition-delay: 0.4s;">
-          <img src="https://via.placeholder.com/180x100?text=Client+Logo" alt="Client Logo" class="client-logo">
+          <img src="https://via.placeholder.com/180x100?text=Aditya+Birla" alt="Aditya Birla Fashion" class="client-logo">
           <h3 class="client-name">Aditya Birla Fashion</h3>
           <p class="client-industry">Retail</p>
+          <p class="client-desc">Constructed a temperature-controlled warehouse for premium fabrics with specialized humidity control systems.</p>
+          <div class="client-stats">
+            <div class="client-stat">
+              <div class="client-stat-value">65K</div>
+              <div class="client-stat-label">Sq.Ft.</div>
+            </div>
+            <div class="client-stat">
+              <div class="client-stat-value">2023</div>
+              <div class="client-stat-label">Completed</div>
+            </div>
+            <div class="client-stat">
+              <div class="client-stat-value">99%</div>
+              <div class="client-stat-label">Preservation</div>
+            </div>
+          </div>
         </div>
         
         <!-- Client 6 -->
         <div class="client-card reveal fade-bottom" style="transition-delay: 0.5s;">
-          <img src="https://via.placeholder.com/180x100?text=Client+Logo" alt="Client Logo" class="client-logo">
+          <img src="https://via.placeholder.com/180x100?text=Mahindra" alt="Mahindra Auto" class="client-logo">
           <h3 class="client-name">Mahindra Auto</h3>
           <p class="client-industry">Automotive</p>
+          <p class="client-desc">Built a parts distribution hub with automated storage and retrieval systems (ASRS) for just-in-time inventory management.</p>
+          <div class="client-stats">
+            <div class="client-stat">
+              <div class="client-stat-value">150K</div>
+              <div class="client-stat-label">Sq.Ft.</div>
+            </div>
+            <div class="client-stat">
+              <div class="client-stat-value">2023</div>
+              <div class="client-stat-label">Completed</div>
+            </div>
+            <div class="client-stat">
+              <div class="client-stat-value">22%</div>
+              <div class="client-stat-label">Cost ↓</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer - Same as index.html -->
+  <!-- Become Client Modal -->
+  <div class="modal" id="becomeClientModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeModal">&times;</span>
+      <h2 class="section-heading">Become a <span class="text-primary">Client</span></h2>
+      <p class="section-subtitle">Fill out this form and our team will contact you within 24 hours</p>
+      
+      <form id="clientForm" action="https://formsubmit.co/hr@ra-logistics.in" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://siddhi124github.github.io/ra-lo/thankyou.html">
+        
+        <div class="form-group">
+          <label for="company" class="form-label">Company Name</label>
+          <input type="text" id="company" name="company" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="contact-name" class="form-label">Contact Person</label>
+          <input type="text" id="contact-name" name="name" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input type="tel" id="phone" name="phone" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="requirements" class="form-label">Warehouse Requirements</label>
+          <select id="requirements" name="requirements" class="form-control" required>
+            <option value="">Select your needs</option>
+            <option value="new-construction">New Construction</option>
+            <option value="expansion">Facility Expansion</option>
+            <option value="automation">Automation Solutions</option>
+            <option value="cold-storage">Cold Storage</option>
+            <option value="consulting">Consulting Services</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="message" class="form-label">Additional Details</label>
+          <textarea id="message" name="message" class="form-control"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-lg">
+          Submit Request <i class="fas fa-paper-plane btn-icon"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-column">
@@ -739,8 +1025,8 @@
     <i class="fas fa-arrow-up"></i>
   </a>
 
-  <!-- Same JavaScript as index.html -->
   <script>
+    // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navMenu = document.getElementById('navMenu');
     
@@ -759,6 +1045,7 @@
       });
     });
   
+    // Scroll effects
     window.addEventListener('scroll', () => {
       const navbar = document.querySelector('.navbar');
       const backToTop = document.getElementById('backToTop');
@@ -772,6 +1059,7 @@
       }
     });
     
+    // Scroll reveal animation
     function revealOnScroll() {
       const reveals = document.querySelectorAll('.reveal');
       
@@ -788,6 +1076,29 @@
     
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);
+
+    // Become Client Modal
+    const becomeClientBtn = document.getElementById('becomeClientBtn');
+    const becomeClientModal = document.getElementById('becomeClientModal');
+    const closeModal = document.getElementById('closeModal');
+
+    becomeClientBtn.addEventListener('click', () => {
+      becomeClientModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeModal.addEventListener('click', () => {
+      becomeClientModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+      if (e.target === becomeClientModal) {
+        becomeClientModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
   </script>
 </body>
 </html>
