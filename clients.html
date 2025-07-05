@@ -459,16 +459,17 @@
       display: flex;
     }
 
-    .modal-content {
-      background: white;
-      padding: 2.5rem;
-      border-radius: var(--border-radius);
-      width: 90%;
-      max-width: 500px;
-      box-shadow: var(--shadow-xl);
-      position: relative;
-      animation: fadeInUp 0.4s ease-out;
-    }
+   .modal-content {
+  background: white;
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  width: 90%;
+  max-width: 420px; /* Reduced from 500px */
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  animation: fadeInUp 0.4s ease-out;
+}
+
 
     .close-modal {
       position: absolute;
@@ -523,15 +524,17 @@
       border-top: 15px solid var(--white);
     }
 
-    .footer-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 2rem;
-    }
+   .footer-inner {
+  max-width: 1200px; /* Reduced width for visual margin */
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  background-color: var(--dark); /* keeps footer styling intact */
+}
+
 
     .footer-column {
       flex: 1 1 300px;
@@ -931,9 +934,9 @@
     <div class="modal-content">
       <span class="close-modal" id="closeModal">&times;</span>
       <h2 class="section-heading">Become a <span class="text-primary">Client</span></h2>
-      <p class="section-subtitle">Fill out this form and our team will contact you within 24 hours</p>
+      <p class="section-subtitle">Fill out this form and our team will contact you.</p>
       
-      <form id="clientForm" action="https://formsubmit.co/hr@ra-logistics.in" method="POST">
+      <form id="clientForm" action="https://formsubmit.co/info@ra-logistics.in" method="POST">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="https://siddhi124github.github.io/ra-lo/thankyou.html">
         
@@ -941,12 +944,7 @@
           <label for="company" class="form-label">Company Name</label>
           <input type="text" id="company" name="company" class="form-control" required>
         </div>
-        
-        <div class="form-group">
-          <label for="contact-name" class="form-label">Contact Person</label>
-          <input type="text" id="contact-name" name="name" class="form-control" required>
-        </div>
-        
+           
         <div class="form-group">
           <label for="email" class="form-label">Email Address</label>
           <input type="email" id="email" name="email" class="form-control" required>
