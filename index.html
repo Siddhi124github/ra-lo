@@ -554,49 +554,39 @@
       transition: var(--transition);
     }
 
-    
-/* Stats Section */
-.stats {
-  background-color: #004d80; /* fallback if --secondary is not set */
-  color: white;
-  padding: 4rem 0;
-  position: relative;
-}
+    /* Stats Section */
+    .stats {
+      background-color: var(--secondary);
+      color: white;
+      padding: 4rem 0;
+      position: relative;
+    }
 
-.stats-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
 
-.stat-item {
-  text-align: center;
-  padding: 1.5rem;
-}
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+    }
 
-.stat-icon {
-  font-size: 2rem;
-  color: white;
-  margin-bottom: 0.8rem;
-}
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.stat-number {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #ffcc00; /* fallback if --primary is not set */
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.stat-title {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.9);
-}
+    .stat-title {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
 
     /* Expertise Section */
     .expertise-item {
@@ -1134,44 +1124,27 @@
     </div>
   </section>
 
-<!-- Stats Section -->
+  <!-- Stats Section -->
 <div class="stats">
   <div class="stats-container">
-  <div class="stat-item">
-      <i class="fas fa-award stat-icon"></i>
-      <div class="stat-number no-animate">8+</div>
-      <div class="stat-title">Years of Experience</div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="8"data-suffix="+">>0</div>
+      <div class="stat-title">Years Experience</div>
     </div>
     <div class="stat-item">
-      <i class="fas fa-map-marked-alt stat-icon"></i>
-      <div class="stat-number no-animate">550 Acres</div>
-      <div class="stat-title">Total Land Bank</div>
+      <div class="stat-number" data-target="150" data-suffix="+">>0</div>
+      <div class="stat-title">Projects Completed</div>
     </div>
-
     <div class="stat-item">
-      <i class="fas fa-layer-group stat-icon"></i>
-      <div class="stat-number no-animate">14.1 Mn Sq.Ft</div>
-      <div class="stat-title">Land Under Development</div>
+      <div class="stat-number" data-target="100" data-suffix="+">>0</div>
+      <div class="stat-title">Happy Clients</div>
     </div>
-
     <div class="stat-item">
-      <i class="fas fa-map stat-icon"></i>
-      <div class="stat-number no-animate">3</div>
-      <div class="stat-title">Locations </div>
+      <div class="stat-number no-animate">24/7</div>
+      <div class="stat-title">Support Available</div>
     </div>
-
-
-    <div class="stat-item">
-      <i class="fas fa-building stat-icon"></i>
-      <div class="stat-number no-animate">2</div>
-      <div class="stat-title">Current Projects</div>
-    </div>
-
-    
-
   </div>
 </div>
-
 
 
 
