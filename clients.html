@@ -29,7 +29,7 @@
     /* Navbar */
     .navbar {
       width: 100%;
-      padding: 0.8rem 0;
+      padding: 1.5rem 0;
       position: fixed;
       top: 0;
       left: 0;
@@ -39,21 +39,27 @@
     }
 
     .navbar.scrolled {
+      background-color: rgba(255, 255, 255, 0.98);
       padding: 1rem 0;
       box-shadow: var(--shadow-md);
     }
 
+    .navbar.scrolled .nav-logo img {
+      height: 50px;
+    }
+
+    .navbar.scrolled .nav-link {
+      color: var(--secondary);
+    }
+
+    .navbar.scrolled .nav-link:hover {
+      color: var(--primary);
+    }
+
     .navbar-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-
-    .nav-logo {
-      margin-left: -40px;
     }
 
     .nav-logo img {
@@ -61,16 +67,10 @@
       transition: all 0.4s ease;
     }
 
-    .navbar.scrolled .nav-logo img {
-      height: 50px;
-    }
-
     .nav-menu {
       display: flex;
       align-items: center;
       list-style: none;
-      margin: 0;
-      padding: 0;
     }
 
     .nav-item {
@@ -79,12 +79,10 @@
     }
 
     .nav-link {
-      color: var(--secondary);
+      color: white;
       font-weight: 500;
       position: relative;
       padding: 0.5rem 0;
-      text-decoration: none;
-      transition: var(--transition);
     }
 
     .nav-link::after {
@@ -98,15 +96,26 @@
       transition: width 0.4s ease;
     }
 
-    .nav-link:hover::after,
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link.active {
+      color: var(--primary);
+    }
+
     .nav-link.active::after {
       width: 100%;
     }
 
-    .nav-link:hover {
-      color: var(--primary);
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
     }
-
     /* Clients Section with Background */
     .client-section {
       padding: 7rem 2rem 4rem;
@@ -175,65 +184,72 @@
       font-size: 0.9rem;
     }
 
-    /* Footer */
-    footer {
-      background-color: var(--dark);
-      color: rgba(255, 255, 255, 0.8);
-      padding: 4rem 2rem 2rem;
-    }
+    .footer {
+  background-color: var(--dark);
+  color: rgba(255, 255, 255, 0.8);
+  width: 100%; 
+  margin: 0;
+  padding: 4rem 3rem 2rem;
+  box-sizing: border-box;
+}
 
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1.5fr;
-      gap: 2rem;
-    }
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+}
 
-    .footer-column h3 {
-      color: white;
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-      position: relative;
-    }
+.footer-column {
+  flex: 1 1 300px;
+  min-width: 280px;
+}
 
-    .footer-column h3::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -8px;
-      width: 40px;
-      height: 2px;
-      background-color: var(--primary);
-    }
+.footer-column h3 {
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
 
-    .footer-column ul {
-      list-style: none;
-      padding-left: 0;
-    }
+.footer-column h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 40px;
+  height: 2px;
+  background-color: var(--primary);
+}
 
-    .footer-column li {
-      margin-bottom: 0.75rem;
-      line-height: 1.6;
-    }
+.footer-column ul {
+  list-style: none;
+  padding-left: 0;
+}
 
-    .footer-column a {
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      transition: var(--transition);
-    }
+.footer-column li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
 
-    .footer-column a:hover {
-      color: var(--primary);
-      padding-left: 5px;
-    }
+.footer-column a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: var(--transition);
+}
 
-    .footer-bottom {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      margin-top: 3rem;
-    }
+.footer-column a:hover {
+  color: var(--primary);
+  padding-left: 5px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 3rem;
+}
 
     .copyright {
       font-size: 0.9rem;
@@ -257,22 +273,40 @@
 </head>
 <body>
 
-  <!-- Navbar -->
+ 
   <nav class="navbar">
-    <div class="navbar-container">
-      <a href="index.html" class="nav-logo">
-        <img src="Screenshot 2025-05-26 203647.png" alt="RA Logo">
-      </a>
-      <ul class="nav-menu">
-        <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#expertise">Expertise</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
-        <li class="nav-item"><a class="nav-link active" href="clients.html">Clients</a></li>
-      </ul>
-    </div>
-  </nav>
+      <div class="container navbar-container">
+        <a href="#" class="nav-logo">
+          <img src="Screenshot 2025-05-26 203647.png" alt="RA Logistics Logo">
+        </a>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+        
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item">
+            <a href="index.html#home" class="nav-link active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#about" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#services" class="nav-link">Services</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#expertise" class="nav-link">Expertise</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#contact" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a href="clients.html" class="nav-link">Clients</a>
+          </li>
+         
+        </ul>
+      </div>
+    </nav>
 
   <!-- Clients -->
   <section class="client-section">
@@ -292,44 +326,45 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-column">
-        <p>
-          RA Logistics is a premier warehouse construction and logistics solutions provider in India,
-          delivering innovative infrastructure solutions since 2018.
-        </p>
-      </div>
 
-      <div class="footer-column">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="index.html#home">Home</a></li>
-          <li><a href="index.html#about">About Us</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#expertise">Expertise</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-column">
-        <h3>Contact Info</h3>
-        <ul>
-          <li><i class="fas fa-map-marker-alt"></i> Unit No-1007, 10 Th floor Supreme Headquater corner of 14th Road and 33rd Road Bandra West Mumbai-400050 Maharashtra, India</li>
-          <li><i class="fas fa-map-marker-alt"></i> Survey No. 83/17, 83/18, 84/4, 84/8, 84/9, Survey No.30/01 to 30/6, 31/1 to 31/3, 32, 86/5/A/3, 86/11, POGAON, POGAON, BHIWANDI, Kharbav, Thane, Maharashtra, 421302</li>
-          <li><i class="fas fa-envelope"></i> hr@ra-logistics.in</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p class="copyright">
-        &copy; 2025 RA Logistics. All Rights Reserved.
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-column">
+      <p>
+        RA Logistics is a premier warehouse construction and logistics solutions provider in India,
+        delivering innovative infrastructure solutions since 2018.
       </p>
     </div>
-  </footer>
 
+    <div class="footer-column">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Contact Info</h3>
+      <ul>
+        <li><i class="fas fa-map-marker-alt"></i> Unit No-1007, 10 Th floor Supreme Headquater corner of 14th Road and 33rd Road Bandra West Mumbai-400050 Maharashtra, India</li>
+        <li><i class="fas fa-map-marker-alt"></i> Survey No. 83/17, 83/18, 84/4, 84/8, 84/9, Survey No.30/01 to 30/6, 31/1 to 31/3, 32, 86/5/A/3,
+86/11, POGAON, POGAON, BHIWANDI, Kharbav, Thane, Maharashtra, 421302 </li>
+        <li><i class="fas fa-envelope"></i> hr@ra-logistics.in</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="copyright">
+      &copy; 2025 RA Logistics. All Rights Reserved.
+    </p>
+  </div>
+</footer>
   <!-- Scroll Navbar Script -->
   <script>
     window.addEventListener("scroll", function () {
