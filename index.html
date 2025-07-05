@@ -13,7 +13,8 @@
   <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
 
 
   <style>
@@ -556,52 +557,50 @@
       transition: var(--transition);
     }
 
-   /* Clean Stats Section */
+  
 .stats-clean {
-  background-color: #102a43; /* deep blue background */
-  padding: 4rem 2rem;
+  background-color: #00578a;
+  padding: 4rem 0;
   color: white;
-}
-
-.stats-clean-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
   text-align: center;
 }
 
+.stats-clean-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
 .stat-clean-item {
-  flex: 1 1 180px;
   padding: 1rem;
 }
 
-.stat-clean-item img {
-  width: 40px;
-  height: 40px;
+.stat-clean-item i {
+  font-size: 48px;
+  color: #f9c038; /* Gold-ish icon */
   margin-bottom: 1rem;
-  filter: brightness(0) invert(1);
+  display: inline-block;
 }
 
 .stat-clean-item h2 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 700;
-  color: #FFD700; /* yellow/gold */
-  margin-bottom: 0.3rem;
+  color: white;
+  margin: 0;
 }
 
 .stat-clean-item h2 span {
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .stat-clean-item p {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.85);
-  margin: 0;
-  line-height: 1.4;
+  color: #cfd9e2;
+  margin-top: 0.5rem;
 }
 
 
@@ -1146,37 +1145,38 @@
   <div class="stats-clean-container">
 
     <div class="stat-clean-item">
-      <i class='bx bx-award'></i>
+      <i class="ri-award-line"></i>
       <h2>8+</h2>
       <p>Years of Experience</p>
     </div>
 
     <div class="stat-clean-item">
-      <i class='bx bx-map-pin'></i>
+      <i class="ri-map-pin-line"></i>
       <h2>550 <span>Acres</span></h2>
       <p>Total Land Bank</p>
     </div>
 
     <div class="stat-clean-item">
-      <i class='bx bx-layer'></i>
+      <i class="ri-stack-line"></i>
       <h2>14.1 Mn <span>Sq.Ft</span></h2>
       <p>Land Under Development</p>
     </div>
 
     <div class="stat-clean-item">
-      <i class='bx bx-map'></i>
+      <i class="ri-map-line"></i>
       <h2>3</h2>
       <p>Locations</p>
     </div>
 
     <div class="stat-clean-item">
-      <i class='bx bx-buildings'></i>
+      <i class="ri-building-2-line"></i>
       <h2>2</h2>
       <p>Current Projects</p>
     </div>
 
   </div>
 </section>
+
 
 
 
