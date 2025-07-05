@@ -348,7 +348,7 @@
       font-weight: 300;
     }
 
-    /* Enhanced Clients Section */
+    /* Clients Section */
     .clients-section {
       padding: 6rem 0;
       background-color: var(--white);
@@ -366,176 +366,52 @@
     }
 
     .client-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem;
       margin-top: 3rem;
     }
 
     .client-card {
-      background: var(--white);
-      border-radius: var(--border-radius);
-      padding: 2rem;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-      border: 1px solid var(--gray);
       display: flex;
       flex-direction: column;
-    }
-
-    .client-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--primary-light);
+      align-items: center;
+      max-width: 300px;
+      text-align: center;
     }
 
     .client-logo {
-      max-width: 180px;
+      max-width: 200px;
       max-height: 100px;
-      margin: 0 auto 1.5rem;
-      display: block;
+      margin-bottom: 1.5rem;
       object-fit: contain;
+      filter: grayscale(100%);
+      transition: var(--transition);
+    }
+
+    .client-logo:hover {
+      filter: grayscale(0%);
+      transform: scale(1.05);
     }
 
     .client-name {
       color: var(--secondary);
-      margin-bottom: 0.5rem;
       font-size: 1.25rem;
+      font-weight: 600;
     }
 
-    .client-industry {
-      color: var(--primary);
-      font-weight: 500;
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-    }
-
-    .client-desc {
-      color: var(--text-light);
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-      flex-grow: 1;
-    }
-
-    .client-stats {
-      display: flex;
-      justify-content: space-around;
-      border-top: 1px solid var(--gray);
-      padding-top: 1rem;
-      margin-top: auto;
-    }
-
-    .client-stat {
-      text-align: center;
-    }
-
-    .client-stat-value {
-      color: var(--primary);
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .client-stat-label {
-      font-size: 0.8rem;
-      color: var(--text-light);
-    }
-
-    /* Modal Styles */
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      overflow: auto;
-      z-index: 9999;
-      padding: 2rem 1rem;
-    }
-
-    .modal.active {
-      display: flex;
-    }
-
-    .modal-content {
-      background: white;
-      padding: 2rem;
-      border-radius: var(--border-radius);
-      width: 100%;
-      max-width: 500px;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: var(--shadow-xl);
-      position: relative;
-      animation: fadeIn 0.3s ease-out;
-    }
-
-    .close-modal {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--text-light);
-      transition: var(--transition);
-      background: none;
-      border: none;
-    }
-
-    .close-modal:hover {
-      color: var(--primary);
-      transform: scale(1.1);
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-      color: var(--secondary);
-    }
-
-    .form-control {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border: 1px solid #ddd;
-      border-radius: var(--border-radius);
-      font-size: 1rem;
-      transition: var(--transition);
-    }
-
-    .form-control:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.2);
-    }
-
-    textarea.form-control {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    /* Improved Footer */
+    /* Footer */
     .footer {
       background-color: var(--dark);
       color: rgba(255, 255, 255, 0.8);
       padding: 4rem 0 2rem;
-      border-left: 80px solid white;
-      border-right: 80px solid white;
-      border-bottom: 80px solid white;
     }
 
     .footer-inner {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0;
+      padding: 0 2rem;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -581,7 +457,6 @@
 
     .footer-column a:hover {
       color: var(--primary);
-      padding-left: 5px;
     }
 
     .footer-bottom {
@@ -595,75 +470,7 @@
       font-size: 0.9rem;
     }
 
-    /* Back to Top Button */
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 50px;
-      height: 50px;
-      background-color: var(--primary);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      box-shadow: var(--shadow-md);
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-      z-index: 999;
-    }
-    
-    .back-to-top.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .back-to-top:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-3px);
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .reveal {
-      position: relative;
-      opacity: 0;
-      transition: all 1s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-    }
-
-    .active.fade-bottom {
-      animation: fadeInUp 1s ease forwards;
-    }
-
     /* Responsive Design */
-    @media (max-width: 992px) {
-      .section {
-        padding: 4rem 0;
-      }
-    }
-
     @media (max-width: 768px) {
       .mobile-menu-btn {
         display: block;
@@ -697,11 +504,8 @@
       }
 
       .client-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      }
-
-      .modal-content {
-        padding: 2rem 1.5rem;
+        flex-direction: column;
+        align-items: center;
       }
     }
 
@@ -721,11 +525,6 @@
 
       .hero-buttons .btn {
         width: 100%;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        gap: 2rem;
       }
     }
   </style>
@@ -778,9 +577,6 @@
             <a href="#clients" class="btn btn-primary btn-lg">
               View Clients <i class="fas fa-arrow-right btn-icon"></i>
             </a>
-            <button class="btn btn-outline btn-lg" id="becomeClientBtn">
-              Become a Client <i class="fas fa-phone btn-icon"></i>
-            </button>
           </div>
         </div>
       </div>
@@ -796,194 +592,24 @@
       </div>
       
       <div class="client-intro">
-        <p>At RA Logistics, we've had the privilege of working with some of India's most respected companies. Our client relationships are built on trust, innovation, and a shared commitment to operational excellence. Each project is tailored to meet our clients' unique requirements, ensuring optimal efficiency and scalability for their supply chain needs.</p>
+        <p>At RA Logistics, we've had the privilege of working with some of India's most respected companies. Our client relationships are built on trust, innovation, and a shared commitment to operational excellence.</p>
       </div>
       
       <div class="client-grid">
         <!-- Client 1 -->
-        <div class="client-card reveal fade-bottom">
-          <img src="https://via.placeholder.com/180x100?text=Reliance" alt="Reliance Retail" class="client-logo">
-          <h3 class="client-name">Reliance Retail</h3>
-          <p class="client-industry">Retail & Distribution</p>
-          <p class="client-desc">Designed and built a 50,000 sq.ft regional distribution center with advanced inventory management systems and automated sorting capabilities.</p>
-          <div class="client-stats">
-            <div class="client-stat">
-              <div class="client-stat-value">50K</div>
-              <div class="client-stat-label">Sq.Ft.</div>
-            </div>
-            <div class="client-stat">
-              <div class="client-stat-value">2019</div>
-              <div class="client-stat-label">Completed</div>
-            </div>
-            <div class="client-stat">
-              <div class="client-stat-value">30%</div>
-              <div class="client-stat-label">Efficiency ↑</div>
-            </div>
-          </div>
+        <div class="client-card">
+          <img src="https://via.placeholder.com/200x100?text=Client+1" alt="Client 1" class="client-logo">
+          <h3 class="client-name">Client 1</h3>
         </div>
         
         <!-- Client 2 -->
-        <div class="client-card reveal fade-bottom" style="transition-delay: 0.1s;">
-          <img src="https://via.placeholder.com/180x100?text=Tata+Steel" alt="Tata Steel" class="client-logo">
-          <h3 class="client-name">Tata Steel</h3>
-          <p class="client-industry">Manufacturing</p>
-          <p class="client-desc">Engineered a heavy-duty storage facility for raw materials with 120,000 sq.ft capacity, featuring specialized racking systems.</p>
-          <div class="client-stats">
-            <div class="client-stat">
-              <div class="client-stat-value">120K</div>
-              <div class="client-stat-label">Sq.Ft.</div>
-            </div>
-            <div class="client-stat">
-              <div class="client-stat-value">2020</div>
-              <div class="client-stat-label">Completed</div>
-            </div>
-            <div class="client-stat">
-              <div class="client-stat-value">25%</div>
-              <div class="client-stat-label">Cost ↓</div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Client 3 -->
-        <div class="client-card reveal fade-bottom" style="transition-delay: 0.2s;">
-          <img src="https://via.placeholder.com/180x100?text=Flipkart" alt="Flipkart" class="client-logo">
-          <h3 class="client-name">Flipkart</h3>
-          <p class="client-industry">E-commerce</p>
-          <p class="client-desc">Developed an automated fulfillment center with robotic picking systems, increasing processing capacity by 40%.</p>
-          <div class="client-stats">
-            <div class="client-stat">
-              <div class="client-stat-value">75K</div>
-              <div class="client-stat-label">Sq.Ft.</div>
-            </div>
-            <div class="client-stat">
-              <div class="client-stat-value">2021</div>
-              <div class="client-stat-label">Completed</div>
-            </div>
-            <div class="client-stat">
-              <div class="client-stat-value">40%</div>
-              <div class="client-stat-label">Capacity ↑</div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Client 4 -->
-        <div class="client-card reveal fade-bottom" style="transition-delay: 0.3s;">
-          <img src="https://via.placeholder.com/180x100?text=DHL" alt="DHL Supply Chain" class="client-logo">
-          <h3 class="client-name">DHL Supply Chain</h3>
-          <p class="client-industry">Logistics</p>
-          <p class="client-desc">Implemented a cross-docking facility with advanced tracking systems, reducing transit times by 35%.</p>
-          <div class="client-stats">
-            <div class="client-stat">
-              <div class="client-stat-value">200K</div>
-              <div class="client-stat-label">Sq.Ft.</div>
-            </div>
-            <div class="client-stat">
-              <div class="client-stat-value">2022</div>
-              <div class="client-stat-label">Completed</div>
-            </div>
-            <div class="client-stat">
-              <div class="client-stat-value">35%</div>
-              <div class="client-stat-label">Time ↓</div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Client 5 -->
-        <div class="client-card reveal fade-bottom" style="transition-delay: 0.4s;">
-          <img src="https://via.placeholder.com/180x100?text=Aditya+Birla" alt="Aditya Birla Fashion" class="client-logo">
-          <h3 class="client-name">Aditya Birla Fashion</h3>
-          <p class="client-industry">Retail</p>
-          <p class="client-desc">Constructed a temperature-controlled warehouse for premium fabrics with specialized humidity control systems.</p>
-          <div class="client-stats">
-            <div class="client-stat">
-              <div class="client-stat-value">65K</div>
-              <div class="client-stat-label">Sq.Ft.</div>
-            </div>
-            <div class="client-stat">
-              <div class="client-stat-value">2023</div>
-              <div class="client-stat-label">Completed</div>
-            </div>
-            <div class="client-stat">
-              <div class="client-stat-value">99%</div>
-              <div class="client-stat-label">Preservation</div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Client 6 -->
-        <div class="client-card reveal fade-bottom" style="transition-delay: 0.5s;">
-          <img src="https://via.placeholder.com/180x100?text=Mahindra" alt="Mahindra Auto" class="client-logo">
-          <h3 class="client-name">Mahindra Auto</h3>
-          <p class="client-industry">Automotive</p>
-          <p class="client-desc">Built a parts distribution hub with automated storage and retrieval systems (ASRS) for just-in-time inventory management.</p>
-          <div class="client-stats">
-            <div class="client-stat">
-              <div class="client-stat-value">150K</div>
-              <div class="client-stat-label">Sq.Ft.</div>
-            </div>
-            <div class="client-stat">
-              <div class="client-stat-value">2023</div>
-              <div class="client-stat-label">Completed</div>
-            </div>
-            <div class="client-stat">
-              <div class="client-stat-value">22%</div>
-              <div class="client-stat-label">Cost ↓</div>
-            </div>
-          </div>
+        <div class="client-card">
+          <img src="https://via.placeholder.com/200x100?text=Client+2" alt="Client 2" class="client-logo">
+          <h3 class="client-name">Client 2</h3>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Become Client Modal -->
-  <div class="modal" id="becomeClientModal">
-    <div class="modal-content">
-      <button class="close-modal" id="closeModal">&times;</button>
-      <h2 class="section-heading">Become a <span class="text-primary">Client</span></h2>
-      <p class="section-subtitle">Fill out this form and our team will contact you.</p>
-      
-      <form id="clientForm" action="https://formsubmit.co/info@ra-logistics.in" method="POST">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://siddhi124github.github.io/ra-lo/thankyou.html">
-        
-        <div class="form-group">
-          <label for="company" class="form-label">Company Name</label>
-          <input type="text" id="company" name="company" class="form-control" required>
-        </div>
-           
-        <div class="form-group">
-          <label for="email" class="form-label">Email Address</label>
-          <input type="email" id="email" name="email" class="form-control" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="phone" class="form-label">Phone Number</label>
-          <input type="tel" id="phone" name="phone" class="form-control" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="requirements" class="form-label">Warehouse Requirements</label>
-          <select id="requirements" name="requirements" class="form-control" required>
-            <option value="">Select your needs</option>
-            <option value="new-construction">New Construction</option>
-            <option value="expansion">Facility Expansion</option>
-            <option value="automation">Automation Solutions</option>
-            <option value="cold-storage">Cold Storage</option>
-            <option value="consulting">Consulting Services</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label for="message" class="form-label">Additional Details</label>
-          <textarea id="message" name="message" class="form-control"></textarea>
-        </div>
-        
-        <button type="submit" class="btn btn-primary btn-lg">
-          Submit Request <i class="fas fa-paper-plane btn-icon"></i>
-        </button>
-      </form>
-    </div>
-  </div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -1011,7 +637,6 @@
         <h3>Contact Info</h3>
         <ul>
           <li><i class="fas fa-map-marker-alt"></i> Unit No-1007, 10 Th floor Supreme Headquater corner of 14th Road and 33rd Road Bandra West Mumbai-400050 Maharashtra, India</li>
-          <li><i class="fas fa-map-marker-alt"></i> Survey No. 83/17, 83/18, 84/4, 84/8, 84/9, Survey No.30/01 to 30/6, 31/1 to 31/3, 32, 86/5/A/3, 86/11, POGAON, POGAON, BHIWANDI, Kharbav, Thane, Maharashtra, 421302</li>
           <li><i class="fas fa-envelope"></i> hr@ra-logistics.in</li>
         </ul>
       </div>
@@ -1023,11 +648,6 @@
       </p>
     </div>
   </footer>
-
-  <!-- Back to Top Button -->
-  <a href="#home" class="back-to-top" id="backToTop">
-    <i class="fas fa-arrow-up"></i>
-  </a>
 
   <script>
     // Mobile Menu Toggle
@@ -1049,58 +669,13 @@
       });
     });
   
-    // Scroll effects
+    // Navbar scroll effect
     window.addEventListener('scroll', () => {
       const navbar = document.querySelector('.navbar');
-      const backToTop = document.getElementById('backToTop');
-      
       if (window.scrollY > 100) {
         navbar.classList.add('scrolled');
-        backToTop.classList.add('active');
       } else {
         navbar.classList.remove('scrolled');
-        backToTop.classList.remove('active');
-      }
-    });
-    
-    // Scroll reveal animation
-    function revealOnScroll() {
-      const reveals = document.querySelectorAll('.reveal');
-      
-      for (let i = 0; i < reveals.length; i++) {
-        const windowHeight = window.innerHeight;
-        const revealTop = reveals[i].getBoundingClientRect().top;
-        const revealPoint = 100;
-        
-        if (revealTop < windowHeight - revealPoint) {
-          reveals[i].classList.add('active');
-        }
-      }
-    }
-    
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
-
-    // Become Client Modal
-    const becomeClientBtn = document.getElementById('becomeClientBtn');
-    const becomeClientModal = document.getElementById('becomeClientModal');
-    const closeModal = document.getElementById('closeModal');
-
-    becomeClientBtn.addEventListener('click', () => {
-      becomeClientModal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    });
-
-    closeModal.addEventListener('click', () => {
-      becomeClientModal.style.display = 'none';
-      document.body.style.overflow = 'auto';
-    });
-
-    // Close modal when clicking outside
-    window.addEventListener('click', (e) => {
-      if (e.target === becomeClientModal) {
-        becomeClientModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
       }
     });
   </script>
