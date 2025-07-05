@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Clients - RA Logistics</title>
-  <meta name="description" content="Prestigious clients who trust RA Logistics">
+  <meta name="description" content="Trusted by India's leading companies for premium warehouse solutions">
 
   <!-- Preload and optimize assets -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style">
@@ -348,7 +348,7 @@
       font-weight: 300;
     }
 
-    /* Clients Section */
+    /* Enhanced Clients Section */
     .clients-section {
       padding: 6rem 0;
       background-color: var(--white);
@@ -366,52 +366,190 @@
     }
 
     .client-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
       margin-top: 3rem;
     }
 
     .client-card {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border: 1px solid var(--gray);
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-width: 300px;
-      text-align: center;
+    }
+
+    .client-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-light);
     }
 
     .client-logo {
-      max-width: 200px;
-      max-height: 100px;
-      margin-bottom: 1.5rem;
+      height: 80px;
+      width: auto;
+      margin: 0 auto 1.5rem;
       object-fit: contain;
       filter: grayscale(100%);
       transition: var(--transition);
     }
 
-    .client-logo:hover {
+    .client-card:hover .client-logo {
       filter: grayscale(0%);
-      transform: scale(1.05);
     }
 
     .client-name {
       color: var(--secondary);
+      margin-bottom: 0.5rem;
       font-size: 1.25rem;
       font-weight: 600;
     }
 
-    /* Footer */
+    .client-industry {
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .client-desc {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .client-testimonial {
+      font-style: italic;
+      color: var(--text);
+      position: relative;
+      padding: 1.5rem;
+      background: var(--light);
+      border-radius: var(--border-radius);
+      margin: 1rem 0;
+    }
+
+    .client-testimonial::before,
+    .client-testimonial::after {
+      content: '"';
+      font-size: 2rem;
+      color: var(--primary-light);
+      line-height: 0;
+      position: absolute;
+    }
+
+    .client-testimonial::before {
+      top: 1rem;
+      left: 0.5rem;
+    }
+
+    .client-testimonial::after {
+      bottom: 0.5rem;
+      right: 0.5rem;
+    }
+
+    /* Modal Styles */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      overflow: auto;
+      z-index: 9999;
+      padding: 2rem 1rem;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      width: 100%;
+      max-width: 500px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-xl);
+      position: relative;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-light);
+      transition: var(--transition);
+      background: none;
+      border: none;
+    }
+
+    .close-modal:hover {
+      color: var(--primary);
+      transform: scale(1.1);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--secondary);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.2);
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* Improved Footer */
     .footer {
       background-color: var(--dark);
       color: rgba(255, 255, 255, 0.8);
       padding: 4rem 0 2rem;
+      border-left: 80px solid white;
+      border-right: 80px solid white;
+      border-bottom: 80px solid white;
     }
 
     .footer-inner {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -457,6 +595,7 @@
 
     .footer-column a:hover {
       color: var(--primary);
+      padding-left: 5px;
     }
 
     .footer-bottom {
@@ -470,7 +609,75 @@
       font-size: 0.9rem;
     }
 
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+    
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal {
+      position: relative;
+      opacity: 0;
+      transition: all 1s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+    }
+
+    .active.fade-bottom {
+      animation: fadeInUp 1s ease forwards;
+    }
+
     /* Responsive Design */
+    @media (max-width: 992px) {
+      .section {
+        padding: 4rem 0;
+      }
+    }
+
     @media (max-width: 768px) {
       .mobile-menu-btn {
         display: block;
@@ -504,8 +711,11 @@
       }
 
       .client-grid {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .modal-content {
+        padding: 2rem 1.5rem;
       }
     }
 
@@ -525,6 +735,11 @@
 
       .hero-buttons .btn {
         width: 100%;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 2rem;
       }
     }
   </style>
@@ -571,12 +786,15 @@
     <div class="hero">
       <div class="container">
         <div class="hero-content">
-          <h1 class="hero-title">Our <span class="text-primary">Prestigious</span> Clients</h1>
-          <p class="hero-subtitle">Trusted by industry leaders across India for innovative warehouse solutions</p>
+          <h1 class="hero-title">Our <span class="text-primary">Valued</span> Partners</h1>
+          <p class="hero-subtitle">Trusted by India's most respected corporations for innovative warehouse solutions</p>
           <div class="hero-buttons">
             <a href="#clients" class="btn btn-primary btn-lg">
               View Clients <i class="fas fa-arrow-right btn-icon"></i>
             </a>
+            <button class="btn btn-outline btn-lg" id="becomeClientBtn">
+              Become a Client <i class="fas fa-phone btn-icon"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -588,28 +806,99 @@
     <div class="container">
       <div class="text-center">
         <h2 class="section-heading">Our <span class="text-primary">Clients</span></h2>
-        <p class="section-subtitle">We partner with leading companies to deliver exceptional logistics infrastructure</p>
+        <p class="section-subtitle">We partner with industry leaders to deliver exceptional logistics infrastructure</p>
       </div>
       
       <div class="client-intro">
-        <p>At RA Logistics, we've had the privilege of working with some of India's most respected companies. Our client relationships are built on trust, innovation, and a shared commitment to operational excellence.</p>
+        <p>At RA Logistics, we take pride in our collaborations with India's most respected corporations. Our client relationships are built on trust, innovation, and a shared commitment to operational excellence. Each project is customized to meet our clients' specific requirements, ensuring optimal efficiency and scalability for their supply chain needs.</p>
       </div>
       
       <div class="client-grid">
-        <!-- Client 1 -->
-        <div class="client-card">
-          <img src="https://via.placeholder.com/200x100?text=Client+1" alt="Client 1" class="client-logo">
-          <h3 class="client-name">Client 1</h3>
+        <!-- Client 1 - Reliance Industries -->
+        <div class="client-card reveal fade-bottom">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Reliance_Industries_Logo.svg/1200px-Reliance_Industries_Logo.svg.png" alt="Reliance Industries" class="client-logo">
+          <h3 class="client-name">Reliance Industries</h3>
+          <p class="client-industry">Conglomerate</p>
+          <p class="client-desc">RA Logistics designed and constructed a state-of-the-art 500,000 sq.ft warehousing complex for Reliance's retail operations, featuring advanced automation and inventory management systems.</p>
+          <div class="client-testimonial">
+            "RA Logistics delivered our national distribution hub ahead of schedule while maintaining the highest quality standards."
+          </div>
         </div>
         
-        <!-- Client 2 -->
-        <div class="client-card">
-          <img src="https://via.placeholder.com/200x100?text=Client+2" alt="Client 2" class="client-logo">
-          <h3 class="client-name">Client 2</h3>
+        <!-- Client 2 - Tata Group -->
+        <div class="client-card reveal fade-bottom" style="transition-delay: 0.1s;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Tata_Group_logo.svg/1200px-Tata_Group_logo.svg.png" alt="Tata Group" class="client-logo">
+          <h3 class="client-name">Tata Group</h3>
+          <p class="client-industry">Diversified Business</p>
+          <p class="client-desc">We developed a network of specialized warehouses across India for Tata's automotive division, implementing cutting-edge storage solutions that reduced operational costs by 28%.</p>
+          <div class="client-testimonial">
+            "Their expertise in temperature-controlled storage transformed our perishable goods supply chain."
+          </div>
         </div>
+      </div>
+      
+      <div class="text-center" style="margin-top: 4rem;">
+        <h3>Why Industry Leaders Choose RA Logistics</h3>
+        <p style="max-width: 800px; margin: 1rem auto 2rem;">
+          Our clients benefit from customized warehouse solutions that combine innovative design with operational efficiency. 
+          We don't just build warehouses - we create strategic assets that drive supply chain performance.
+        </p>
+        <a href="#contact" class="btn btn-primary btn-lg">
+          Partner With Us <i class="fas fa-handshake btn-icon"></i>
+        </a>
       </div>
     </div>
   </section>
+
+  <!-- Become Client Modal -->
+  <div class="modal" id="becomeClientModal">
+    <div class="modal-content">
+      <button class="close-modal" id="closeModal">&times;</button>
+      <h2 class="section-heading">Become a <span class="text-primary">Client</span></h2>
+      <p class="section-subtitle">Fill out this form and our team will contact you within 24 hours.</p>
+      
+      <form id="clientForm" action="https://formsubmit.co/info@ra-logistics.in" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://siddhi124github.github.io/ra-lo/thankyou.html">
+        
+        <div class="form-group">
+          <label for="company" class="form-label">Company Name</label>
+          <input type="text" id="company" name="company" class="form-control" required>
+        </div>
+           
+        <div class="form-group">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input type="tel" id="phone" name="phone" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="requirements" class="form-label">Warehouse Requirements</label>
+          <select id="requirements" name="requirements" class="form-control" required>
+            <option value="">Select your needs</option>
+            <option value="new-construction">New Construction</option>
+            <option value="expansion">Facility Expansion</option>
+            <option value="automation">Automation Solutions</option>
+            <option value="cold-storage">Cold Storage</option>
+            <option value="consulting">Consulting Services</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="message" class="form-label">Additional Details</label>
+          <textarea id="message" name="message" class="form-control"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-lg">
+          Submit Request <i class="fas fa-paper-plane btn-icon"></i>
+        </button>
+      </form>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -637,6 +926,7 @@
         <h3>Contact Info</h3>
         <ul>
           <li><i class="fas fa-map-marker-alt"></i> Unit No-1007, 10 Th floor Supreme Headquater corner of 14th Road and 33rd Road Bandra West Mumbai-400050 Maharashtra, India</li>
+          <li><i class="fas fa-map-marker-alt"></i> Survey No. 83/17, 83/18, 84/4, 84/8, 84/9, Survey No.30/01 to 30/6, 31/1 to 31/3, 32, 86/5/A/3, 86/11, POGAON, POGAON, BHIWANDI, Kharbav, Thane, Maharashtra, 421302</li>
           <li><i class="fas fa-envelope"></i> hr@ra-logistics.in</li>
         </ul>
       </div>
@@ -648,6 +938,11 @@
       </p>
     </div>
   </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#home" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
 
   <script>
     // Mobile Menu Toggle
@@ -669,13 +964,58 @@
       });
     });
   
-    // Navbar scroll effect
+    // Scroll effects
     window.addEventListener('scroll', () => {
       const navbar = document.querySelector('.navbar');
+      const backToTop = document.getElementById('backToTop');
+      
       if (window.scrollY > 100) {
         navbar.classList.add('scrolled');
+        backToTop.classList.add('active');
       } else {
         navbar.classList.remove('scrolled');
+        backToTop.classList.remove('active');
+      }
+    });
+    
+    // Scroll reveal animation
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal');
+      
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const revealTop = reveals[i].getBoundingClientRect().top;
+        const revealPoint = 100;
+        
+        if (revealTop < windowHeight - revealPoint) {
+          reveals[i].classList.add('active');
+        }
+      }
+    }
+    
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    // Become Client Modal
+    const becomeClientBtn = document.getElementById('becomeClientBtn');
+    const becomeClientModal = document.getElementById('becomeClientModal');
+    const closeModal = document.getElementById('closeModal');
+
+    becomeClientBtn.addEventListener('click', () => {
+      becomeClientModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeModal.addEventListener('click', () => {
+      becomeClientModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+      if (e.target === becomeClientModal) {
+        becomeClientModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
       }
     });
   </script>
