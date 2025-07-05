@@ -575,12 +575,19 @@
 }
 
 .stat-clean-item {
-  padding: 1rem;
+  padding: 1.5rem 1rem;
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+}
+
+.stat-clean-item:hover {
+  transform: translateY(-6px);
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .stat-clean-item i {
-  font-size: 48px;
-  color: #f9c038; /* Gold-ish icon */
+  font-size: 50px;
+  color: #f9c038;
   margin-bottom: 1rem;
   display: inline-block;
 }
@@ -593,15 +600,16 @@
 }
 
 .stat-clean-item h2 span {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 500;
 }
 
 .stat-clean-item p {
   font-size: 1rem;
-  color: #cfd9e2;
+  color: #e0ecf3;
   margin-top: 0.5rem;
 }
+
 
 
     /* Expertise Section */
@@ -1140,43 +1148,45 @@
     </div>
   </section>
 
+<!-- Remix Icons CDN -->
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+
 <!-- Stats Section -->
 <section class="stats-clean">
   <div class="stats-clean-container">
 
     <div class="stat-clean-item">
-      <i class="ri-award-line"></i>
+      <i class="ri-medal-line"></i>
       <h2>8+</h2>
       <p>Years of Experience</p>
     </div>
 
     <div class="stat-clean-item">
-      <i class="ri-map-pin-line"></i>
+      <i class="ri-earth-line"></i>
       <h2>550 <span>Acres</span></h2>
       <p>Total Land Bank</p>
     </div>
 
     <div class="stat-clean-item">
-      <i class="ri-stack-line"></i>
+      <i class="ri-building-line"></i>
       <h2>14.1 Mn <span>Sq.Ft</span></h2>
       <p>Land Under Development</p>
     </div>
 
     <div class="stat-clean-item">
-      <i class="ri-map-line"></i>
+      <i class="ri-map-pin-user-line"></i>
       <h2>3</h2>
       <p>Locations</p>
     </div>
 
     <div class="stat-clean-item">
-      <i class="ri-building-2-line"></i>
+      <i class="ri-community-line"></i>
       <h2>2</h2>
       <p>Current Projects</p>
     </div>
 
   </div>
 </section>
-
 
 
 
