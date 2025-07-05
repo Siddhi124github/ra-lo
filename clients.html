@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Clients - RA Logistics</title>
-  <meta name="description" content="Discover the prestigious clients who trust RA Logistics for their warehouse and logistics solutions.">
+  <meta name="description" content="Prestigious clients who trust RA Logistics">
 
-  <!-- Preload and optimize assets -->
+  <!-- Same assets as index.html -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
-  <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
 
   <style>
-    /* Reuse all the existing styles from main page */
+    /* EXACT SAME CSS AS INDEX.HTML */
     :root {
       --primary: #0056b3;
       --primary-light: #3a7fc4;
@@ -40,7 +38,6 @@
       --max-width: 1400px;
     }
 
-    /* All other existing styles remain the same */
     * {
       margin: 0;
       padding: 0;
@@ -48,74 +45,330 @@
       font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     }
 
-    /* ... (keep all existing styles) ... */
+    html {
+      scroll-behavior: smooth;
+      font-size: 100%;
+    }
 
-    /* Clients Section Specific Styles */
-    .clients-hero {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      padding: 8rem 0 6rem;
-      text-align: center;
+    body {
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    ::selection {
+      background-color: var(--primary);
       color: white;
     }
 
-    .clients-hero h1 {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+
+    p {
       margin-bottom: 1.5rem;
     }
 
-    .clients-hero p {
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      font-size: 1.25rem;
-      opacity: 0.9;
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
     }
 
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-primary {
+      color: var(--primary);
+    }
+
+    .bg-primary {
+      background-color: var(--primary);
+    }
+
+    .bg-secondary {
+      background-color: var(--secondary);
+    }
+
+    .bg-light {
+      background-color: var(--light);
+    }
+
+    .bg-white {
+      background-color: var(--white);
+    }
+
+    .section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .section-heading {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .text-center .section-heading::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .section-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 2rem;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      border: 2px solid transparent;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border-color: white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background-color: white;
+      color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-lg {
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+    }
+
+    .btn-icon {
+      margin-left: 0.5rem;
+    }
+
+    /* Header/Navbar - Same as index.html */
+    header {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .header-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -2;
+      background-image: url("Screenshot 2025-06-04 200537.png");
+    }
+
+    .header-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(11, 28, 44, 0.9) 0%, rgba(16, 42, 67, 0.8) 100%);
+      z-index: -1;
+    }
+
+    .navbar {
+      width: 100%;
+      padding: 0.8rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      transition: all 0.4s ease;
+      background-color: rgba(255, 255, 255, 0.98);
+    }
+
+    .navbar.scrolled {
+      background-color: rgba(255, 255, 255, 0.98);
+      padding: 1rem 0;
+      box-shadow: var(--shadow-md);
+    }
+
+    .navbar.scrolled .nav-logo img {
+      height: 50px;
+    }
+
+    .navbar.scrolled .nav-link {
+      color: var(--secondary);
+    }
+
+    .navbar.scrolled .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      height: 60px;
+      transition: all 0.4s ease;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-item {
+      margin-left: 2rem;
+      position: relative;
+    }
+
+    .nav-link {
+      color: var(--dark);
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: width 0.4s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link.active {
+      color: var(--primary);
+    }
+
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--dark);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 6rem 0;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      margin-bottom: 1.5rem;
+      color: white;
+      line-height: 1.2;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
+
+    /* Clients Section Specific Styles */
     .clients-section {
       padding: 6rem 0;
       background-color: var(--white);
     }
 
-    .client-categories {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 3rem;
-    }
-
-    .client-category-btn {
-      padding: 0.75rem 1.5rem;
-      background: var(--gray);
-      border: none;
-      border-radius: 50px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .client-category-btn.active,
-    .client-category-btn:hover {
-      background: var(--primary);
-      color: white;
-    }
-
-    .clients-grid {
+    .client-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
+      margin-top: 3rem;
     }
 
     .client-card {
-      background: white;
+      background: var(--white);
       border-radius: var(--border-radius);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       padding: 2rem;
       text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
     }
 
     .client-card:hover {
@@ -124,169 +377,215 @@
     }
 
     .client-logo {
-      height: 100px;
-      width: 100%;
+      max-width: 180px;
+      max-height: 100px;
+      margin: 0 auto 1.5rem;
+      display: block;
       object-fit: contain;
-      margin-bottom: 1.5rem;
-      padding: 0 1rem;
-    }
-
-    .client-info {
-      flex: 1;
     }
 
     .client-name {
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
       color: var(--secondary);
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
     }
 
     .client-industry {
       color: var(--primary);
       font-weight: 500;
-      margin-bottom: 1rem;
-      font-size: 0.9rem;
     }
 
-    .client-testimonial {
-      font-style: italic;
-      color: var(--text-light);
-      margin-bottom: 1.5rem;
-      position: relative;
+    /* Footer - Same as index.html */
+    .footer {
+      background-color: var(--dark);
+      color: rgba(255, 255, 255, 0.8);
+      width: 100%; 
+      margin: 0;
+      padding: 4rem 3rem 2rem;
+      box-sizing: border-box;
     }
 
-    .client-testimonial::before,
-    .client-testimonial::after {
-      content: '"';
-      font-size: 1.5rem;
-      color: var(--primary-light);
-      opacity: 0.5;
-    }
-
-    .client-details-btn {
-      background: var(--gray);
-      color: var(--secondary);
-      border: none;
-      padding: 0.5rem 1.25rem;
-      border-radius: 50px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: var(--transition);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .client-details-btn:hover {
-      background: var(--primary);
-      color: white;
-    }
-
-    .client-stats {
+    .footer-inner {
       display: flex;
-      justify-content: space-around;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
       width: 100%;
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--gray);
     }
 
-    .client-stat {
-      text-align: center;
+    .footer-column {
+      flex: 1 1 300px;
+      min-width: 280px;
     }
 
-    .client-stat-value {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .client-stat-label {
-      font-size: 0.8rem;
-      color: var(--text-light);
-    }
-
-    .testimonials-section {
-      background: var(--light);
-      padding: 6rem 0;
-    }
-
-    .testimonial-card {
-      background: white;
-      border-radius: var(--border-radius);
-      padding: 2rem;
-      box-shadow: var(--shadow-sm);
-      margin: 0 auto;
-      max-width: 800px;
+    .footer-column h3 {
+      color: white;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
       position: relative;
     }
 
-    .testimonial-card::before {
+    .footer-column h3::after {
       content: '';
       position: absolute;
-      top: 0;
       left: 0;
-      width: 100%;
-      height: 5px;
-      background: var(--primary);
+      bottom: -8px;
+      width: 40px;
+      height: 2px;
+      background-color: var(--primary);
     }
 
-    .testimonial-content {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      margin-bottom: 2rem;
-      position: relative;
-      padding-left: 2rem;
+    .footer-column ul {
+      list-style: none;
+      padding-left: 0;
     }
 
-    .testimonial-content::before {
-      content: '"';
-      position: absolute;
-      left: 0;
-      top: -1rem;
-      font-size: 4rem;
-      color: var(--primary-light);
-      opacity: 0.2;
-      line-height: 1;
+    .footer-column li {
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
     }
 
-    .testimonial-author {
+    .footer-column a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-column a:hover {
+      color: var(--primary);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 3rem;
+    }
+
+    .copyright {
+      font-size: 0.9rem;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50%;
       display: flex;
       align-items: center;
-      gap: 1rem;
+      justify-content: center;
+      font-size: 1.25rem;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+    
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
     }
 
-    .testimonial-author-img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--primary-light);
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    .testimonial-author-info h4 {
-      margin-bottom: 0.25rem;
-      color: var(--secondary);
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .testimonial-author-info p {
-      color: var(--text-light);
-      font-size: 0.9rem;
+    .reveal {
+      position: relative;
+      opacity: 0;
+      transition: all 1s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+    }
+
+    .active.fade-bottom {
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .section {
+        padding: 4rem 0;
+      }
     }
 
     @media (max-width: 768px) {
-      .clients-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      .mobile-menu-btn {
+        display: block;
       }
-      
-      .client-card {
-        padding: 1.5rem;
+
+      .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        transition: all 0.4s ease;
+        box-shadow: var(--shadow-md);
+      }
+
+      .nav-menu.active {
+        left: 0;
+      }
+
+      .nav-item {
+        margin: 1rem 0;
+      }
+
+      .nav-link {
+        color: var(--secondary);
+        font-size: 1.2rem;
+      }
+
+      .client-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+    }
+
+    @media (max-width: 576px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      .section-heading {
+        font-size: 2rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Header & Navigation - Same as main page -->
+  <!-- Header - Same as index.html -->
   <header id="home">
     <div class="header-bg"></div>
     <div class="header-overlay"></div>
@@ -323,236 +622,80 @@
         </ul>
       </div>
     </nav>
+    
+    <div class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Our <span class="text-primary">Prestigious</span> Clients</h1>
+          <p class="hero-subtitle">Trusted by industry leaders across India for warehouse solutions</p>
+          <div class="hero-buttons">
+            <a href="#clients" class="btn btn-primary btn-lg">
+              View Clients <i class="fas fa-arrow-right btn-icon"></i>
+            </a>
+            <a href="index.html#contact" class="btn btn-outline btn-lg">
+              Become a Client <i class="fas fa-phone btn-icon"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <!-- Clients Hero Section -->
-  <section class="clients-hero">
-    <div class="container">
-      <h1 class="reveal fade-bottom">Our Valued Clients</h1>
-      <p class="reveal fade-bottom" style="transition-delay: 0.1s;">We're proud to partner with industry leaders who trust us with their logistics infrastructure needs.</p>
-      <a href="index.html#contact" class="btn btn-outline btn-lg reveal fade-bottom" style="transition-delay: 0.2s;">
-        Become a Client <i class="fas fa-arrow-right btn-icon"></i>
-      </a>
-    </div>
-  </section>
-
-  <!-- Clients Grid Section -->
-  <section class="clients-section">
+  <!-- Clients Section -->
+  <section id="clients" class="clients-section">
     <div class="container">
       <div class="text-center">
-        <h2 class="section-heading">Client <span class="text-primary">Portfolio</span></h2>
-        <p class="section-subtitle">Discover the prestigious companies that rely on our warehouse solutions</p>
+        <h2 class="section-heading">Our <span class="text-primary">Clients</span></h2>
+        <p class="section-subtitle">Trusted by leading companies across industries</p>
       </div>
-
-      <div class="client-categories">
-        <button class="client-category-btn active" data-category="all">All Industries</button>
-        <button class="client-category-btn" data-category="retail">Retail</button>
-        <button class="client-category-btn" data-category="manufacturing">Manufacturing</button>
-        <button class="client-category-btn" data-category="ecommerce">E-commerce</button>
-        <button class="client-category-btn" data-category="logistics">Logistics</button>
-      </div>
-
-      <div class="clients-grid">
+      
+      <div class="client-grid">
         <!-- Client 1 -->
-        <div class="client-card reveal fade-bottom" data-category="retail">
-          <img src="https://via.placeholder.com/200x100?text=Client+Logo" alt="Client Logo" class="client-logo">
-          <div class="client-info">
-            <h3 class="client-name">Reliance Retail</h3>
-            <p class="client-industry">Retail & Distribution</p>
-            <p class="client-testimonial">RA Logistics built our regional distribution center with exceptional attention to detail.</p>
-            <button class="client-details-btn">
-              View Project <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-          <div class="client-stats">
-            <div class="client-stat">
-              <div class="client-stat-value">50,000</div>
-              <div class="client-stat-label">Sq. Ft.</div>
-            </div>
-            <div class="client-stat">
-              <div class="client-stat-value">2019</div>
-              <div class="client-stat-label">Completed</div>
-            </div>
-          </div>
+        <div class="client-card reveal fade-bottom">
+          <img src="https://via.placeholder.com/180x100?text=Client+Logo" alt="Client Logo" class="client-logo">
+          <h3 class="client-name">Reliance Retail</h3>
+          <p class="client-industry">Retail & Distribution</p>
         </div>
-
+        
         <!-- Client 2 -->
-        <div class="client-card reveal fade-bottom" style="transition-delay: 0.1s;" data-category="manufacturing">
-          <img src="https://via.placeholder.com/200x100?text=Client+Logo" alt="Client Logo" class="client-logo">
-          <div class="client-info">
-            <h3 class="client-name">Tata Steel</h3>
-            <p class="client-industry">Manufacturing</p>
-            <p class="client-testimonial">Their industrial storage solutions transformed our supply chain efficiency.</p>
-            <button class="client-details-btn">
-              View Project <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-          <div class="client-stats">
-            <div class="client-stat">
-              <div class="client-stat-value">120,000</div>
-              <div class="client-stat-label">Sq. Ft.</div>
-            </div>
-            <div class="client-stat">
-              <div class="client-stat-value">2020</div>
-              <div class="client-stat-label">Completed</div>
-            </div>
-          </div>
+        <div class="client-card reveal fade-bottom" style="transition-delay: 0.1s;">
+          <img src="https://via.placeholder.com/180x100?text=Client+Logo" alt="Client Logo" class="client-logo">
+          <h3 class="client-name">Tata Steel</h3>
+          <p class="client-industry">Manufacturing</p>
         </div>
-
+        
         <!-- Client 3 -->
-        <div class="client-card reveal fade-bottom" style="transition-delay: 0.2s;" data-category="ecommerce">
-          <img src="https://via.placeholder.com/200x100?text=Client+Logo" alt="Client Logo" class="client-logo">
-          <div class="client-info">
-            <h3 class="client-name">Flipkart</h3>
-            <p class="client-industry">E-commerce</p>
-            <p class="client-testimonial">Their last-mile hubs helped us reduce delivery times by 30%.</p>
-            <button class="client-details-btn">
-              View Project <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-          <div class="client-stats">
-            <div class="client-stat">
-              <div class="client-stat-value">75,000</div>
-              <div class="client-stat-label">Sq. Ft.</div>
-            </div>
-            <div class="client-stat">
-              <div class="client-stat-value">2021</div>
-              <div class="client-stat-label">Completed</div>
-            </div>
-          </div>
+        <div class="client-card reveal fade-bottom" style="transition-delay: 0.2s;">
+          <img src="https://via.placeholder.com/180x100?text=Client+Logo" alt="Client Logo" class="client-logo">
+          <h3 class="client-name">Flipkart</h3>
+          <p class="client-industry">E-commerce</p>
         </div>
-
+        
         <!-- Client 4 -->
-        <div class="client-card reveal fade-bottom" style="transition-delay: 0.3s;" data-category="logistics">
-          <img src="https://via.placeholder.com/200x100?text=Client+Logo" alt="Client Logo" class="client-logo">
-          <div class="client-info">
-            <h3 class="client-name">DHL Supply Chain</h3>
-            <p class="client-industry">Logistics</p>
-            <p class="client-testimonial">RA's automated warehouse design increased our throughput by 45%.</p>
-            <button class="client-details-btn">
-              View Project <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-          <div class="client-stats">
-            <div class="client-stat">
-              <div class="client-stat-value">200,000</div>
-              <div class="client-stat-label">Sq. Ft.</div>
-            </div>
-            <div class="client-stat">
-              <div class="client-stat-value">2022</div>
-              <div class="client-stat-label">Completed</div>
-            </div>
-          </div>
+        <div class="client-card reveal fade-bottom" style="transition-delay: 0.3s;">
+          <img src="https://via.placeholder.com/180x100?text=Client+Logo" alt="Client Logo" class="client-logo">
+          <h3 class="client-name">DHL Supply Chain</h3>
+          <p class="client-industry">Logistics</p>
         </div>
-
+        
         <!-- Client 5 -->
-        <div class="client-card reveal fade-bottom" style="transition-delay: 0.4s;" data-category="retail">
-          <img src="https://via.placeholder.com/200x100?text=Client+Logo" alt="Client Logo" class="client-logo">
-          <div class="client-info">
-            <h3 class="client-name">Aditya Birla Fashion</h3>
-            <p class="client-industry">Retail</p>
-            <p class="client-testimonial">Their temperature-controlled storage protects our premium fabrics.</p>
-            <button class="client-details-btn">
-              View Project <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-          <div class="client-stats">
-            <div class="client-stat">
-              <div class="client-stat-value">65,000</div>
-              <div class="client-stat-label">Sq. Ft.</div>
-            </div>
-            <div class="client-stat">
-              <div class="client-stat-value">2023</div>
-              <div class="client-stat-label">Completed</div>
-            </div>
-          </div>
+        <div class="client-card reveal fade-bottom" style="transition-delay: 0.4s;">
+          <img src="https://via.placeholder.com/180x100?text=Client+Logo" alt="Client Logo" class="client-logo">
+          <h3 class="client-name">Aditya Birla Fashion</h3>
+          <p class="client-industry">Retail</p>
         </div>
-
+        
         <!-- Client 6 -->
-        <div class="client-card reveal fade-bottom" style="transition-delay: 0.5s;" data-category="manufacturing">
-          <img src="https://via.placeholder.com/200x100?text=Client+Logo" alt="Client Logo" class="client-logo">
-          <div class="client-info">
-            <h3 class="client-name">Mahindra Auto</h3>
-            <p class="client-industry">Automotive</p>
-            <p class="client-testimonial">Their parts warehouse design reduced our inventory costs by 22%.</p>
-            <button class="client-details-btn">
-              View Project <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-          <div class="client-stats">
-            <div class="client-stat">
-              <div class="client-stat-value">150,000</div>
-              <div class="client-stat-label">Sq. Ft.</div>
-            </div>
-            <div class="client-stat">
-              <div class="client-stat-value">2023</div>
-              <div class="client-stat-label">Completed</div>
-            </div>
-          </div>
+        <div class="client-card reveal fade-bottom" style="transition-delay: 0.5s;">
+          <img src="https://via.placeholder.com/180x100?text=Client+Logo" alt="Client Logo" class="client-logo">
+          <h3 class="client-name">Mahindra Auto</h3>
+          <p class="client-industry">Automotive</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials Section -->
-  <section class="testimonials-section">
-    <div class="container">
-      <div class="text-center">
-        <h2 class="section-heading">Client <span class="text-primary">Testimonials</span></h2>
-        <p class="section-subtitle">Hear what our clients say about working with RA Logistics</p>
-      </div>
-
-      <div class="testimonial-card reveal fade-bottom">
-        <div class="testimonial-content">
-          RA Logistics transformed our supply chain operations with their innovative warehouse design. Their team delivered our 150,000 sq. ft. distribution center ahead of schedule and under budget. The facility's automation integration has improved our efficiency by 40% year-over-year.
-        </div>
-        <div class="testimonial-author">
-          <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Client" class="testimonial-author-img">
-          <div class="testimonial-author-info">
-            <h4>Rajesh Kumar</h4>
-            <p>COO, Reliance Retail</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats Section - Same as main page -->
-  <section class="stats-clean">
-    <div class="stats-clean-container">
-      <div class="stat-clean-item">
-        <i class="ri-medal-line"></i>
-        <h2>8+</h2>
-        <p>Years of Experience</p>
-      </div>
-
-      <div class="stat-clean-item">
-        <i class="ri-earth-line"></i>
-        <h2>550 <span>Acres</span></h2>
-        <p>Total Land Bank</p>
-      </div>
-
-      <div class="stat-clean-item">
-        <i class="ri-building-line"></i>
-        <h2>14.1 Mn <span>Sq.Ft</span></h2>
-        <p>Land Under Development</p>
-      </div>
-
-      <div class="stat-clean-item">
-        <i class="ri-map-pin-user-line"></i>
-        <h2>3</h2>
-        <p>Locations</p>
-      </div>
-
-      <div class="stat-clean-item">
-        <i class="ri-community-line"></i>
-        <h2>2</h2>
-        <p>Current Projects</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer - Same as main page -->
+  <!-- Footer - Same as index.html -->
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-column">
@@ -596,7 +739,7 @@
     <i class="fas fa-arrow-up"></i>
   </a>
 
-  <!-- Same scripts as main page -->
+  <!-- Same JavaScript as index.html -->
   <script>
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navMenu = document.getElementById('navMenu');
@@ -645,26 +788,6 @@
     
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);
-
-    // Client category filtering
-    document.querySelectorAll('.client-category-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Update active button
-        document.querySelectorAll('.client-category-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        const category = btn.dataset.category;
-        
-        // Filter client cards
-        document.querySelectorAll('.client-card').forEach(card => {
-          if (category === 'all' || card.dataset.category === category) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
   </script>
 </body>
 </html>
