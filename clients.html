@@ -459,16 +459,34 @@
       display: flex;
     }
 
-   .modal-content {
+  .modal-content {
   background: white;
-  padding: 2.5rem;
+  padding: 1.8rem; /* was 2.5rem */
   border-radius: var(--border-radius);
   width: 90%;
-  max-width: 420px; /* Reduced from 500px */
+  max-width: 420px;
   box-shadow: var(--shadow-xl);
   position: relative;
   animation: fadeInUp 0.4s ease-out;
 }
+
+.modal-content h2 {
+  font-size: 1.3rem; /* was larger */
+  margin-bottom: 0.8rem; /* was more */
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem; /* was 1.2rem+ */
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  padding: 0.5rem 0.8rem; /* smaller height */
+}
+
 
 
     .close-modal {
@@ -517,23 +535,24 @@
     }
 
     /* Improved Footer */
-    .footer {
-      background-color: var(--dark);
-      color: rgba(255, 255, 255, 0.8);
-      padding: 4rem 0 2rem;
-      border-top: 15px solid var(--white);
-    }
 
-   .footer-inner {
-  max-width: 1200px; /* Reduced width for visual margin */
+
+ .footer {
+  background-color: var(--dark);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 4rem 0 2rem;
+}
+
+.footer-inner {
+  max-width: 1100px; /* shrink width */
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 2rem;
-  background-color: var(--dark); /* keeps footer styling intact */
 }
+
 
 
     .footer-column {
