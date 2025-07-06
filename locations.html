@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Locations - RA Logistics</title>
+  <meta name="description" content="Strategic locations of RA Logistics warehouses across India">
+
+  <!-- Preload and optimize assets -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <style>
+    :root {
+      --primary: #0056b3;
+      --primary-light: #3a7fc4;
+      --primary-dark: #003d82;
+      --secondary: #102a43;
+      --secondary-light: #2d4a66;
+      --light: #f5f7fa;
+      --dark: #0b1c2c;
+      --text: #334e68;
+      --text-light: #627d98;
+      --white: #ffffff;
+      --gray: #e9edf2;
+      --accent: #ff7d00;
+      --success: #28a745;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+      --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+      --border-radius: 8px;
+      --border-radius-lg: 12px;
+      --max-width: 1400px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 100%;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    ::selection {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-primary {
+      color: var(--primary);
+    }
+
+    .bg-primary {
+      background-color: var(--primary);
+    }
+
+    .bg-secondary {
+      background-color: var(--secondary);
+    }
+
+    .bg-light {
+      background-color: var(--light);
+    }
+
+    .bg-white {
+      background-color: var(--white);
+    }
+
+    .section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .section-heading {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .text-center .section-heading::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .section-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 2rem;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      border: 2px solid transparent;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border-color: white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background-color: white;
+      color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-lg {
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+    }
+
+    .btn-icon {
+      margin-left: 0.5rem;
+    }
+
+    /* Header/Navbar */
+    header {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .header-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -2;
+      background-image: url("Screenshot 2025-06-04 200537.png");
+    }
+
+    .header-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(11, 28, 44, 0.9) 0%, rgba(16, 42, 67, 0.8) 100%);
+      z-index: -1;
+    }
+
+    .navbar {
+      width: 100%;
+      padding: 0.8rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      transition: all 0.4s ease;
+      background-color: rgba(255, 255, 255, 0.98);
+    }
+
+    .navbar.scrolled {
+      background-color: rgba(255, 255, 255, 0.98);
+      padding: 1rem 0;
+      box-shadow: var(--shadow-md);
+    }
+
+    .navbar.scrolled .nav-logo img {
+      height: 50px;
+    }
+
+    .navbar.scrolled .nav-link {
+      color: var(--secondary);
+    }
+
+    .navbar.scrolled .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      height: 60px;
+      transition: all 0.4s ease;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-item {
+      margin-left: 2rem;
+      position: relative;
+    }
+
+    .nav-link {
+      color: var(--dark);
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: width 0.4s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link.active {
+      color: var(--primary);
+    }
+
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--dark);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 6rem 0;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      margin-bottom: 1.5rem;
+      color: white;
+      line-height: 1.2;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
+
+    /* Map Section */
+    .map-section {
+      padding: 6rem 0;
+      background-color: var(--white);
+    }
+
+    .map-intro {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+    .map-intro p {
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    #india-map {
+      height: 70vh;
+      min-height: 500px;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+
+    /* Custom Leaflet Styles */
+    .leaflet-container {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .leaflet-popup-content-wrapper {
+      border-radius: var(--border-radius) !important;
+      box-shadow: var(--shadow-lg) !important;
+      padding: 0 !important;
+      overflow: hidden;
+    }
+
+    .leaflet-popup-content {
+      margin: 0 !important;
+      width: 240px !important;
+    }
+
+    .location-popup {
+      padding: 20px;
+    }
+
+    .location-popup h3 {
+      margin: 0 0 8px 0;
+      color: var(--primary);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .location-popup p {
+      margin: 0 0 12px 0;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    .location-popup a {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .location-popup a:hover {
+      color: var(--primary-dark);
+    }
+
+    .location-popup a svg {
+      margin-left: 5px;
+      transition: transform 0.2s ease;
+    }
+
+    .location-popup a:hover svg {
+      transform: translateX(3px);
+    }
+
+    .leaflet-control {
+      border-radius: var(--border-radius) !important;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm) !important;
+    }
+
+    .custom-marker {
+      background: var(--primary);
+      width: 24px;
+      height: 24px;
+      border: 3px solid white;
+      border-radius: 50%;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .custom-marker::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 86, 179, 0.3);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+      top: -3px;
+      left: -3px;
+      z-index: -1;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(2.5); opacity: 0; }
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--dark);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 4rem 0 2rem;
+      border-left: 80px solid white;
+      border-right: 80px solid white;
+      border-bottom: 80px solid white;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .footer-column {
+      flex: 1 1 300px;
+    }
+
+    .footer-column h3 {
+      color: white;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 40px;
+      height: 2px;
+      background-color: var(--primary);
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .footer-column li {
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+
+    .footer-column a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-column a:hover {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 3rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .copyright {
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        transition: all 0.4s ease;
+        box-shadow: var(--shadow-md);
+      }
+
+      .nav-menu.active {
+        left: 0;
+      }
+
+      .nav-item {
+        margin: 1rem 0;
+      }
+
+      .nav-link {
+        color: var(--secondary);
+        font-size: 1.2rem;
+      }
+
+      .footer {
+        border: none;
+        padding: 10px;
+      }
+      
+      .footer-inner {
+        padding: 0 1.5rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      .section-heading {
+        font-size: 2rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="home">
+    <div class="header-bg"></div>
+    <div class="header-overlay"></div>
+    
+    <nav class="navbar">
+      <div class="container navbar-container">
+        <a href="index.html" class="nav-logo">
+          <img src="Screenshot 2025-05-26 203647.png" alt="RA Logistics Logo">
+        </a>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+        
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#about" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#services" class="nav-link">Services</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#expertise" class="nav-link">Expertise</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#contact" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a href="clients.html" class="nav-link">Clients</a> 
+          </li>
+          <li class="nav-item">
+            <a href="locations.html" class="nav-link active">Locations</a>
+          </li>
+          <li class="nav-item">
+            <a href="legacy.html" class="nav-link">Our Legacy</a> 
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <div class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Our Strategic <span class="text-primary">Locations</span></h1>
+          <p class="hero-subtitle">Premium warehouse facilities across India's key logistics hubs</p>
+          <div class="hero-buttons">
+            <a href="#locations" class="btn btn-primary btn-lg">
+              View Locations <i class="fas fa-arrow-right btn-icon"></i>
+            </a>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Locations Section -->
+  <section id="locations" class="map-section">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-heading">Our <span class="text-primary">Locations</span></h2>
+        <p class="section-subtitle">Strategically positioned warehouses for optimal distribution</p>
+      </div>
+      
+      <div class="map-intro">
+        <p>RA Logistics operates state-of-the-art warehouse facilities in key industrial and logistics hubs across India. Our locations are carefully selected to provide maximum connectivity and efficiency for your supply chain needs.</p>
+      </div>
+      
+      <div id="india-map"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-column">
+        <p>
+          RA Logistics is a premier warehouse construction and logistics solutions provider in India,
+          delivering innovative infrastructure solutions since 2018.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#expertise">Expertise</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="clients.html">Clients</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="legacy.html">Our Legacy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> Unit No-1007, 10 Th floor Supreme Headquater corner of 14th Road and 33rd Road Bandra West Mumbai-400050 Maharashtra, India</li>
+          <li><i class="fas fa-map-marker-alt"></i>Survey No. 83/17, 83/18, 84/4, 84/8, 84/9, Survey No.30/01 to 30/6, 31/1 to 31/3, 32, 86/5/A/3, 86/11, POGAON, POGAON, BHIWANDI, Kharbav, Thane, Maharashtra, 421302</li>
+          <li><i class="fas fa-envelope"></i> info@ra-logistics.in</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; 2025 RA Logistics. All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking a nav link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+  
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Initialize Map
+    const map = L.map('india-map', {
+      center: [20.5937, 78.9629],
+      zoom: 5,
+      zoomControl: false,
+      fadeAnimation: true,
+      zoomAnimation: true
+    });
+
+    // Add elegant map tiles
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap, CartoDB',
+      maxZoom: 8,
+      minZoom: 4
+    }).addTo(map);
+
+    // Add subtle country labels
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap, CartoDB',
+      maxZoom: 8,
+      minZoom: 4
+    }).addTo(map);
+
+    // Custom zoom controls
+    L.control.zoom({
+      position: 'topright'
+    }).addTo(map);
+
+    // Custom marker icon
+    const greenIcon = L.divIcon({
+      className: 'custom-marker',
+      iconSize: [24, 24],
+      popupAnchor: [0, -12]
+    });
+
+    // Locations data - including Bhiwadi in Maharashtra
+    const locations = [
+      {
+        name: "Mumbai, Maharashtra",
+        position: [19.0760, 72.8777],
+        description: "Premium commercial and residential developments in India's financial capital",
+        link: "/mumbai"
+      },
+      {
+        name: "Bhiwadi, Maharashtra",
+        position: [19.3000, 73.0667], // Coordinates for Bhiwadi near Mumbai
+        description: "Industrial and logistics hub with world-class infrastructure",
+        link: "/bhiwadi"
+      },
+      {
+        name: "Bangalore, Karnataka",
+        position: [12.9716, 77.5946],
+        description: "Tech parks and sustainable residential communities",
+        link: "/bangalore"
+      },
+      {
+        name: "Delhi NCR",
+        position: [28.6139, 77.2090],
+        description: "Mixed-use developments in the National Capital Region",
+        link: "/delhi-ncr"
+      }
+    ];
+
+    // Add markers with elegant popups
+    locations.forEach(location => {
+      const marker = L.marker(location.position, {
+        icon: greenIcon,
+        riseOnHover: true
+      }).addTo(map);
+      
+      marker.bindPopup(`
+        <div class="location-popup">
+          <h3>${location.name}</h3>
+          <p>${location.description}</p>
+          <a href="${location.link}">
+            View Facility
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      `);
+      
+      // Add subtle animation on marker hover
+      marker.on('mouseover', function() {
+        this.setIcon(
+          L.divIcon({
+            className: 'custom-marker hover',
+            iconSize: [28, 28]
+          })
+        );
+      });
+      
+      marker.on('mouseout', function() {
+        this.setIcon(greenIcon);
+      });
+    });
+
+    // Add India boundary with subtle fill
+    fetch('https://raw.githubusercontent.com/geohacker/india/master/state/india_state.geojson')
+      .then(response => response.json())
+      .then(data => {
+        L.geoJSON(data, {
+          fillColor: '#e8f5e9',
+          fillOpacity: 0.3,
+          color: '#a5d6a7',
+          weight: 1,
+          interactive: false
+        }).addTo(map);
+      });
+  </script>
+</body>
+</html>
