@@ -447,38 +447,85 @@
       margin-bottom: 0.5rem;
     }
 
- 
-   /* Footer */
-.footer {
-  background-color: var(--dark);
-  color: rgba(255, 255, 255, 0.8);
-  padding: 4rem 0 2rem;
-}
+    /* Mission & Vision Section */
+    .mission-vision-section {
+      background-color: var(--secondary);
+      padding: 6rem 0;
+      color: white;
+    }
 
-/* Desktop/Tablet - 80px white borders */
-@media (min-width: 769px) {
-  .footer {
-    border-left: 80px solid white;
-    border-right: 80px solid white;
-    border-bottom: 80px solid white;
-  }
-  
-  .footer-inner {
-    padding: 0; /* Remove padding to account for borders */
-  }
-}
+    .mission-vision-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
 
-/* Mobile - no borders */
-@media (max-width: 768px) {
-  .footer {
-    border: none;
-    padding: 10px;
-  }
-  
-  .footer-inner {
-    padding: 0 1.5rem; /* Add some padding on mobile */
-  }
-}
+    .mission-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius-lg);
+      padding: 2.5rem;
+      transition: var(--transition);
+      backdrop-filter: blur(5px);
+    }
+
+    .mission-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .mission-card h3 {
+      color: var(--white);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .mission-card h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 40px;
+      height: 3px;
+      background-color: var(--primary);
+    }
+
+    .mission-card p {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--dark);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 4rem 0 2rem;
+    }
+
+    /* Desktop/Tablet - 80px white borders */
+    @media (min-width: 769px) {
+      .footer {
+        border-left: 80px solid white;
+        border-right: 80px solid white;
+        border-bottom: 80px solid white;
+      }
+      
+      .footer-inner {
+        padding: 0; /* Remove padding to account for borders */
+      }
+    }
+
+    /* Mobile - no borders */
+    @media (max-width: 768px) {
+      .footer {
+        border: none;
+        padding: 10px;
+      }
+      
+      .footer-inner {
+        padding: 0 1.5rem; /* Add some padding on mobile */
+      }
+    }
 
     .footer-inner {
       max-width: 1100px;
@@ -673,6 +720,7 @@
         gap: 2rem;
       }
     }
+    
   </style>
 </head>
 <body>
@@ -784,6 +832,33 @@
               <a href="#"><i class="fab fa-github"></i></a>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision Section -->
+  <section class="mission-vision-section">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-heading" style="color: white;">Our <span class="text-primary">Mission</span> & Vision</h2>
+        <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.8);">The guiding principles that drive our company forward</p>
+      </div>
+      
+      <div class="mission-vision-container">
+        <div class="mission-card">
+          <h3>Our Mission</h3>
+          <p>To revolutionize warehouse construction and logistics operations with sustainable and scalable infrastructure for businesses of all sizes. We are committed to delivering innovative solutions that enhance efficiency, reduce costs, and support our clients' growth.</p>
+        </div>
+        
+        <div class="mission-card">
+          <h3>Our Vision</h3>
+          <p>To be India's most trusted name in warehouse design and industrial construction through continuous innovation, uncompromising quality, and exceptional customer satisfaction. We aim to set new benchmarks in the logistics infrastructure industry.</p>
+        </div>
+        
+        <div class="mission-card">
+          <h3>Our Values</h3>
+          <p>Integrity, innovation, and excellence form the foundation of everything we do. We believe in building lasting relationships through transparency, reliability, and a relentless focus on delivering value to our clients.</p>
         </div>
       </div>
     </div>
@@ -914,6 +989,23 @@
         backToTop.classList.remove('active');
       }
     });
+
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    const revealOnScroll = () => {
+      revealElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('active');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
   </script>
 </body>
 </html>
