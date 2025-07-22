@@ -1,4 +1,4 @@
-not like this see big imgae slider <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -50,7 +50,7 @@ not like this see big imgae slider <!DOCTYPE html>
     }
 
     body {
-      background-color: var(--light);
+      background-color: #f0f4f8; /* Changed to lighter background */
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
@@ -145,127 +145,29 @@ not like this see big imgae slider <!DOCTYPE html>
       margin: 0 auto 3rem;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.8rem 2rem;
-      border-radius: var(--border-radius);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 0.9rem;
-      transition: var(--transition);
-      border: 2px solid transparent;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .btn-primary {
-      background-color: var(--primary);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .btn-outline {
-      background-color: transparent;
-      border-color: white;
-      color: white;
-    }
-
-    .btn-outline:hover {
-      background-color: white;
-      color: var(--primary);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .btn-lg {
-      padding: 1rem 2.5rem;
-      font-size: 1rem;
-    }
-
-    .btn-icon {
-      margin-left: 0.5rem;
-    }
-
     /* Header/Navbar */
-    header {
-      position: relative;
-      height: 100vh;
-      min-height: 700px;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    .header-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      z-index: -2;
-      background-image: url("Screenshot 2025-06-04 200537.png");
-    }
-
-    .header-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(11, 28, 44, 0.9) 0%, rgba(16, 42, 67, 0.8) 100%);
-      z-index: -1;
-    }
-
     .navbar {
       width: 100%;
-      padding: 0.8rem 0;
+      padding: 1rem 0;
       position: fixed;
       top: 0;
       left: 0;
       z-index: 1000;
-      transition: all 0.4s ease;
       background-color: rgba(255, 255, 255, 0.98);
-    }
-
-    .navbar.scrolled {
-      background-color: rgba(255, 255, 255, 0.98);
-      padding: 1rem 0;
-      box-shadow: var(--shadow-md);
-    }
-
-    .navbar.scrolled .nav-logo img {
-      height: 50px;
-    }
-
-    .navbar.scrolled .nav-link {
-      color: var(--secondary);
-    }
-
-    .navbar.scrolled .nav-link:hover {
-      color: var(--primary);
+      box-shadow: var(--shadow-sm);
     }
 
     .navbar-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
     }
 
     .nav-logo img {
-      height: 60px;
+      height: 50px;
       transition: all 0.4s ease;
     }
 
@@ -319,139 +221,78 @@ not like this see big imgae slider <!DOCTYPE html>
       cursor: pointer;
     }
 
-    .hero {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      padding: 6rem 0;
+    /* Main Content */
+    .main-content {
+      margin-top: 80px; /* To account for fixed navbar */
+      padding: 4rem 0;
     }
 
-    .hero-content {
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-      animation: fadeInUp 1s ease-out;
-      padding: 0 2rem;
-    }
-
-    .hero-title {
-      font-size: clamp(2.9rem, 6vw, 3rem);
-      margin-bottom: 1.5rem;
-      color: white;
-      line-height: 1.4;
-      font-weight: 600;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    }
-
-    .hero-title .text-primary {
-      color: #1e40af;
-      font-weight: 700;
-    }
-
-    .hero-subtitle {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 2.5rem;
-      font-weight: 300;
-      line-height: 1.6;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    /* Map Section */
-    .map-section {
-      padding: 6rem 0;
-      background-color: var(--white);
-    }
-
-    .map-intro {
-      max-width: 800px;
-      margin: 0 auto 3rem;
-      text-align: center;
-    }
-
-    .map-intro p {
-      font-size: 1.1rem;
-      color: var(--text);
-    }
-     .container {
+    .container {
       max-width: 1100px;
       margin: auto;
       padding: 2rem;
     }
+    
     .section-heading {
       text-align: center;
       font-size: 2.5rem;
       color: var(--primary);
       margin-bottom: 2rem;
     }
-  /* Image slider */
-    .slider {
-      width: 100%;
-      height: 70vh;
-      overflow: hidden;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow-md);
-      margin-bottom: 3rem;
-    }
-    .slides {
-      display: flex;
-      width: 400%;
-      height: 100%;
-      animation: slide 12s infinite;
-    }
-    .slides img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    @keyframes slide {
-      0% {margin-left: 0;}
-      25% {margin-left: 0;}
-      30% {margin-left: -100%;}
-      50% {margin-left: -100%;}
-      55% {margin-left: -200%;}
-      75% {margin-left: -200%;}
-      80% {margin-left: -300%;}
-      100% {margin-left: -300%;}
-    }
 
-    /* Table */
+    /* Location Table */
     table {
       width: 100%;
       border-collapse: collapse;
       margin-bottom: 3rem;
+      box-shadow: var(--shadow-sm);
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+      overflow: hidden;
     }
+    
     th, td {
-      border: 1px solid #ccc;
-      padding: 1rem;
+      border: 1px solid #e1e5eb;
+      padding: 1.25rem;
       text-align: left;
     }
+    
     th {
       background-color: var(--primary);
       color: white;
+      font-weight: 600;
     }
+    
     tr:nth-child(even) {
-      background-color: #f2f2f2;
+      background-color: #f8fafc;
+    }
+    
+    tr:hover {
+      background-color: #f1f5f9;
     }
 
     /* Projects Section */
     .projects {
       text-align: center;
-      padding: 2rem;
+      padding: 3rem 2rem;
       background: var(--white);
       border-radius: var(--border-radius);
       box-shadow: var(--shadow-md);
+      margin-bottom: 3rem;
     }
+    
     .projects h3 {
       font-size: 1.8rem;
       margin-bottom: 1rem;
+      color: var(--secondary);
     }
+    
+    .projects p {
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+    }
+    
     .projects a {
       display: inline-block;
       margin-top: 1rem;
@@ -463,8 +304,11 @@ not like this see big imgae slider <!DOCTYPE html>
       font-weight: 600;
       transition: background 0.3s ease;
     }
+    
     .projects a:hover {
-      background: #003d82;
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
     }
 
     /* Footer */
@@ -472,15 +316,12 @@ not like this see big imgae slider <!DOCTYPE html>
       background-color: var(--dark);
       color: rgba(255, 255, 255, 0.8);
       padding: 4rem 0 2rem;
-      border-left: 80px solid white;
-      border-right: 80px solid white;
-      border-bottom: 80px solid white;
     }
 
     .footer-inner {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0;
+      padding: 0 2rem;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -572,11 +413,6 @@ not like this see big imgae slider <!DOCTYPE html>
         font-size: 1.2rem;
       }
 
-      .footer {
-        border: none;
-        padding: 10px;
-      }
-      
       .footer-inner {
         padding: 0 1.5rem;
       }
@@ -591,115 +427,87 @@ not like this see big imgae slider <!DOCTYPE html>
         font-size: 2rem;
       }
 
-      .hero-buttons {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .hero-buttons .btn {
-        width: 100%;
+      th, td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header id="home">
-    <div class="header-bg"></div>
-    <div class="header-overlay"></div>
-    
-    <nav class="navbar">
-      <div class="container navbar-container">
-        <a href="index.html" class="nav-logo">
-          <img src="Screenshot 2025-05-26 203647.png" alt="RA Logistics Logo">
-        </a>
-        
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
-          <i class="fas fa-bars"></i>
-        </button>
-        
-        <ul class="nav-menu" id="navMenu">
-          <li class="nav-item">
-            <a href="index.html" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="index.html#about" class="nav-link">About</a>
-          </li>
-          <li class="nav-item">
-            <a href="index.html#services" class="nav-link">Services</a>
-          </li>
-          <li class="nav-item">
-            <a href="index.html#expertise" class="nav-link">Expertise</a>
-          </li>
-         
-          <li class="nav-item">
-            <a href="clients.html" class="nav-link">Clients</a> 
-          </li>
-          <li class="nav-item">
-            <a href="locations.html" class="nav-link active">Locations</a>
-          </li>
-          <li class="nav-item">
-            <a href="legacy.html" class="nav-link">Our Legacy</a> 
-          </li>
-            <li class="nav-item">
-            <a href="index.html#contact" class="nav-link">Contact</a>
-          </li>
-        </ul>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="nav-logo">
+        <img src="Screenshot 2025-05-26 203647.png" alt="RA Logistics Logo">
+      </a>
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="index.html#about" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="index.html#services" class="nav-link">Services</a>
+        </li>
+        <li class="nav-item">
+          <a href="index.html#expertise" class="nav-link">Expertise</a>
+        </li>
+        <li class="nav-item">
+          <a href="clients.html" class="nav-link">Clients</a> 
+        </li>
+        <li class="nav-item">
+          <a href="locations.html" class="nav-link active">Locations</a>
+        </li>
+        <li class="nav-item">
+          <a href="legacy.html" class="nav-link">Our Legacy</a> 
+        </li>
+        <li class="nav-item">
+          <a href="index.html#contact" class="nav-link">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <h1 class="section-heading">Our Strategic <span style="color:#ff7d00">Locations</span></h1>
+
+      <!-- Location Table -->
+      <table>
+        <thead>
+          <tr>
+            <th>Location Name</th>
+            <th>Area Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bhiwandi, Pogaon</td>
+            <td>Survey No. 83/17, 83/18, 84/4</td>
+          </tr>
+          <tr>
+            <td>Bhiwandi, Bhinar</td>
+            <td>Survey No. 30/01 to 30/6, 31/1 to 31/3</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Our Projects -->
+      <div class="projects">
+        <h3>Our Projects</h3>
+        <p>Discover our premium warehouses and infrastructure excellence across India.</p>
+        <a href="projects.html" target="_blank">Know More</a>
       </div>
-    </nav>
-    
-        </div>
-      </div>
     </div>
-  </header>
-
-      <div class="container">
-    <h1 class="section-heading">Our Strategic <span style="color:#ff7d00">Locations</span></h1>
-
-    <!-- Image Slider -->
-    <div class="slider">
-      <div class="slides">
-        <img src="images/slide1.jpg" alt="Location 1">
-        <img src="images/slide2.jpg" alt="Location 2">
-        <img src="images/slide3.jpg" alt="Location 3">
-        <img src="images/slide4.jpg" alt="Location 4">
-      </div>
-    </div>
-
-    <!-- Location Table -->
-    <table>
-      <thead>
-        <tr>
-          <th>Location Name</th>
-          <th>Area Details</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Bhiwandi, Pogaon</td>
-          <td>Survey No. 83/17, 83/18, 84/4</td>
-        </tr>
-        <tr>
-          <td>Bhiwandi, Bhinar</td>
-          <td>Survey No. 30/01 to 30/6, 31/1 to 31/3</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- Our Projects -->
-    <div class="projects">
-      <h3>Our Projects</h3>
-      <p>Discover our premium warehouses and infrastructure excellence across India.</p>
-      <a href="projects.html" target="_blank">Know More</a>
-    </div>
- <div class="projects">
-      <h3>Our Projects</h3>
-      <p>Discover our premium warehouses and infrastructure excellence across India.</p>
-      <a href="projects.html" target="_blank">Know More</a>
-    </div>
-        
-    </div>
-  </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
@@ -764,18 +572,6 @@ not like this see big imgae slider <!DOCTYPE html>
         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
       });
     });
-  
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-      const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-
-
   </script>
 </body>
 </html> 
