@@ -10,6 +10,7 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <style>
@@ -50,7 +51,7 @@
     }
 
     body {
-      background-color: #f0f4f8; /* Changed to lighter background */
+      background-color: #f0f4f8;
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
@@ -223,7 +224,7 @@
 
     /* Main Content */
     .main-content {
-      margin-top: 80px; /* To account for fixed navbar */
+      margin-top: 80px;
       padding: 4rem 0;
     }
 
@@ -309,6 +310,90 @@
       background: var(--primary-dark);
       transform: translateY(-2px);
       box-shadow: var(--shadow-sm);
+    }
+
+    /* Project Slider */
+    .projects-slider {
+      padding: 4rem 0;
+    }
+    
+    .project-slider-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .project-slide {
+      background: white;
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      margin: 1rem;
+      transition: var(--transition);
+    }
+    
+    .project-slide:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .project-image {
+      height: 300px;
+      width: 100%;
+      object-fit: cover;
+    }
+    
+    .project-info {
+      padding: 1.5rem;
+    }
+    
+    .project-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--secondary);
+    }
+    
+    .project-info p {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+    
+    .project-info .location {
+      display: flex;
+      align-items: center;
+      color: var(--primary);
+      font-weight: 500;
+    }
+    
+    .project-info .location i {
+      margin-right: 0.5rem;
+    }
+    
+    .swiper-pagination-bullet {
+      background: var(--text-light);
+      opacity: 0.5;
+      width: 12px;
+      height: 12px;
+    }
+    
+    .swiper-pagination-bullet-active {
+      background: var(--primary);
+      opacity: 1;
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: var(--primary);
+      background: rgba(255, 255, 255, 0.8);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 1.2rem;
     }
 
     /* Footer */
@@ -416,6 +501,15 @@
       .footer-inner {
         padding: 0 1.5rem;
       }
+      
+      .project-image {
+        height: 250px;
+      }
+      
+      .swiper-button-next,
+      .swiper-button-prev {
+        display: none;
+      }
     }
 
     @media (max-width: 576px) {
@@ -430,6 +524,14 @@
       th, td {
         padding: 0.75rem;
         font-size: 0.9rem;
+      }
+      
+      .project-image {
+        height: 200px;
+      }
+      
+      .project-info h3 {
+        font-size: 1.3rem;
       }
     }
   </style>
@@ -499,12 +601,72 @@
           </tr>
         </tbody>
       </table>
+    </div>
 
-      <!-- Our Projects -->
+    <!-- Projects Slider -->
+    <div class="projects-slider">
+      <div class="project-slider-container">
+        <h2 class="section-heading text-center">Our Featured <span style="color:#ff7d00">Projects</span></h2>
+        <p class="section-subtitle text-center">Explore our premium warehouse projects across strategic locations in India</p>
+        
+        <div class="swiper projectSwiper">
+          <div class="swiper-wrapper">
+            <!-- Project 1 -->
+            <div class="swiper-slide project-slide">
+              <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                   alt="Bhiwandi Warehouse Project" class="project-image">
+              <div class="project-info">
+                <h3>Bhiwandi Mega Warehouse</h3>
+                <p>A state-of-the-art 200,000 sq.ft warehouse facility with advanced logistics infrastructure and automation systems.</p>
+                <div class="location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>Bhiwandi, Maharashtra</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="swiper-slide project-slide">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                   alt="Pune Logistics Hub" class="project-image">
+              <div class="project-info">
+                <h3>Pune Logistics Hub</h3>
+                <p>150,000 sq.ft temperature-controlled facility with direct highway access and rail connectivity.</p>
+                <div class="location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>Pune, Maharashtra</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="swiper-slide project-slide">
+              <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1173&q=80" 
+                   alt="Delhi Distribution Center" class="project-image">
+              <div class="project-info">
+                <h3>Delhi Distribution Center</h3>
+                <p>300,000 sq.ft multi-level distribution center serving North India with automated sorting systems.</p>
+                <div class="location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>Delhi NCR</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Our Projects CTA -->
+    <div class="container">
       <div class="projects">
-        <h3>Our Projects</h3>
+        <h3>Explore All Our Projects</h3>
         <p>Discover our premium warehouses and infrastructure excellence across India.</p>
-        <a href="projects.html" target="_blank">Know More</a>
+        <a href="projects.html" target="_blank">View All Projects</a>
       </div>
     </div>
   </main>
@@ -550,8 +712,9 @@
     </div>
   </footer>
 
-  <!-- Leaflet JS -->
+  <!-- Scripts -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   
   <script>
     // Mobile Menu Toggle
@@ -571,6 +734,33 @@
         navMenu.classList.remove('active');
         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
       });
+    });
+
+    // Initialize Swiper
+    const swiper = new Swiper('.projectSwiper', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        }
+      }
     });
   </script>
 </body>
