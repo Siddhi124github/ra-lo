@@ -327,25 +327,40 @@
     }
 
     .hero-content {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 0 auto;
       text-align: center;
       animation: fadeInUp 1s ease-out;
+      padding: 0 2rem;
     }
 
     .hero-title {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-size: clamp(2.9rem, 6vw, 3rem);
       margin-bottom: 1.5rem;
       color: white;
-      line-height: 1.2;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      line-height: 1.4;
+      font-weight: 600;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-title .text-primary {
+      color: #1e40af;
+      font-weight: 700;
     }
 
     .hero-subtitle {
-      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
       color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
       font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
     }
 
     /* Map Section */
@@ -635,13 +650,19 @@
     <div class="hero">
       <div class="container">
         <div class="hero-content">
-          <h1 class="hero-title">Our Strategic <span class="text-primary">Locations</span></h1>
-          <p class="hero-subtitle">Premium warehouse facilities across India's key logistics hubs</p>
+          <h1 class="hero-title">
+            Business Spaces that Inspire Growth<br>
+            replacement for building the<br>
+            <span class="text-primary">future of logistics</span>
+          </h1>
+          <p class="hero-subtitle">Unlock your business potential with our state-of-the-art industrial spaces, designed to fuel innovation, productivity, and success.</p>
           <div class="hero-buttons">
-            <a href="#locations" class="btn btn-primary btn-lg">
-              View Locations <i class="fas fa-arrow-right btn-icon"></i>
+            <a href="#services" class="btn btn-primary btn-lg">
+              Our Services <i class="fas fa-arrow-right btn-icon"></i>
             </a>
-           
+            <a href="#contact" class="btn btn-outline btn-lg">
+              Get In Touch <i class="fas fa-phone btn-icon"></i>
+            </a>
           </div>
         </div>
       </div>
