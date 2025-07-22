@@ -50,7 +50,7 @@
     }
 
     body {
-      background-color: #f0f4f8; /* Changed to lighter background */
+      background-color: #f0f4f8;
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
@@ -223,7 +223,7 @@
 
     /* Main Content */
     .main-content {
-      margin-top: 80px; /* To account for fixed navbar */
+      margin-top: 80px;
       padding: 4rem 0;
     }
 
@@ -341,44 +341,90 @@
       transform: scale(1.2);
     }
 
-    /* Projects Section */
-    .projects {
-      text-align: center;
-      padding: 3rem 2rem;
-      background: var(--white);
-      border-radius: var(--border-radius);
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .project-card {
+      position: relative;
+      height: 350px;
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
       box-shadow: var(--shadow-md);
-      margin-bottom: 3rem;
+      transition: var(--transition);
     }
     
-    .projects h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: var(--secondary);
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
     }
     
-    .projects p {
-      color: var(--text-light);
-      max-width: 700px;
-      margin: 0 auto 1.5rem;
+    .project-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
     }
     
-    .projects a {
-      display: inline-block;
-      margin-top: 1rem;
-      background: var(--primary);
+    .project-card:hover .project-image {
+      transform: scale(1.05);
+    }
+    
+    .project-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+      padding: 2rem;
       color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--border-radius);
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s ease;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
     }
     
-    .projects a:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
+    .project-card:hover .project-overlay {
+      transform: translateY(0);
+    }
+    
+    .project-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+    
+    .project-description {
+      margin-bottom: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s ease 0.2s;
+    }
+    
+    .project-card:hover .project-description {
+      opacity: 1;
+    }
+    
+    .project-link {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: var(--accent);
+      color: white;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.3s ease 0.3s;
+    }
+    
+    .project-card:hover .project-link {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .project-link:hover {
+      background-color: var(--primary);
     }
 
     /* Footer */
@@ -451,6 +497,12 @@
     }
 
     /* Responsive Design */
+    @media (max-width: 992px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 768px) {
       .mobile-menu-btn {
         display: block;
@@ -483,6 +535,10 @@
         font-size: 1.2rem;
       }
 
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
       .projects-slider {
         height: 400px;
       }
@@ -624,22 +680,37 @@
         </div>
       </div>
 
-      <!-- Our Projects -->
-      <div class="projects">
-        <h3>HIRANANDANI INDUSTRIAL PARK
-</h3>
-        <p>Discover our premium warehouses and infrastructure excellence across India.</p>
-        <a href="projects.html" target="_blank">Know More</a>
-      </div>
-        <div class="projects">
-        <h3>PAREKH</h3>
-        <p>Discover our premium warehouses and infrastructure excellence across India.</p>
-        <a href="projects.html" target="_blank">Know More</a>
-      </div>
-        <div class="projects">
-        <h3>DA BLOCK</h3>
-        <p>Discover our premium warehouses and infrastructure excellence across India.</p>
-        <a href="projects.html" target="_blank">Know More</a>
+      <!-- Projects Grid -->
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="HIRANANDANI INDUSTRIAL PARK" class="project-image">
+          <div class="project-overlay">
+            <h3 class="project-title">HIRANANDANI INDUSTRIAL PARK</h3>
+            <p class="project-description">State-of-the-art industrial park with premium facilities and strategic location advantages.</p>
+            <a href="projects.html" class="project-link">View Details</a>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="PAREKH" class="project-image">
+          <div class="project-overlay">
+            <h3 class="project-title">PAREKH</h3>
+            <p class="project-description">Modern warehouse complex with cutting-edge technology and efficient space utilization.</p>
+            <a href="projects.html" class="project-link">View Details</a>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="DA BLOCK" class="project-image">
+          <div class="project-overlay">
+            <h3 class="project-title">DA BLOCK</h3>
+            <p class="project-description">Premium logistics block designed for high-volume storage and distribution operations.</p>
+            <a href="projects.html" class="project-link">View Details</a>
+          </div>
+        </div>
       </div>
     </div>
   </main>
@@ -661,11 +732,10 @@
           <li><a href="index.html#about">About Us</a></li>
           <li><a href="index.html#services">Services</a></li>
           <li><a href="index.html#expertise">Expertise</a></li>
-         
           <li><a href="clients.html">Clients</a></li>
           <li><a href="locations.html">Locations</a></li>
           <li><a href="legacy.html">Our Legacy</a></li>
-           <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </div>
 
