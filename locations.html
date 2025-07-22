@@ -10,7 +10,6 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <style>
     :root {
@@ -50,7 +49,7 @@
     }
 
     body {
-      background-color: #f0f4f8;
+      background-color: var(--light);
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
@@ -223,7 +222,7 @@
 
     /* Main Content */
     .main-content {
-      margin-top: 80px;
+      margin-top: 80px; /* To account for fixed navbar */
       padding: 4rem 0;
     }
 
@@ -241,190 +240,149 @@
     }
 
     /* Location Table */
-    table {
+    .locations-table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
       box-shadow: var(--shadow-sm);
       background-color: var(--white);
       border-radius: var(--border-radius);
       overflow: hidden;
     }
     
-    th, td {
+    .locations-table th, 
+    .locations-table td {
       border: 1px solid #e1e5eb;
       padding: 1.25rem;
       text-align: left;
     }
     
-    th {
+    .locations-table th {
       background-color: var(--primary);
       color: white;
       font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
     }
     
-    tr:nth-child(even) {
+    .locations-table tr:nth-child(even) {
       background-color: #f8fafc;
     }
     
-    tr:hover {
+    .locations-table tr:hover {
       background-color: #f1f5f9;
     }
 
-    /* Projects Slider */
-    .projects-slider {
-      width: 100%;
-      height: 500px;
-      position: relative;
-      margin: 3rem 0;
-      border-radius: var(--border-radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-xl);
+    /* Projects Section */
+    .projects-section {
+      margin: 4rem 0;
     }
     
-    .slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-      background-size: cover;
-      background-position: center;
-    }
-    
-    .slide.active {
-      opacity: 1;
-    }
-    
-    .slide-content {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-      color: white;
-      padding: 2rem;
-    }
-    
-    .slide h3 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    
-    .slide p {
-      max-width: 600px;
-    }
-    
-    .slide-indicators {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-      z-index: 10;
-    }
-    
-    .indicator {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.5);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .indicator.active {
-      background-color: white;
-      transform: scale(1.2);
-    }
-
-    /* Projects Grid */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
-      margin: 3rem 0;
+      margin-top: 2rem;
     }
     
     .project-card {
-      position: relative;
-      height: 350px;
-      border-radius: var(--border-radius-lg);
-      overflow: hidden;
+      background: var(--white);
+      border-radius: var(--border-radius);
       box-shadow: var(--shadow-md);
+      overflow: hidden;
       transition: var(--transition);
     }
     
     .project-card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-5px);
       box-shadow: var(--shadow-lg);
     }
     
-    .project-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
+    .project-content {
+      padding: 1.5rem;
     }
     
-    .project-card:hover .project-image {
-      transform: scale(1.05);
-    }
-    
-    .project-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-      padding: 2rem;
-      color: white;
-      transform: translateY(100%);
-      transition: transform 0.4s ease;
-    }
-    
-    .project-card:hover .project-overlay {
-      transform: translateY(0);
-    }
-    
-    .project-title {
+    .project-card h3 {
       font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+    
+    .project-card p {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .project-card .features {
+      margin-bottom: 1.5rem;
+    }
+    
+    .project-card .feature {
+      display: flex;
+      align-items: center;
       margin-bottom: 0.5rem;
-      color: white;
+      font-size: 0.9rem;
     }
     
-    .project-description {
-      margin-bottom: 1rem;
-      opacity: 0;
-      transition: opacity 0.3s ease 0.2s;
-    }
-    
-    .project-card:hover .project-description {
-      opacity: 1;
+    .project-card .feature i {
+      color: var(--primary);
+      margin-right: 0.5rem;
+      font-size: 0.8rem;
     }
     
     .project-link {
       display: inline-block;
-      padding: 0.5rem 1rem;
-      background-color: var(--accent);
+      background: var(--primary);
       color: white;
+      padding: 0.75rem 1.5rem;
       border-radius: var(--border-radius);
+      text-decoration: none;
       font-weight: 600;
-      transform: translateY(20px);
-      opacity: 0;
-      transition: all 0.3s ease 0.3s;
-    }
-    
-    .project-card:hover .project-link {
-      transform: translateY(0);
-      opacity: 1;
+      transition: var(--transition);
+      font-size: 0.9rem;
     }
     
     .project-link:hover {
-      background-color: var(--primary);
+      background: var(--primary-dark);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Map Section */
+    .map-container {
+      height: 400px;
+      margin: 3rem 0;
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background-color: #e9edf2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .map-placeholder {
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .map-placeholder i {
+      font-size: 3rem;
+      color: var(--primary-light);
+      margin-bottom: 1rem;
+    }
+    
+    .map-placeholder h3 {
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .map-placeholder p {
+      color: var(--text-light);
+      max-width: 500px;
+      margin: 0 auto;
     }
 
     /* Footer */
@@ -497,12 +455,6 @@
     }
 
     /* Responsive Design */
-    @media (max-width: 992px) {
-      .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
     @media (max-width: 768px) {
       .mobile-menu-btn {
         display: block;
@@ -535,20 +487,8 @@
         font-size: 1.2rem;
       }
 
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .projects-slider {
-        height: 400px;
-      }
-      
-      .slide h3 {
-        font-size: 1.5rem;
-      }
-
-      .footer-inner {
-        padding: 0 1.5rem;
+      .map-container {
+        height: 300px;
       }
     }
 
@@ -561,22 +501,14 @@
         font-size: 2rem;
       }
 
-      th, td {
+      .locations-table th, 
+      .locations-table td {
         padding: 0.75rem;
         font-size: 0.9rem;
       }
       
-      .projects-slider {
-        height: 300px;
-      }
-      
-      .slide-content {
-        padding: 1rem;
-      }
-      
-      .slide h3 {
-        font-size: 1.2rem;
-        margin-bottom: 0.5rem;
+      .projects-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -625,90 +557,115 @@
   <!-- Main Content -->
   <main class="main-content">
     <div class="container">
-      <h1 class="section-heading">Our Strategic <span style="color:#ff7d00">Locations</span></h1>
+      <h1 class="section-heading text-center">Our Strategic <span class="text-primary">Locations</span></h1>
+      <p class="text-center" style="max-width: 800px; margin: 0 auto 3rem;">
+        RA Logistics operates from strategically located warehouses across key industrial hubs in India, 
+        ensuring efficient distribution and storage solutions for our clients nationwide.
+      </p>
 
       <!-- Location Table -->
-      <table>
+      <table class="locations-table">
         <thead>
           <tr>
             <th>Location Name</th>
             <th>Area Details</th>
+            <th>Facilities</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Bhiwandi, Pogaon</td>
+            <td><strong>Bhiwandi, Pogaon</strong></td>
             <td>Survey No. 83/17, 83/18, 84/4</td>
+            <td>
+              <ul style="list-style-type: none;">
+                <li><i class="fas fa-check-circle" style="color: var(--success);"></i> 100,000 sq ft warehouse</li>
+                <li><i class="fas fa-check-circle" style="color: var(--success);"></i> 24/7 security</li>
+                <li><i class="fas fa-check-circle" style="color: var(--success);"></i> Temperature-controlled zones</li>
+              </ul>
+            </td>
           </tr>
           <tr>
-            <td>Bhiwandi, Bhinar</td>
+            <td><strong>Bhiwandi, Bhinar</strong></td>
             <td>Survey No. 30/01 to 30/6, 31/1 to 31/3</td>
+            <td>
+              <ul style="list-style-type: none;">
+                <li><i class="fas fa-check-circle" style="color: var(--success);"></i> 150,000 sq ft warehouse</li>
+                <li><i class="fas fa-check-circle" style="color: var(--success);"></i> Direct highway access</li>
+                <li><i class="fas fa-check-circle" style="color: var(--success);"></i> Automated inventory system</li>
+              </ul>
+            </td>
           </tr>
         </tbody>
       </table>
 
-      <!-- Projects Slider -->
-      <div class="projects-slider">
-        <!-- Slide 1 -->
-        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
-          <div class="slide-content">
-            <h3>HIRANANDANI INDUSTRIAL PARK</h3>
-            <p>Our flagship project featuring state-of-the-art storage facilities with 100,000 sq ft of space.</p>
-          </div>
-        </div>
-        
-        <!-- Slide 2 -->
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
-          <div class="slide-content">
-            <h3>Pogaon Distribution Center</h3>
-            <p>Modern distribution hub with advanced logistics management systems serving Western India.</p>
-          </div>
-        </div>
-        
-        <!-- Slide 3 -->
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
-          <div class="slide-content">
-            <h3>Bhinar Logistics Park</h3>
-            <p>Integrated logistics park with 150,000 sq ft of warehousing space and dedicated transport facilities.</p>
-          </div>
-        </div>
-        
-        <div class="slide-indicators">
-          <div class="indicator active" data-slide="0"></div>
-          <div class="indicator" data-slide="1"></div>
-          <div class="indicator" data-slide="2"></div>
+      <!-- Map Placeholder -->
+      <div class="map-container">
+        <div class="map-placeholder">
+          <i class="fas fa-map-marked-alt"></i>
+          <h3>Our Locations Map</h3>
+          <p>Interactive map showing all our warehouse locations across India</p>
+          <p><small>(Map integration coming soon)</small></p>
         </div>
       </div>
 
-      <!-- Projects Grid -->
-      <div class="projects-grid">
-        <!-- Project 1 -->
-        <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="HIRANANDANI INDUSTRIAL PARK" class="project-image">
-          <div class="project-overlay">
-            <h3 class="project-title">HIRANANDANI INDUSTRIAL PARK</h3>
-            <p class="project-description">State-of-the-art industrial park with premium facilities and strategic location advantages.</p>
-            <a href="projects.html" class="project-link">View Details</a>
-          </div>
-        </div>
+      <!-- Projects Section -->
+      <div class="projects-section">
+        <h2 class="section-heading text-center">Our <span class="text-primary">Warehouse Projects</span></h2>
+        <p class="text-center" style="max-width: 700px; margin: 0 auto 2rem;">
+          Explore our premium warehouse facilities designed to meet diverse industrial needs with 
+          state-of-the-art infrastructure and security.
+        </p>
         
-        <!-- Project 2 -->
-        <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="PAREKH" class="project-image">
-          <div class="project-overlay">
-            <h3 class="project-title">PAREKH</h3>
-            <p class="project-description">Modern warehouse complex with cutting-edge technology and efficient space utilization.</p>
-            <a href="projects.html" class="project-link">View Details</a>
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card">
+            <div class="project-content">
+              <h3>HIRANANDANI INDUSTRIAL PARK</h3>
+              <p>Our flagship project featuring state-of-the-art storage facilities with 100,000 sq ft of space.</p>
+              
+              <div class="features">
+                <div class="feature"><i class="fas fa-check"></i> 100,000 sq ft space</div>
+                <div class="feature"><i class="fas fa-check"></i> 24/7 security monitoring</div>
+                <div class="feature"><i class="fas fa-check"></i> Advanced fire protection</div>
+                <div class="feature"><i class="fas fa-check"></i> Direct highway access</div>
+              </div>
+              
+              <a href="projects.html" class="project-link">View Details</a>
+            </div>
           </div>
-        </div>
-        
-        <!-- Project 3 -->
-        <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="DA BLOCK" class="project-image">
-          <div class="project-overlay">
-            <h3 class="project-title">DA BLOCK</h3>
-            <p class="project-description">Premium logistics block designed for high-volume storage and distribution operations.</p>
-            <a href="projects.html" class="project-link">View Details</a>
+          
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div class="project-content">
+              <h3>PAREKH WAREHOUSE</h3>
+              <p>Modern distribution hub with specialized zones for different types of goods storage.</p>
+              
+              <div class="features">
+                <div class="feature"><i class="fas fa-check"></i> 80,000 sq ft space</div>
+                <div class="feature"><i class="fas fa-check"></i> Temperature-controlled areas</div>
+                <div class="feature"><i class="fas fa-check"></i> Automated inventory system</div>
+                <div class="feature"><i class="fas fa-check"></i> Dedicated loading docks</div>
+              </div>
+              
+              <a href="projects.html" class="project-link">View Details</a>
+            </div>
+          </div>
+          
+          <!-- Project 3 -->
+          <div class="project-card">
+            <div class="project-content">
+              <h3>DA BLOCK FACILITY</h3>
+              <p>Integrated logistics park with multi-level storage solutions and transport facilities.</p>
+              
+              <div class="features">
+                <div class="feature"><i class="fas fa-check"></i> 120,000 sq ft space</div>
+                <div class="feature"><i class="fas fa-check"></i> Multi-level racking system</div>
+                <div class="feature"><i class="fas fa-check"></i> On-site customs clearance</div>
+                <div class="feature"><i class="fas fa-check"></i> Dedicated truck parking</div>
+              </div>
+              
+              <a href="projects.html" class="project-link">View Details</a>
+            </div>
           </div>
         </div>
       </div>
@@ -756,9 +713,6 @@
     </div>
   </footer>
 
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  
   <script>
     // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -776,36 +730,6 @@
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-      });
-    });
-
-    // Image Slider Functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const slides = document.querySelectorAll('.slide');
-      const indicators = document.querySelectorAll('.indicator');
-      let currentSlide = 0;
-      
-      // Function to show slide
-      function showSlide(index) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        indicators.forEach(indicator => indicator.classList.remove('active'));
-        
-        slides[index].classList.add('active');
-        indicators[index].classList.add('active');
-        currentSlide = index;
-      }
-      
-      // Auto slide change every 3 seconds
-      setInterval(() => {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-      }, 3000);
-      
-      // Click event for indicators
-      indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-          showSlide(index);
-        });
       });
     });
   </script>
