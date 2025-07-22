@@ -271,6 +271,76 @@
       background-color: #f1f5f9;
     }
 
+    /* Projects Slider */
+    .projects-slider {
+      width: 100%;
+      height: 500px;
+      position: relative;
+      margin: 3rem 0;
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .slide.active {
+      opacity: 1;
+    }
+    
+    .slide-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      color: white;
+      padding: 2rem;
+    }
+    
+    .slide h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .slide p {
+      max-width: 600px;
+    }
+    
+    .slide-indicators {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+    
+    .indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .indicator.active {
+      background-color: white;
+      transform: scale(1.2);
+    }
+
     /* Projects Section */
     .projects {
       text-align: center;
@@ -413,6 +483,14 @@
         font-size: 1.2rem;
       }
 
+      .projects-slider {
+        height: 400px;
+      }
+      
+      .slide h3 {
+        font-size: 1.5rem;
+      }
+
       .footer-inner {
         padding: 0 1.5rem;
       }
@@ -430,6 +508,19 @@
       th, td {
         padding: 0.75rem;
         font-size: 0.9rem;
+      }
+      
+      .projects-slider {
+        height: 300px;
+      }
+      
+      .slide-content {
+        padding: 1rem;
+      }
+      
+      .slide h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
       }
     }
   </style>
@@ -499,6 +590,39 @@
           </tr>
         </tbody>
       </table>
+
+      <!-- Projects Slider -->
+      <div class="projects-slider">
+        <!-- Slide 1 -->
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
+          <div class="slide-content">
+            <h3>Bhiwandi Warehouse Complex</h3>
+            <p>Our flagship project featuring state-of-the-art storage facilities with 100,000 sq ft of space.</p>
+          </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
+          <div class="slide-content">
+            <h3>Pogaon Distribution Center</h3>
+            <p>Modern distribution hub with advanced logistics management systems serving Western India.</p>
+          </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
+          <div class="slide-content">
+            <h3>Bhinar Logistics Park</h3>
+            <p>Integrated logistics park with 150,000 sq ft of warehousing space and dedicated transport facilities.</p>
+          </div>
+        </div>
+        
+        <div class="slide-indicators">
+          <div class="indicator active" data-slide="0"></div>
+          <div class="indicator" data-slide="1"></div>
+          <div class="indicator" data-slide="2"></div>
+        </div>
+      </div>
 
       <!-- Our Projects -->
       <div class="projects">
@@ -572,6 +696,36 @@
         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
       });
     });
+
+    // Image Slider Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const slides = document.querySelectorAll('.slide');
+      const indicators = document.querySelectorAll('.indicator');
+      let currentSlide = 0;
+      
+      // Function to show slide
+      function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        indicators.forEach(indicator => indicator.classList.remove('active'));
+        
+        slides[index].classList.add('active');
+        indicators[index].classList.add('active');
+        currentSlide = index;
+      }
+      
+      // Auto slide change every 3 seconds
+      setInterval(() => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+      }, 3000);
+      
+      // Click event for indicators
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+          showSlide(index);
+        });
+      });
+    });
   </script>
 </body>
-</html> 
+</html>
