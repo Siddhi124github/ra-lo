@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Legacy - RA Logistics</title>
-  <meta name="description" content="Discover the legacy of RA Logistics - A leader in warehouse construction and logistics solutions">
+  <meta name="description" content="Discover the legacy of RA Logistics and House of Hiranandani">
 
   <!-- Preload and optimize assets -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style">
@@ -183,8 +183,34 @@
       cursor: pointer;
     }
 
-    /* Hero Section - Removed as requested */
-    
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: white;
+      margin-top: 80px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
     /* Legacy Content Section */
     .legacy-content {
       padding: 5rem 0;
@@ -259,51 +285,6 @@
       font-weight: 600;
     }
 
-    /* Logo Showcase Section */
-    .logo-showcase {
-      background-color: var(--gray);
-      padding: 4rem 0;
-      text-align: center;
-    }
-
-    .logo-showcase h2 {
-      margin-bottom: 3rem;
-      color: var(--secondary);
-    }
-
-    .logo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 3rem;
-      align-items: center;
-      justify-items: center;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .logo-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100px;
-      padding: 1rem;
-      background: white;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-    }
-
-    .logo-item:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .logo-item img {
-      max-width: 100%;
-      max-height: 80px;
-      object-fit: contain;
-    }
-
     /* Mission & Vision Section */
     .mission-vision-section {
       background-color: var(--secondary);
@@ -350,102 +331,6 @@
 
     .mission-card p {
       color: rgba(255, 255, 255, 0.9);
-    }
-
-    /* Timeline Section */
-    .timeline-section {
-      padding: 6rem 0;
-      background-color: var(--white);
-    }
-
-    .timeline {
-      position: relative;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .timeline::after {
-      content: '';
-      position: absolute;
-      width: 6px;
-      background-color: var(--primary);
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      margin-left: -3px;
-      border-radius: 3px;
-    }
-
-    .timeline-item {
-      padding: 10px 40px;
-      position: relative;
-      width: 50%;
-      box-sizing: border-box;
-    }
-
-    .timeline-item::after {
-      content: '';
-      position: absolute;
-      width: 25px;
-      height: 25px;
-      right: -12px;
-      background-color: white;
-      border: 4px solid var(--primary);
-      top: 15px;
-      border-radius: 50%;
-      z-index: 1;
-    }
-
-    .left {
-      left: 0;
-    }
-
-    .right {
-      left: 50%;
-    }
-
-    .left::before {
-      content: " ";
-      height: 0;
-      position: absolute;
-      top: 22px;
-      width: 0;
-      z-index: 1;
-      right: 30px;
-      border: medium solid var(--primary);
-      border-width: 10px 0 10px 10px;
-      border-color: transparent transparent transparent white;
-    }
-
-    .right::before {
-      content: " ";
-      height: 0;
-      position: absolute;
-      top: 22px;
-      width: 0;
-      z-index: 1;
-      left: 30px;
-      border: medium solid var(--primary);
-      border-width: 10px 10px 10px 0;
-      border-color: transparent white transparent transparent;
-    }
-
-    .timeline-content {
-      padding: 20px 30px;
-      background-color: white;
-      position: relative;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .timeline-date {
-      color: var(--primary);
-      font-weight: 600;
-    }
-
-    .timeline-title {
-      margin: 10px 0;
-      color: var(--secondary);
     }
 
     /* Footer */
@@ -550,36 +435,16 @@
         color: var(--secondary);
         font-size: 1.2rem;
       }
-
-      .timeline::after {
-        left: 31px;
-      }
-
-      .timeline-item {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-      }
-
-      .timeline-item::after {
-        left: 18px;
-      }
-
-      .left::before, .right::before {
-        left: 60px;
-        border: medium solid var(--primary);
-        border-width: 10px 10px 10px 0;
-        border-color: transparent white transparent transparent;
-      }
-
-      .left, .right {
-        left: 0;
-      }
     }
 
     @media (max-width: 576px) {
       .container {
         padding: 0 1.5rem;
+      }
+
+      .hero-section {
+        height: 50vh;
+        margin-top: 70px;
       }
 
       .stats-grid {
@@ -631,12 +496,22 @@
     </nav>
   </header>
 
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">OUR LEGACY</h1>
+        <p class="hero-subtitle">House of Hiranandani - Four Decades of Real Estate Excellence</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Legacy Content Section -->
   <section class="legacy-content">
     <div class="container">
       <div class="legacy-intro">
-        <h2>RA Logistics Legacy</h2>
-        <p>RA Logistics stands at the forefront of warehouse construction and logistics solutions in India. With years of expertise in developing state-of-the-art warehousing facilities, we have redefined industrial infrastructure standards across multiple locations. Our commitment to excellence creates value for all stakeholders through innovative, efficient, and sustainable solutions.</p>
+        <h2>House of Hiranandani</h2>
+        <p>House of Hiranandani stands at the forefront of real estate innovations in India. It is renowned for crafting iconic integrated communities across Mumbai, Bengaluru, Chennai, and Hyderabad. With over four decades of expertise, their signature styled neighbourhoods redefine modern living, seamlessly blending residential, retail, hospitality, healthcare, and educational facilities. Through our commitment to excellence we create value for all stakeholders, embodying inclusivity and holistic living at every turn.</p>
       </div>
 
       <div class="values-grid">
@@ -646,27 +521,27 @@
         </div>
         <div class="value-card">
           <h3>Customer Focus</h3>
-          <p>Putting our clients' logistics needs at the center of everything we do</p>
+          <p>Putting our clients' needs at the center of everything we do</p>
         </div>
         <div class="value-card">
           <h3>Quality Construction</h3>
-          <p>Uncompromising standards in every warehouse we build</p>
+          <p>Uncompromising standards in every project we undertake</p>
         </div>
         <div class="value-card">
-          <h3>Innovative Design</h3>
-          <p>Cutting-edge warehouse solutions that stand the test of time</p>
+          <h3>Superior Design</h3>
+          <p>Innovative architecture that stands the test of time</p>
         </div>
         <div class="value-card">
-          <h3>Sustainability</h3>
-          <p>Creating eco-friendly logistics spaces for the future</p>
+          <h3>New Urbanism</h3>
+          <p>Creating sustainable, livable communities for the future</p>
         </div>
         <div class="value-card">
-          <h3>Precision Execution</h3>
+          <h3>Architectural Process</h3>
           <p>Meticulous planning and execution at every stage</p>
         </div>
         <div class="value-card">
-          <h3>Technology Integration</h3>
-          <p>Pioneering new approaches in logistics infrastructure</p>
+          <h3>Innovation</h3>
+          <p>Pioneering new approaches in real estate development</p>
         </div>
         <div class="value-card">
           <h3>Timely Delivery</h3>
@@ -675,104 +550,31 @@
       </div>
 
       <div class="text-center">
-        <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem;">With a proven track record in developing world-class warehousing facilities, RA Logistics is setting new benchmarks in the industrial and logistics real estate sector.</p>
+        <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem;">With a legacy of over 4 decades of setting benchmarks in Real Estate, House of Hiranandani is looking at creating similar benchmarks in the Warehousing and Industrial sector.</p>
       </div>
 
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-number">50+</div>
-          <div class="stat-label">WAREHOUSES BUILT</div>
+          <div class="stat-number">26,612</div>
+          <div class="stat-label">UNITS DELIVERED</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">5M+</div>
-          <div class="stat-label">SQ. FT. DEVELOPED</div>
+          <div class="stat-number">49.04</div>
+          <div class="stat-label">MN SQ. FT. AREA DEVELOPED</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">CLIENT SATISFACTION</div>
+          <div class="stat-number">95,228</div>
+          <div class="stat-label">STUDENTS EDUCATED</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">10+</div>
-          <div class="stat-label">YEARS EXPERIENCE</div>
+          <div class="stat-number">69,357</div>
+          <div class="stat-label">TREES PLANTED</div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Logo Showcase Section -->
-  <section class="logo-showcase">
-    <div class="container">
-      <h2 class="section-heading">Our Partners & Clients</h2>
-      <div class="logo-grid">
-        <div class="logo-item">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo">
-        </div>
-        <div class="logo-item">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Flipkart_logo.png" alt="Flipkart Logo">
-        </div>
-        <div class="logo-item">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
-        </div>
-        <div class="logo-item">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png" alt="Meta Logo">
-        </div>
-        <div class="logo-item">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Logo">
-        </div>
-        <div class="logo-item">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Timeline Section -->
-  <section class="timeline-section">
-    <div class="container">
-      <h2 class="section-heading text-center">Our Journey</h2>
-      <div class="timeline">
-        <div class="timeline-item left">
-          <div class="timeline-content">
-            <div class="timeline-date">2010</div>
-            <h3 class="timeline-title">Company Founded</h3>
-            <p>RA Logistics was established with a vision to revolutionize warehouse construction in India.</p>
-          </div>
-        </div>
-        <div class="timeline-item right">
-          <div class="timeline-content">
-            <div class="timeline-date">2012</div>
-            <h3 class="timeline-title">First Major Project</h3>
-            <p>Completed our first large-scale warehouse facility in Mumbai, setting new standards in the industry.</p>
-          </div>
-        </div>
-        <div class="timeline-item left">
-          <div class="timeline-content">
-            <div class="timeline-date">2015</div>
-            <h3 class="timeline-title">National Expansion</h3>
-            <p>Expanded operations to Bangalore and Delhi, establishing a pan-India presence.</p>
-          </div>
-        </div>
-        <div class="timeline-item right">
-          <div class="timeline-content">
-            <div class="timeline-date">2018</div>
-            <h3 class="timeline-title">Technology Integration</h3>
-            <p>Implemented smart warehouse solutions with IoT and automation technologies.</p>
-          </div>
-        </div>
-        <div class="timeline-item left">
-          <div class="timeline-content">
-            <div class="timeline-date">2020</div>
-            <h3 class="timeline-title">Sustainability Initiative</h3>
-            <p>Launched our green warehouse program focusing on renewable energy and eco-friendly materials.</p>
-          </div>
-        </div>
-        <div class="timeline-item right">
-          <div class="timeline-content">
-            <div class="timeline-date">2023</div>
-            <h3 class="timeline-title">Industry Recognition</h3>
-            <p>Awarded "Best Warehouse Developer" at the National Logistics Excellence Awards.</p>
-          </div>
-        </div>
+      <div class="text-center">
+        <h3 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem;">40+ Years of legacy brings to you warehousing space solutions</h3>
+        <h4 style="font-size: 1.2rem; color: var(--secondary);">OTHER VERTICALS</h4>
       </div>
     </div>
   </section>
@@ -810,7 +612,7 @@
       <div class="footer-column">
         <p>
           RA Logistics is a premier warehouse construction and logistics solutions provider in India,
-          delivering innovative infrastructure solutions since 2010.
+          delivering innovative infrastructure solutions since 2018.
         </p>
       </div>
 
@@ -876,4 +678,4 @@
     });
   </script>
 </body>
-</html>
+</html> from these remove the header image and text then this is written for hirandiani i want it to be for ra logistics and i need some logos its too plain
