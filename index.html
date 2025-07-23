@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +12,7 @@
   <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-<link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
-
-
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
 
   <style>
     :root {
@@ -244,38 +241,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-      
-      z-index: -1;
-    }
-    /* Header & Navigation */
-    header {
-      position: relative;
-      height: 100vh;
-      min-height: 700px;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    .header-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      transition: opacity 1.5s ease-in-out;
-      z-index: -2;
-    }
-
-    .header-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
       background: linear-gradient(135deg, rgba(11, 28, 44, 0.9) 0%, rgba(16, 42, 67, 0.8) 100%);
       z-index: -1;
     }
@@ -283,7 +248,7 @@
     /* Navbar */
     .navbar {
       width: 100%;
-     padding: 0.8rem 0; 
+      padding: 0.8rem 0;
       position: fixed;
       top: 0;
       left: 0;
@@ -333,7 +298,7 @@
     }
 
     .nav-link {
-      color: dark;
+      color: var(--dark);
       font-weight: 500;
       position: relative;
       padding: 0.5rem 0;
@@ -366,9 +331,10 @@
       display: none;
       background: none;
       border: none;
-      color: black;
+      color: var(--dark);
       font-size: 1.5rem;
       cursor: pointer;
+      z-index: 1001;
     }
 
     /* Hero Section */
@@ -379,36 +345,35 @@
       padding: 6rem 0;
     }
 
+    .hero-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      animation: fadeInUp 1s ease-out;
+      padding: 0 2rem;
+    }
 
-.hero-content {
-  max-width: 1000px; /* wider container */
-  margin: 0 auto;
-  text-align: center;
-  animation: fadeInUp 1s ease-out;
-  padding: 0 2rem; /* optional for better mobile layout */
-}
-.hero-title {
-  font-size: clamp(2.9rem, 6vw, 3rem);  /* perfect for headings */
-  margin-bottom: 1.5rem;
-  color: white;
-  line-height: 1.4;
-  font-weight: 600;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-}
+    .hero-title {
+      font-size: clamp(2.9rem, 6vw, 3rem);
+      margin-bottom: 1.5rem;
+      color: white;
+      line-height: 1.4;
+      font-weight: 600;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
 
-.hero-title .text-primary {
-  color: #1e40af; /* or your brand blue */
-  font-weight: 700;
-}
+    .hero-title .text-primary {
+      color: #1e40af;
+      font-weight: 700;
+    }
 
-.hero-subtitle {
- font-size: clamp(1rem, 2.5vw, 1.2rem);
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 2.5rem;
-  font-weight: 300;
-  line-height: 1.6;
-}
-
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      line-height: 1.6;
+    }
 
     .hero-buttons {
       display: flex;
@@ -566,115 +531,85 @@
       transition: var(--transition);
     }
 
-.stats-clean {
-  background: linear-gradient(135deg, #0b1c2c 0%, #143250 100%);
-  padding: 5rem 0;
-  color: white;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
+    .stats-clean {
+      background: linear-gradient(135deg, #0b1c2c 0%, #143250 100%);
+      padding: 5rem 0;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-.stats-clean-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  gap: 1rem;
-}
+    .stats-clean-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      gap: 1rem;
+    }
 
-.stat-clean-item {
-  padding: 2rem 1rem;
-  transition: all 0.4s ease;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  min-width: 220px;
-  flex: 1;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
+    .stat-clean-item {
+      padding: 2rem 1rem;
+      transition: all 0.4s ease;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      min-width: 220px;
+      flex: 1;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
 
-.stat-clean-item:hover {
-  transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-}
+    .stat-clean-item:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
 
-.stat-clean-item i {
-  font-size: 2.8rem;
-  background: linear-gradient(45deg, #f9c038, #f9a825);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 1rem;
-}
+    .stat-clean-item i {
+      font-size: 2.8rem;
+      background: linear-gradient(45deg, #f9c038, #f9a825);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
 
-.stat-clean-item h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0;
-  color: white;
-  line-height: 1.2;
-}
+    .stat-clean-item h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0;
+      color: white;
+      line-height: 1.2;
+    }
 
-.stat-clean-item h2 span {
-  font-size: 1rem;
-  font-weight: 400;
-  display: block;
-  margin-top: 0.3rem;
-  color: #f9c038;
-}
+    .stat-clean-item h2 span {
+      font-size: 1rem;
+      font-weight: 400;
+      display: block;
+      margin-top: 0.3rem;
+      color: #f9c038;
+    }
 
-.stat-clean-item p {
-  font-size: 1rem;
-  color: #e0ecf3;
-  margin-top: 0.8rem;
-  font-weight: 300;
-  position: relative;
-}
+    .stat-clean-item p {
+      font-size: 1rem;
+      color: #e0ecf3;
+      margin-top: 0.8rem;
+      font-weight: 300;
+      position: relative;
+    }
 
-.stat-clean-item p:after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 2px;
-  background: #f9c038;
-}
-
-@media (max-width: 1200px) {
-  .stat-clean-item {
-    min-width: 180px;
-    padding: 1.5rem 0.5rem;
-  }
-}
-
-@media (max-width: 900px) {
-  .stats-clean-container {
-    flex-wrap: wrap;
-  }
-  .stat-clean-item {
-    flex: 0 0 calc(33.333% - 1rem);
-    margin-bottom: 1rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .stat-clean-item {
-    flex: 0 0 calc(50% - 1rem);
-  }
-}
-
-@media (max-width: 400px) {
-  .stat-clean-item {
-    flex: 0 0 100%;
-  }
-}
-
+    .stat-clean-item p:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 2px;
+      background: #f9c038;
+    }
 
     /* Expertise Section */
     .expertise-item {
@@ -707,7 +642,8 @@
       margin-bottom: 1rem;
       color: var(--secondary);
     }
-      /* Contact Section */
+
+    /* Contact Section */
     .contact {
       background-color: var(--secondary);
       color: white;
@@ -754,6 +690,7 @@
     .contact-text a:hover {
       color: var(--primary-light);
     }
+
     .contact-form {
       background-color: white;
       border-radius: var(--border-radius);
@@ -791,75 +728,107 @@
       min-height: 150px;
       resize: vertical;
     }
-.footer {
-  background-color: var(--dark);
-  color: rgba(255, 255, 255, 0.8);
-  width: 100%; 
-  margin: 0;
-  padding: 4rem 3rem 2rem;
-  box-sizing: border-box;
-}
 
-.footer-inner {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 2rem;
-  width: 100%;
-}
+    .footer {
+      background-color: var(--dark);
+      color: rgba(255, 255, 255, 0.8);
+      width: 100%;
+      margin: 0;
+      padding: 4rem 3rem 2rem;
+      box-sizing: border-box;
+    }
 
-.footer-column {
-  flex: 1 1 300px;
-  min-width: 280px;
-}
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+      width: 100%;
+    }
 
-.footer-column h3 {
-  color: white;
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  position: relative;
-}
+    .footer-column {
+      flex: 1 1 300px;
+      min-width: 280px;
+    }
 
-.footer-column h3::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -8px;
-  width: 40px;
-  height: 2px;
-  background-color: var(--primary);
-}
+    .footer-column h3 {
+      color: white;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
 
-.footer-column ul {
-  list-style: none;
-  padding-left: 0;
-}
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 40px;
+      height: 2px;
+      background-color: var(--primary);
+    }
 
-.footer-column li {
-  margin-bottom: 0.75rem;
-  line-height: 1.6;
-}
+    .footer-column ul {
+      list-style: none;
+      padding-left: 0;
+    }
 
-.footer-column a {
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  transition: var(--transition);
-}
+    .footer-column li {
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
 
-.footer-column a:hover {
-  color: var(--primary);
-  padding-left: 5px;
-}
+    .footer-column a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+    }
 
-.footer-bottom {
-  text-align: center;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 3rem;
-}
+    .footer-column a:hover {
+      color: var(--primary);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 3rem;
+    }
 
     .copyright {
       font-size: 0.9rem;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+    
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
     }
 
     /* Animations */
@@ -869,7 +838,7 @@
       }
       to {
         opacity: 1;
-      }m
+      }
     }
 
     @keyframes fadeInUp {
@@ -966,16 +935,18 @@
 
       .nav-menu {
         position: fixed;
-        top: 80px;
+        top: 0;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 80px);
+        height: 100vh;
         background-color: white;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         padding: 2rem 0;
         transition: all 0.4s ease;
         box-shadow: var(--shadow-md);
+        z-index: 1000;
       }
 
       .nav-menu.active {
@@ -983,16 +954,22 @@
       }
 
       .nav-item {
-        margin: 1rem 0;
+        margin: 1.5rem 0;
       }
 
       .nav-link {
         color: var(--secondary);
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+      }
+
+      .navbar-container {
+        padding: 1rem;
       }
 
       .hero-title {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
       }
 
       .hero-buttons {
@@ -1070,17 +1047,16 @@
           <li class="nav-item">
             <a href="#expertise" class="nav-link">Expertise</a>
           </li>
-         
           <li class="nav-item">
-    <a href="clients.html" class="nav-link">Clients</a> 
-  </li>
-          <li class="nav-item">
-            <a href="locations.html" class="nav-link ">Locations</a>
+            <a href="clients.html" class="nav-link">Clients</a> 
           </li>
           <li class="nav-item">
-            <a href="legacy.html" class="nav-link"> Our Legacy</a> 
-  </li>
-           <li class="nav-item">
+            <a href="locations.html" class="nav-link">Locations</a>
+          </li>
+          <li class="nav-item">
+            <a href="legacy.html" class="nav-link">Our Legacy</a> 
+          </li>
+          <li class="nav-item">
             <a href="#contact" class="nav-link">Contact</a>
           </li>
         </ul>
@@ -1090,13 +1066,13 @@
     <div class="hero">
       <div class="container">
         <div class="hero-content">
-           <h1 class="hero-title">
-        Business Spaces that Inspire Growth<br>
-        replacement for building the<br>
-        <span class="text-primary">future of logistics</span>
-      </h1>
+          <h1 class="hero-title">
+            Business Spaces that Inspire Growth<br>
+            replacement for building the<br>
+            <span class="text-primary">future of logistics</span>
+          </h1>
 
-          <p class="hero-subtitle">Unlock your business potential with our state-of-the-art industrial spaces, designed to fuel innovation, productivity, and success.</p>
+          <p class="hero-subtitle">Unlock your business potential with our state-of-the-art industrial spaces, designed to fuel innovation, productivity, and success.</p>
           <div class="hero-buttons">
             <a href="#services" class="btn btn-primary btn-lg">
               Our Services <i class="fas fa-arrow-right btn-icon"></i>
@@ -1227,44 +1203,42 @@
     </div>
   </section>
 
-<!-- Remix Icons CDN -->
-<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
-
-<!-- Stats Section -->
-<section class="stats-clean">
-  <div class="stats-clean-container">
-    <div class="stat-clean-item">
-      <i class="ri-medal-line"></i>
-      <h2>7+<span>Years</span></h2>
-      <p>Experience</p>
-    </div>
-    <div class="stat-clean-item">
-      <i class="ri-earth-line"></i>
-      <h2>100+<span>Acres</span></h2>
-      <p>Land Bank</p>
-    </div>
-    <div class="stat-clean-item">
-      <i class="ri-building-line"></i>
-    
-      <h2>15 Lakh+<span> Sq.Ft</span></h2>
-      <p>Development</p>
-    </div>
-    <div class="stat-clean-item">
-      <i class="ri-map-pin-user-line"></i>
+  <!-- Stats Section -->
+  <section class="stats-clean">
+    <div class="stats-clean-container">
+      <div class="stat-clean-item">
+        <i class="ri-medal-line"></i>
+        <h2>7+<span>Years</span></h2>
+        <p>Experience</p>
+      </div>
+      <div class="stat-clean-item">
+        <i class="ri-earth-line"></i>
+        <h2>100+<span>Acres</span></h2>
+        <p>Land Bank</p>
+      </div>
+      <div class="stat-clean-item">
+        <i class="ri-building-line"></i>
+        <h2>15 Lakh+<span> Sq.Ft</span></h2>
+        <p>Development</p>
+      </div>
+      <div class="stat-clean-item">
         <a href="locations.html" style="text-decoration: none; color: inherit;">
-      <h2>2<span>Locations</span></h2>
-      <p>Regional Presence</p></a>
+          <i class="ri-map-pin-user-line"></i>
+          <h2>2<span>Locations</span></h2>
+          <p>Regional Presence</p>
+        </a>
+      </div>
+      <div class="stat-clean-item">
+        <i class="ri-community-line"></i>
+        <h2>3<span>Projects</span></h2>
+        <p>Ongoing</p>
+      </div>
     </div>
-    <div class="stat-clean-item">
-      <i class="ri-community-line"></i>
-      <h2>3<span>Projects</span></h2>
-      <p>Ongoing</p>
-    </div>
-  </div>
-</section>
+  </section>
 
+  <!-- Expertise Section -->
   <section id="expertise" class="section bg-white">
-       <div class="container">
+    <div class="container">
       <div class="text-center">
         <h2 class="section-heading">Our <span class="text-primary">Expertise</span></h2>
         <p class="section-subtitle">Specialized knowledge and skills that set us apart in the logistics industry</p>
@@ -1322,9 +1296,6 @@
     </div>
   </section>
 
-
-  <!-- Contact Section -->
-
   <!-- Contact Section -->
   <section id="contact" class="section">
     <div class="container">
@@ -1346,16 +1317,17 @@
                 <h4>Head Office</h4>
                 <p> Unit No-1007, 10 Th floor Supreme Headquater corner of 14th Road and 33rd Road Bandra West Mumbai-400050 Maharashtra, India</p>
               </div>
+            </div>
+            
+            <div class="contact-detail">
               <div class="contact-icon">
                 <i class="fas fa-map-marker-alt"></i>
               </div>
               <div class="contact-text">
                 <h4>Site address</h4>
-                <p> R A LOGISTICS LLP, NEAR TO AMAZON M BOX, VILLAGE POGAON, CHAVINDRA, BHIWANDI 421302</p>
+                <p> R A LOGISTICS LLP, NEAR TO AMAZON M BOX, VILLAGE POGAON, CHAVINDRA, BHIWANDI 421302</p>
               </div>
             </div>
-            
-            
             
             <div class="contact-detail">
               <div class="contact-icon">
@@ -1366,16 +1338,17 @@
                 <p><a href="mailto:hr@ra-logistics.in">info@ra-logistics.in</a></p>
               </div>
             </div>
+            
             <div class="contact-detail">
-  <div class="contact-icon">
-    <i class="fas fa-phone-alt"></i>
-  </div>
-  <div class="contact-text">
-    <h4>Phone</h4>
-    <p><a href="tel:+912243561234">+91 22 4356 1234</a></p>
-  </div>
-</div>
-
+              <div class="contact-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Phone</h4>
+                <p><a href="tel:+912243561234">+91 22 4356 1234</a></p>
+              </div>
+            </div>
+            
             <div class="contact-detail">
               <div class="contact-icon">
                 <i class="fas fa-clock"></i>
@@ -1386,132 +1359,99 @@
               </div>
             </div>
           </div>
-          
-         
-       <div class="contact-form ">
-  <form id="contactForm" action="https://formsubmit.co/info@ra-logistics.in" method="POST">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://siddhi124github.github.io/ra-lo/thankyou.html">
-    <input type="hidden" name="_template" value="table">
+        </div>
+        
+        <div class="contact-form">
+          <form id="contactForm" action="https://formsubmit.co/info@ra-logistics.in" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://siddhi124github.github.io/ra-lo/thankyou.html">
+            <input type="hidden" name="_template" value="table">
 
-    <div class="form-group">
-      <label for="name" class="form-label">Your Name</label>
-      <input type="text" id="name" name="name" class="form-control"  required>
+            <div class="form-group">
+              <label for="name" class="form-label">Your Name</label>
+              <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="tel" id="phone" name="phone" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label for="service" class="form-label">Service Interested In</label>
+              <select id="service" name="service" class="form-control" required>
+                <option value="">Select a service</option>
+                <option value="warehouse">Warehouse Construction</option>
+                <option value="logistics">Logistics Infrastructure</option>
+                <option value="storage">Storage Solutions</option>
+                <option value="sustainable">Sustainable Design</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">Your Message</label>
+              <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 30%;">
+              Send Message <i class="fas fa-paper-plane btn-icon"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-column">
+        <p>
+          RA Logistics is a premier warehouse construction and logistics solutions provider in India,
+          delivering innovative infrastructure solutions since 2018.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="clients.html">Clients</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="legacy.html">Our Legacy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> Unit No-1007, 10 Th floor Supreme Headquater corner of 14th Road and 33rd Road Bandra West Mumbai-400050 Maharashtra, India</li>
+          <li><i class="fas fa-map-marker-alt"></i> R A LOGISTICS LLP, NEAR TO AMAZON M BOX, VILLAGE POGAON, CHAVINDRA, BHIWANDI 421302</li>
+          <li><i class="fas fa-envelope"></i> info@ra-logistics.in</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="email" class="form-label">Email Address</label>
-      <input type="email" id="email" name="email" class="form-control" required>
-    </div>
-
-    <div class="form-group">
-      <label for="phone" class="form-label">Phone Number</label>
-      <input type="tel" id="phone" name="phone" class="form-control" required>
-    </div>
-
-    <div class="form-group">
-      <label for="service" class="form-label">Service Interested In</label>
-      <select id="service" name="service" class="form-control" required>
-        <option value="">Select a service</option>
-        <option value="warehouse">Warehouse Construction</option>
-        <option value="logistics">Logistics Infrastructure</option>
-        <option value="storage">Storage Solutions</option>
-        <option value="sustainable">Sustainable Design</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="message" class="form-label">Your Message</label>
-      <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
-    </div>
-
-    <button type="submit" class="btn btn-primary btn-lg" style="width: 30%;">
-      Send Message <i class="fas fa-paper-plane btn-icon"></i>
-    </button>
-  </form>
-</div>
-
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-column">
-      <p>
-        RA Logistics is a premier warehouse construction and logistics solutions provider in India,
-        delivering innovative infrastructure solutions since 2018.
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; 2025 RA Logistics. All Rights Reserved.
       </p>
     </div>
-
-    <div class="footer-column">
-      <h3>Quick Links</h3>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#expertise">Expertise</a></li>
-        <li><a href="#contact">Contact</a></li>
-         <li><a href="clients.html">Clients</a></li>
-        <li >
-            <a href="locations.html">Locations</a>
-          </li>
-          <li><a href="legacy.html">Our Legacy</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-column">
-      <h3>Contact Info</h3>
-      <ul>
-        <li><i class="fas fa-map-marker-alt"></i> Unit No-1007, 10 Th floor Supreme Headquater corner of 14th Road and 33rd Road Bandra West Mumbai-400050 Maharashtra, India</li>
-        <li><i class="fas fa-map-marker-alt"></i> R A LOGISTICS LLP, NEAR TO AMAZON M BOX, VILLAGE POGAON, CHAVINDRA, BHIWANDI 421302 </li>
-        <li><i class="fas fa-envelope"></i> info@ra-logistics.in</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p class="copyright">
-      &copy; 2025 RA Logistics. All Rights Reserved.
-    </p>
-  </div>
-</footer>
-
+  </footer>
 
   <!-- Back to Top Button -->
   <a href="#home" class="back-to-top" id="backToTop">
     <i class="fas fa-arrow-up"></i>
   </a>
-
-  <style>
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 50px;
-      height: 50px;
-      background-color: var(--primary);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      box-shadow: var(--shadow-md);
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-      z-index: 999;
-    }
-    
-    .back-to-top.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .back-to-top:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-3px);
-    }
-  </style>
 
   <script>
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -1522,6 +1462,7 @@
       mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
         ? '<i class="fas fa-times"></i>' 
         : '<i class="fas fa-bars"></i>';
+      document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
     });
     
     // Close mobile menu when clicking a nav link
@@ -1529,6 +1470,7 @@
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = 'auto';
       });
     });
   
@@ -1562,46 +1504,5 @@
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);  
   </script>
-         <script>
-  const counters = document.querySelectorAll('.stat-number:not(.no-animate)');
-  const speed = 200;
-
-  const animateCounter = counter => {
-    const target = +counter.getAttribute('data-target');
-    const suffix = counter.getAttribute('data-suffix') || "";
-    
-    const updateCount = () => {
-      const count = +counter.innerText.replace(/[^0-9]/g, ''); // Remove suffix
-      const increment = target / speed;
-
-      if (count < target) {
-        counter.innerText = Math.ceil(count + increment) + suffix;
-        setTimeout(updateCount, 15);
-      } else {
-        counter.innerText = target + suffix;
-      }
-    };
-
-    updateCount();
-  };
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        if (!entry.target.classList.contains('no-animate')) {
-          animateCounter(entry.target);
-        }
-        entry.target.parentElement.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  document.querySelectorAll('.stat-number').forEach(counter => {
-    observer.observe(counter);
-  });
-</script>
-
-
 </body>
 </html>
