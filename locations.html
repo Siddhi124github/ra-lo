@@ -341,91 +341,69 @@
       transform: scale(1.2);
     }
 
-    /* Projects Grid */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-    
-    .project-card {
-      position: relative;
-      height: 400px;
-      border-radius: var(--border-radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      transition: var(--transition);
-    }
-    
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .project-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    
-    .project-card:hover .project-image {
-      transform: scale(1.05);
-    }
-    
-    .project-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-      padding: 2rem;
-      color: white;
-      transform: translateY(100%);
-      transition: transform 0.4s ease;
-    }
-    
-    .project-card:hover .project-overlay {
-      transform: translateY(0);
-    }
-    
-    .project-title {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: white;
-    }
-    
-    .project-description {
-      margin-bottom: 1rem;
-      opacity: 0;
-      transition: opacity 0.3s ease 0.2s;
-    }
-    
-    .project-card:hover .project-description {
-      opacity: 1;
-    }
-    
-    .project-link {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background-color: var(--accent);
-      color: white;
-      border-radius: var(--border-radius);
-      font-weight: 600;
-      transform: translateY(20px);
-      opacity: 0;
-      transition: all 0.3s ease 0.3s;
-    }
-    
-    .project-card:hover .project-link {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    
-    .project-link:hover {
-      background-color: var(--primary);
-    }
+  .project-card.no-image {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: var(--shadow-lg);
+  padding: 2rem;
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: var(--transition);
+  height: 100%;
+  min-height: 220px;
+}
+
+.project-card.no-image:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.project-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.project-icon {
+  font-size: 2.5rem;
+  color: var(--primary);
+  min-width: 50px;
+}
+
+.project-details {
+  flex-grow: 1;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+}
+
+.project-description {
+  color: var(--text-light);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.project-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--accent);
+  color: white;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.project-link:hover {
+  background-color: var(--primary);
+}
+
 
     /* Footer */
        .footer {
@@ -651,40 +629,50 @@
       </table>
 
       
-      <!-- Projects Grid -->
-      <div class="projects-grid">
-        <!-- Project 1 -->
-        <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="HIRANANDANI INDUSTRIAL PARK" class="project-image">
-          <div class="project-overlay">
-            <h3 class="project-title">HIRANANDANI INDUSTRIAL PARK</h3>
-            <p class="project-description">State-of-the-art industrial park with premium facilities and strategic location advantages.</p>
-            <a href="projects.html" class="project-link">View Details</a>
-          </div>
-        </div>
-        
-        <!-- Project 2 -->
-        <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="PAREKH" class="project-image">
-          <div class="project-overlay">
-            <h3 class="project-title">PAREKH</h3>
-            <p class="project-description">Modern warehouse complex with cutting-edge technology and efficient space utilization.</p>
-            <a href="projects.html" class="project-link">View Details</a>
-          </div>
-        </div>
-        
-        <!-- Project 3 -->
-        <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="DA BLOCK" class="project-image">
-          <div class="project-overlay">
-            <h3 class="project-title">DA BLOCK</h3>
-            <p class="project-description">Premium logistics block designed for high-volume storage and distribution operations.</p>
-            <a href="projects.html" class="project-link">View Details</a>
-          </div>
-        </div>
+  <!-- Projects Grid -->
+<div class="projects-grid">
+  <!-- Project 1 -->
+  <div class="project-card no-image">
+    <div class="project-info">
+      <div class="project-icon">
+        <i class="fas fa-industry"></i>
+      </div>
+      <div class="project-details">
+        <h3 class="project-title">HIRANANDANI INDUSTRIAL PARK</h3>
+        <p class="project-description">A premium-grade industrial facility offering extensive space, connectivity, and infrastructure for logistics and warehousing businesses.</p>
+        <a href="projects.html" class="project-link">Learn More</a>
       </div>
     </div>
-  </main>
+  </div>
+
+  <!-- Project 2 -->
+  <div class="project-card no-image">
+    <div class="project-info">
+      <div class="project-icon">
+        <i class="fas fa-warehouse"></i>
+      </div>
+      <div class="project-details">
+        <h3 class="project-title">PAREKH</h3>
+        <p class="project-description">Strategically located warehouse hub equipped with automation and smart inventory systems.</p>
+        <a href="projects.html" class="project-link">Learn More</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 3 -->
+  <div class="project-card no-image">
+    <div class="project-info">
+      <div class="project-icon">
+        <i class="fas fa-truck-loading"></i>
+      </div>
+      <div class="project-details">
+        <h3 class="project-title">DA BLOCK</h3>
+        <p class="project-description">Logistics-ready infrastructure tailored for high-volume distribution operations with dedicated loading bays.</p>
+        <a href="projects.html" class="project-link">Learn More</a>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Footer -->
   <footer class="footer">
