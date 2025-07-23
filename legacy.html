@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Legacy - RA Logistics</title>
-  <meta name="description" content="Meet the leadership team behind RA Logistics">
+  <meta name="description" content="Discover the legacy of RA Logistics and House of Hiranandani">
 
   <!-- Preload and optimize assets -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style">
@@ -57,57 +57,11 @@
       position: relative;
     }
 
-    ::selection {
-      background-color: var(--primary);
-      color: white;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 1rem;
-      color: var(--secondary);
-    }
-
-    p {
-      margin-bottom: 1.5rem;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: var(--transition);
-    }
-
     .container {
       width: 100%;
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 2rem;
-    }
-
-    .text-center {
-      text-align: center;
-    }
-
-    .text-primary {
-      color: var(--primary);
-    }
-
-    .bg-primary {
-      background-color: var(--primary);
-    }
-
-    .bg-secondary {
-      background-color: var(--secondary);
-    }
-
-    .bg-light {
-      background-color: var(--light);
-    }
-
-    .bg-white {
-      background-color: var(--white);
     }
 
     .section {
@@ -138,68 +92,7 @@
       transform: translateX(-50%);
     }
 
-    .section-subtitle {
-      font-size: 1.25rem;
-      color: var(--text-light);
-      max-width: 700px;
-      margin: 0 auto 3rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.8rem 2rem;
-      border-radius: var(--border-radius);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 0.9rem;
-      transition: var(--transition);
-      border: 2px solid transparent;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .btn-primary {
-      background-color: var(--primary);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .btn-outline {
-      background-color: transparent;
-      border-color: white;
-      color: white;
-    }
-
-    .btn-outline:hover {
-      background-color: white;
-      color: var(--primary);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .btn-lg {
-      padding: 1rem 2.5rem;
-      font-size: 1rem;
-    }
-
-    .btn-icon {
-      margin-left: 0.5rem;
-    }
-
     /* Header/Navbar */
-  
-  
-
     .navbar {
       width: 100%;
       padding: 0.8rem 0;
@@ -290,132 +183,106 @@
       cursor: pointer;
     }
 
-    .hero {
-      flex: 1;
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+      height: 60vh;
       display: flex;
       align-items: center;
-      padding: 6rem 0;
+      text-align: center;
+      color: white;
+      margin-top: 80px;
     }
 
     .hero-content {
       max-width: 800px;
       margin: 0 auto;
-      text-align: center;
-      animation: fadeInUp 1s ease-out;
     }
 
     .hero-title {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      margin-bottom: 1.5rem;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin-bottom: 1rem;
       color: white;
-      line-height: 1.2;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
 
     .hero-subtitle {
-      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
       color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 3rem;
-      font-weight: 300;
     }
 
-    /* Leadership Section */
-    .leadership-section {
-      padding: 6rem 0;
+    /* Legacy Content Section */
+    .legacy-content {
+      padding: 5rem 0;
       background-color: var(--white);
     }
 
-    .leadership-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 3rem;
-      margin-top: 3rem;
+    .legacy-intro {
+      max-width: 800px;
+      margin: 0 auto 4rem;
+      text-align: center;
     }
 
-    .leader-card {
-      background: var(--white);
-      border-radius: var(--border-radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
+    .legacy-intro h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--secondary);
+    }
+
+    .legacy-intro p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .value-card {
+      background: var(--light);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      text-align: center;
       transition: var(--transition);
     }
 
-    .leader-card:hover {
-      transform: translateY(-10px);
-      box-shadow: var(--shadow-lg);
+    .value-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
     }
 
-    .leader-image {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-    }
-
-    .leader-info {
-      padding: 2rem;
-    }
-
-    .leader-name {
-      color: var(--secondary);
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .leader-position {
+    .value-card h3 {
       color: var(--primary);
-      font-weight: 600;
       margin-bottom: 1rem;
     }
 
-    .leader-bio {
-      color: var(--text-light);
-      margin-bottom: 1.5rem;
-    }
-
-    .leader-social {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .leader-social a {
-      color: var(--primary);
-      font-size: 1.2rem;
-      transition: var(--transition);
-    }
-
-    .leader-social a:hover {
-      color: var(--primary-dark);
-      transform: scale(1.2);
-    }
-
-    /* Milestones Section */
-    .milestones-section {
-      background-color: var(--light);
-      padding: 6rem 0;
-    }
-
-    .milestone-item {
-      display: flex;
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 2rem;
-      margin-bottom: 3rem;
-      align-items: center;
+      margin: 4rem 0;
     }
 
-    .milestone-year {
-      font-size: 2.5rem;
+    .stat-card {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .stat-number {
+      font-size: 3rem;
       font-weight: 700;
       color: var(--primary);
-      min-width: 120px;
-    }
-
-    .milestone-content {
-      flex: 1;
-    }
-
-    .milestone-title {
-      font-size: 1.5rem;
-      color: var(--secondary);
       margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      color: var(--secondary);
+      font-weight: 600;
     }
 
     /* Mission & Vision Section */
@@ -466,26 +333,25 @@
       color: rgba(255, 255, 255, 0.9);
     }
 
-        .footer {
+    /* Footer */
+    .footer {
       background-color: var(--dark);
       color: rgba(255, 255, 255, 0.8);
-      width: 100%;
-      margin: 0;
-      padding: 4rem 3rem 2rem;
-      box-sizing: border-box;
+      padding: 4rem 0 2rem;
     }
 
     .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       gap: 2rem;
-      width: 100%;
     }
 
     .footer-column {
       flex: 1 1 300px;
-      min-width: 280px;
     }
 
     .footer-column h3 {
@@ -529,83 +395,15 @@
     .footer-bottom {
       text-align: center;
       padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
       margin-top: 3rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .copyright {
       font-size: 0.9rem;
     }
 
-    /* Back to Top Button */
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 50px;
-      height: 50px;
-      background-color: var(--primary);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      box-shadow: var(--shadow-md);
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-      z-index: 999;
-    }
-    
-    .back-to-top.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .back-to-top:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-3px);
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .reveal {
-      position: relative;
-      opacity: 0;
-      transition: all 1s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-    }
-
-    .active.fade-bottom {
-      animation: fadeInUp 1s ease forwards;
-    }
-
     /* Responsive Design */
-    @media (max-width: 992px) {
-      .section {
-        padding: 4rem 0;
-      }
-    }
-
     @media (max-width: 768px) {
       .mobile-menu-btn {
         display: block;
@@ -637,11 +435,6 @@
         color: var(--secondary);
         font-size: 1.2rem;
       }
-
-      .milestone-item {
-        flex-direction: column;
-        align-items: flex-start;
-      }
     }
 
     @media (max-width: 576px) {
@@ -649,33 +442,20 @@
         padding: 0 1.5rem;
       }
 
-      .section-heading {
-        font-size: 2rem;
+      .hero-section {
+        height: 50vh;
+        margin-top: 70px;
       }
 
-      .hero-buttons {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .hero-buttons .btn {
-        width: 100%;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        gap: 2rem;
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
       }
     }
-    
   </style>
 </head>
 <body>
   <!-- Header -->
-  <header id="home">
-    <div class="header-bg"></div>
-    <div class="header-overlay"></div>
-    
+  <header>
     <nav class="navbar">
       <div class="container navbar-container">
         <a href="index.html" class="nav-logo">
@@ -699,7 +479,6 @@
           <li class="nav-item">
             <a href="index.html#expertise" class="nav-link">Expertise</a>
           </li>
-         
           <li class="nav-item">
             <a href="clients.html" class="nav-link">Clients</a>
           </li>
@@ -709,19 +488,102 @@
           <li class="nav-item">
             <a href="legacy.html" class="nav-link active">Our Legacy</a> 
           </li>
-           <li class="nav-item">
+          <li class="nav-item">
             <a href="index.html#contact" class="nav-link">Contact</a>
           </li>
         </ul>
       </div>
     </nav>
-    
-   
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">OUR LEGACY</h1>
+        <p class="hero-subtitle">House of Hiranandani - Four Decades of Real Estate Excellence</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legacy Content Section -->
+  <section class="legacy-content">
+    <div class="container">
+      <div class="legacy-intro">
+        <h2>House of Hiranandani</h2>
+        <p>House of Hiranandani stands at the forefront of real estate innovations in India. It is renowned for crafting iconic integrated communities across Mumbai, Bengaluru, Chennai, and Hyderabad. With over four decades of expertise, their signature styled neighbourhoods redefine modern living, seamlessly blending residential, retail, hospitality, healthcare, and educational facilities. Through our commitment to excellence we create value for all stakeholders, embodying inclusivity and holistic living at every turn.</p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <h3>Trust & Transparency</h3>
+          <p>Building relationships based on honesty and clear communication</p>
+        </div>
+        <div class="value-card">
+          <h3>Customer Focus</h3>
+          <p>Putting our clients' needs at the center of everything we do</p>
+        </div>
+        <div class="value-card">
+          <h3>Quality Construction</h3>
+          <p>Uncompromising standards in every project we undertake</p>
+        </div>
+        <div class="value-card">
+          <h3>Superior Design</h3>
+          <p>Innovative architecture that stands the test of time</p>
+        </div>
+        <div class="value-card">
+          <h3>New Urbanism</h3>
+          <p>Creating sustainable, livable communities for the future</p>
+        </div>
+        <div class="value-card">
+          <h3>Architectural Process</h3>
+          <p>Meticulous planning and execution at every stage</p>
+        </div>
+        <div class="value-card">
+          <h3>Innovation</h3>
+          <p>Pioneering new approaches in real estate development</p>
+        </div>
+        <div class="value-card">
+          <h3>Timely Delivery</h3>
+          <p>Commitment to meeting project deadlines reliably</p>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem;">With a legacy of over 4 decades of setting benchmarks in Real Estate, House of Hiranandani is looking at creating similar benchmarks in the Warehousing and Industrial sector.</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">26,612</div>
+          <div class="stat-label">UNITS DELIVERED</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">49.04</div>
+          <div class="stat-label">MN SQ. FT. AREA DEVELOPED</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">95,228</div>
+          <div class="stat-label">STUDENTS EDUCATED</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">69,357</div>
+          <div class="stat-label">TREES PLANTED</div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <h3 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem;">40+ Years of legacy brings to you warehousing space solutions</h3>
+        <h4 style="font-size: 1.2rem; color: var(--secondary);">OTHER VERTICALS</h4>
+      </div>
+    </div>
+  </section>
+
   <!-- Mission & Vision Section -->
   <section class="mission-vision-section">
     <div class="container">
       <div class="text-center">
-        <h2 class="section-heading" style="color: white;"><br>Our <span class="text-primary">Mission</span> & Vision</h2>
+        <h2 class="section-heading" style="color: white;">Our <span class="text-primary">Mission</span> & Vision</h2>
         <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.8);">The guiding principles that drive our company forward</p>
       </div>
       
@@ -744,51 +606,6 @@
     </div>
   </section>
 
- 
- <!-- OUR LEGACY SECTION -->
-<section style="padding: 60px 20px; background-color: #ffffff; text-align: center;">
-  <h2 style="color: #f26a21; font-size: 2.5rem; margin-bottom: 20px;">OUR LEGACY</h2>
-  <p style="max-width: 900px; margin: 0 auto 40px; font-size: 1.1rem; color: #333;">
-    RA Logistics stands at the forefront of logistics infrastructure in India. With years of operational expertise, our mission is to redefine efficiency and transparency across warehousing and supply chain solutions. Through unwavering trust, quality construction, and timely delivery, we create sustainable value for all stakeholders.
-  </p>
-
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1000px; margin: 0 auto;">
-    <div style="text-align: center; width: 150px;">
-      <img src="https://img.icons8.com/external-flat-juicy-fish/60/000000/external-trust-business-flat-flat-juicy-fish.png" alt="Trust & Transparency" style="height: 60px;"><br>
-      <span>Trust & Transparency</span>
-    </div>
-    <div style="text-align: center; width: 150px;">
-      <img src="https://img.icons8.com/color/60/construction.png" alt="Quality Construction" style="height: 60px;"><br>
-      <span>Quality Construction</span>
-    </div>
-    <div style="text-align: center; width: 150px;">
-      <img src="https://img.icons8.com/fluency/60/city.png" alt="New Urbanism" style="height: 60px;"><br>
-      <span>New Urbanism</span>
-    </div>
-    <div style="text-align: center; width: 150px;">
-      <img src="https://img.icons8.com/color/60/architecture.png" alt="Architectural Prowess" style="height: 60px;"><br>
-      <span>Architectural Prowess</span>
-    </div>
-    <div style="text-align: center; width: 150px;">
-      <img src="https://img.icons8.com/fluency/60/customer-insight.png" alt="Customer Focus" style="height: 60px;"><br>
-      <span>Customer Focus</span>
-    </div>
-    <div style="text-align: center; width: 150px;">
-      <img src="https://img.icons8.com/fluency/60/design.png" alt="Superior Design" style="height: 60px;"><br>
-      <span>Superior Design</span>
-    </div>
-    <div style="text-align: center; width: 150px;">
-      <img src="https://img.icons8.com/color/60/light-on.png" alt="Innovation" style="height: 60px;"><br>
-      <span>Innovation</span>
-    </div>
-    <div style="text-align: center; width: 150px;">
-      <img src="https://img.icons8.com/office/60/delivery.png" alt="Timely Delivery" style="height: 60px;"><br>
-      <span>Timely Delivery</span>
-    </div>
-  </div>
-</section>
-
-
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-inner">
@@ -806,12 +623,10 @@
           <li><a href="index.html#about">About Us</a></li>
           <li><a href="index.html#services">Services</a></li>
           <li><a href="index.html#expertise">Expertise</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
           <li><a href="clients.html">Clients</a></li>
-          <li>
-            <a href="locations.html" >Locations</a>
-          </li>
+          <li><a href="locations.html">Locations</a></li>
           <li><a href="legacy.html">Our Legacy</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </div>
 
@@ -819,7 +634,7 @@
         <h3>Contact Info</h3>
         <ul>
           <li><i class="fas fa-map-marker-alt"></i> Unit No-1007, 10 Th floor Supreme Headquater corner of 14th Road and 33rd Road Bandra West Mumbai-400050 Maharashtra, India</li>
-          <li><i class="fas fa-map-marker-alt"></i>R A LOGISTICS LLP, NEAR TO AMAZON M BOX, VILLAGE POGAON, CHAVINDRA, BHIWANDI 421302</li>
+          <li><i class="fas fa-map-marker-alt"></i> R A LOGISTICS LLP, NEAR TO AMAZON M BOX, VILLAGE POGAON, CHAVINDRA, BHIWANDI 421302</li>
           <li><i class="fas fa-envelope"></i> info@ra-logistics.in</li>
         </ul>
       </div>
@@ -831,11 +646,6 @@
       </p>
     </div>
   </footer>
-
-  <!-- Back to Top Button -->
-  <a href="#home" class="back-to-top" id="backToTop">
-    <i class="fas fa-arrow-up"></i>
-  </a>
 
   <script>
     // Mobile Menu Toggle
@@ -860,33 +670,12 @@
     // Navbar scroll effect
     window.addEventListener('scroll', () => {
       const navbar = document.querySelector('.navbar');
-      const backToTop = document.getElementById('backToTop');
-      
       if (window.scrollY > 100) {
         navbar.classList.add('scrolled');
-        backToTop.classList.add('active');
       } else {
         navbar.classList.remove('scrolled');
-        backToTop.classList.remove('active');
       }
     });
-
-    // Scroll reveal animation
-    const revealElements = document.querySelectorAll('.reveal');
-    
-    const revealOnScroll = () => {
-      revealElements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        
-        if (elementTop < windowHeight - 100) {
-          element.classList.add('active');
-        }
-      });
-    };
-    
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
   </script>
 </body>
 </html>
