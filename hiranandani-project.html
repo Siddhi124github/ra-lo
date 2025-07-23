@@ -56,81 +56,8 @@
       position: relative;
     }
 
-    /* Header/Navbar - Same as locations.html */
-    .navbar {
-      width: 100%;
-      padding: 1rem 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      background-color: rgba(255, 255, 255, 0.98);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .navbar-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    .nav-logo img {
-      height: 50px;
-      transition: all 0.4s ease;
-    }
-
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      list-style: none;
-    }
-
-    .nav-item {
-      margin-left: 2rem;
-      position: relative;
-    }
-
-    .nav-link {
-      color: var(--dark);
-      font-weight: 500;
-      position: relative;
-      padding: 0.5rem 0;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background-color: var(--primary);
-      transition: width 0.4s ease;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    .nav-link.active {
-      color: var(--primary);
-    }
-
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--dark);
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
     /* Main Content */
     .main-content {
-      margin-top: 80px;
       padding: 4rem 0;
     }
 
@@ -140,6 +67,44 @@
       padding: 0 2rem;
     }
 
+    .back-button-container {
+      margin-bottom: 3rem;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: var(--primary);
+      color: white;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .back-button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .back-button:active {
+      transform: translateY(0);
+    }
+
+    .back-button i {
+      transition: transform 0.3s ease;
+    }
+
+    .back-button:hover i {
+      transform: translateX(-5px);
+    }
+
     .project-hero {
       display: flex;
       flex-direction: column;
@@ -147,18 +112,31 @@
       margin-bottom: 4rem;
     }
 
-    .project-hero-image {
+    .hero-images {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-image {
       width: 100%;
-      height: 500px;
+      height: 250px;
       object-fit: cover;
-      border-radius: var(--border-radius-lg);
-      box-shadow: var(--shadow-lg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-md);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-image:hover {
+      transform: scale(1.02);
     }
 
     .project-title {
       font-size: 2.5rem;
       color: var(--secondary);
       margin-bottom: 1rem;
+      line-height: 1.2;
     }
 
     .project-location {
@@ -168,21 +146,33 @@
       color: var(--primary);
       font-weight: 600;
       margin-bottom: 1.5rem;
+      font-size: 1.1rem;
     }
 
     .project-overview {
       background: var(--white);
-      padding: 2rem;
+      padding: 2.5rem;
       border-radius: var(--border-radius-lg);
       box-shadow: var(--shadow-sm);
       margin-bottom: 3rem;
+    }
+
+    .project-overview h2 {
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    .project-overview p {
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
     }
 
     .project-specs-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1.5rem;
-      margin: 2rem 0;
+      margin: 2.5rem 0;
     }
 
     .spec-card {
@@ -190,10 +180,17 @@
       padding: 1.5rem;
       border-radius: var(--border-radius);
       text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .spec-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
     }
 
     .spec-value {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-weight: 700;
       color: var(--primary);
       margin-bottom: 0.5rem;
@@ -201,11 +198,17 @@
 
     .spec-label {
       color: var(--text-light);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
 
     .project-features {
-      margin: 3rem 0;
+      margin: 4rem 0;
+    }
+
+    .project-features h2 {
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
     }
 
     .features-grid {
@@ -217,149 +220,105 @@
 
     .feature-card {
       background: var(--white);
-      padding: 1.5rem;
+      padding: 1.8rem;
       border-radius: var(--border-radius);
       box-shadow: var(--shadow-sm);
       display: flex;
-      gap: 1rem;
+      gap: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
     }
 
     .feature-icon {
       color: var(--primary);
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       margin-top: 0.3rem;
+      flex-shrink: 0;
     }
 
-    .gallery {
-      margin: 4rem 0;
+    .feature-card h3 {
+      color: var(--secondary);
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
     }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .gallery-item {
-      height: 250px;
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      position: relative;
-    }
-
-    .gallery-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .gallery-item:hover .gallery-image {
-      transform: scale(1.05);
-    }
-
-    .back-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      background: var(--primary);
-      color: white;
-      border-radius: var(--border-radius);
-      margin-top: 2rem;
-      transition: var(--transition);
-    }
-
-    .back-button:hover {
-      background: var(--primary-dark);
-      transform: translateX(-5px);
-    }
-
-    /* Footer - Same as locations.html */
-    .footer {
-      background-color: var(--dark);
-      color: rgba(255, 255, 255, 0.8);
-      width: 100%;
-      margin: 0;
-      padding: 4rem 3rem 2rem;
-      box-sizing: border-box;
+    .feature-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
 
     /* Responsive styles */
-    @media (max-width: 768px) {
-      .project-hero-image {
-        height: 350px;
+    @media (max-width: 992px) {
+      .hero-images {
+        grid-template-columns: repeat(2, 1fr);
       }
       
+      .hero-image:last-child {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 768px) {
       .project-title {
         font-size: 2rem;
+      }
+      
+      .hero-images {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-image:last-child {
+        grid-column: span 1;
+      }
+      
+      .hero-image {
+        height: 200px;
       }
     }
 
     @media (max-width: 576px) {
-      .project-hero-image {
-        height: 250px;
+      .container {
+        padding: 0 1.5rem;
       }
       
       .project-specs-grid {
         grid-template-columns: 1fr 1fr;
       }
+      
+      .project-overview {
+        padding: 1.5rem;
+      }
+      
+      .feature-card {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Navbar - Same as locations.html -->
-  <nav class="navbar">
-    <div class="navbar-container">
-      <a href="index.html" class="nav-logo">
-        <img src="Screenshot 2025-05-26 203647.png" alt="RA Logistics Logo">
-      </a>
-      
-      <button class="mobile-menu-btn" id="mobileMenuBtn">
-        <i class="fas fa-bars"></i>
-      </button>
-      
-      <ul class="nav-menu" id="navMenu">
-        <li class="nav-item">
-          <a href="index.html" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="index.html#about" class="nav-link">About</a>
-        </li>
-        <li class="nav-item">
-          <a href="index.html#services" class="nav-link">Services</a>
-        </li>
-        <li class="nav-item">
-          <a href="index.html#expertise" class="nav-link">Expertise</a>
-        </li>
-        <li class="nav-item">
-          <a href="clients.html" class="nav-link">Clients</a> 
-        </li>
-        <li class="nav-item">
-          <a href="locations.html" class="nav-link">Locations</a>
-        </li>
-        <li class="nav-item">
-          <a href="legacy.html" class="nav-link">Our Legacy</a> 
-        </li>
-        <li class="nav-item">
-          <a href="index.html#contact" class="nav-link">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
   <!-- Main Content -->
   <main class="main-content">
     <div class="container">
-      <a href="locations.html" class="back-button">
-        <i class="fas fa-arrow-left"></i> Back to Locations
-      </a>
+      <div class="back-button-container">
+        <a href="locations.html" class="back-button">
+          <i class="fas fa-arrow-left"></i> Back to Locations
+        </a>
+      </div>
       
       <div class="project-hero">
-        <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-             alt="Hiranandani Industrial Park" class="project-hero-image">
+        <div class="hero-images">
+          <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+               alt="Hiranandani Industrial Park exterior" class="hero-image">
+          <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80" 
+               alt="Warehouse interior" class="hero-image">
+          <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+               alt="Loading area" class="hero-image">
+        </div>
         
         <div>
           <h1 class="project-title">Hiranandani Industrial Park</h1>
@@ -434,87 +393,37 @@
               <p>Direct access to NH-48 and proximity to JNPT port and Mumbai International Airport.</p>
             </div>
           </div>
-        </div>
-      </div>
-      
-      <div class="gallery">
-        <h2>Project Gallery</h2>
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80" 
-                 alt="Warehouse exterior" class="gallery-image">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-temperature-low"></i>
+            </div>
+            <div>
+              <h3>Climate Control</h3>
+              <p>Optional temperature-controlled zones for sensitive goods storage.</p>
+            </div>
           </div>
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                 alt="Loading docks" class="gallery-image">
-          </div>
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                 alt="Storage area" class="gallery-image">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-warehouse"></i>
+            </div>
+            <div>
+              <h3>Custom Layouts</h3>
+              <p>Flexible space configurations to meet diverse operational requirements.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- Footer - Same as locations.html -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-column">
-        <p>
-          RA Logistics is a premier warehouse construction and logistics solutions provider in India,
-          delivering innovative infrastructure solutions since 2018.
-        </p>
-      </div>
-
-      <div class="footer-column">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#about">About Us</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#expertise">Expertise</a></li>
-          <li><a href="clients.html">Clients</a></li>
-          <li><a href="locations.html">Locations</a></li>
-          <li><a href="legacy.html">Our Legacy</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-column">
-        <h3>Contact Info</h3>
-        <ul>
-          <li><i class="fas fa-map-marker-alt"></i> Unit No-1007, 10 Th floor Supreme Headquater corner of 14th Road and 33rd Road Bandra West Mumbai-400050 Maharashtra, India</li>
-          <li><i class="fas fa-map-marker-alt"></i> R A LOGISTICS LLP, NEAR TO AMAZON M BOX, VILLAGE POGAON, CHAVINDRA, BHIWANDI 421302</li>
-          <li><i class="fas fa-envelope"></i> info@ra-logistics.in</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p class="copyright">
-        &copy; 2025 RA Logistics. All Rights Reserved.
-      </p>
-    </div>
-  </footer>
-
   <script>
-    // Mobile Menu Toggle - Same as locations.html
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navMenu = document.getElementById('navMenu');
-    
-    mobileMenuBtn.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
-        ? '<i class="fas fa-times"></i>' 
-        : '<i class="fas fa-bars"></i>';
+    // Simple script to handle back button animation
+    document.querySelector('.back-button').addEventListener('mousedown', function() {
+      this.style.transform = 'translateY(0)';
     });
     
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-      });
+    document.querySelector('.back-button').addEventListener('mouseup', function() {
+      this.style.transform = 'translateY(-3px)';
     });
   </script>
 </body>
