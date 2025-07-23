@@ -550,17 +550,16 @@
   100% { opacity: 1; transform: translateY(0); }
 }
 
-.stat-clean-item {
-  background: rgba(0, 0, 0, 0.5); /* Keeps a dark tone, hides background behind card */
-  backdrop-filter: blur(4px);     /* Optional: smooth blur */
-  border-radius: 16px;
-  padding: 2rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  min-width: 220px;
-  max-width: 250px;
-  transition: all 0.4s ease;
-}
+ .stats-clean-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      gap: 2rem;
+    }
+
 
 .stat-clean-item {
   padding: 2rem 1rem;
