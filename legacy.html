@@ -57,11 +57,57 @@
       position: relative;
     }
 
+    ::selection {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
     .container {
       width: 100%;
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 2rem;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-primary {
+      color: var(--primary);
+    }
+
+    .bg-primary {
+      background-color: var(--primary);
+    }
+
+    .bg-secondary {
+      background-color: var(--secondary);
+    }
+
+    .bg-light {
+      background-color: var(--light);
+    }
+
+    .bg-white {
+      background-color: var(--white);
     }
 
     .section {
@@ -92,7 +138,97 @@
       transform: translateX(-50%);
     }
 
-  
+    .section-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 2rem;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      border: 2px solid transparent;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border-color: white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background-color: white;
+      color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-lg {
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+    }
+
+    .btn-icon {
+      margin-left: 0.5rem;
+    }
+
+    /* Header/Navbar */
+    header {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .header-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -2;
+      background-image: url("Screenshot 2025-06-04 200537.png");
+    }
+
+    .header-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(11, 28, 44, 0.9) 0%, rgba(16, 42, 67, 0.8) 100%);
+      z-index: -1;
+    }
+
     .navbar {
       width: 100%;
       padding: 0.8rem 0;
@@ -183,8 +319,34 @@
       cursor: pointer;
     }
 
-    /* Hero Section */
+    .hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 6rem 0;
+    }
 
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      margin-bottom: 1.5rem;
+      color: white;
+      line-height: 1.2;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
 
     /* Legacy Content Section */
     .legacy-content {
@@ -234,13 +396,12 @@
     }
 
     .value-icon {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 1.5rem;
-  object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(26%) sepia(100%) saturate(746%) hue-rotate(187deg) brightness(91%) contrast(92%);
-}
-
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1.5rem;
+      object-fit: contain;
+      filter: brightness(0) saturate(100%) invert(26%) sepia(100%) saturate(746%) hue-rotate(187deg) brightness(91%) contrast(92%);
+    }
 
     .value-card h3 {
       color: var(--primary);
@@ -294,7 +455,8 @@
     .mission-card p {
       color: rgba(255, 255, 255, 0.9);
     }
-/* Footer */
+
+    /* Footer */
     .footer {
       background-color: var(--dark);
       color: rgba(255, 255, 255, 0.8);
@@ -366,7 +528,6 @@
       font-size: 0.9rem;
     }
 
-
     /* Responsive Design */
     @media (max-width: 768px) {
       .mobile-menu-btn {
@@ -399,6 +560,15 @@
         color: var(--secondary);
         font-size: 1.2rem;
       }
+
+      .footer {
+        border: none;
+        padding: 10px;
+      }
+      
+      .footer-inner {
+        padding: 0 1.5rem;
+      }
     }
 
     @media (max-width: 576px) {
@@ -406,16 +576,27 @@
         padding: 0 1.5rem;
       }
 
-      .hero-section {
-        height: 50vh;
-        margin-top: 70px;
+      .section-heading {
+        font-size: 2rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
   <!-- Header -->
-  <header>
+  <header id="home">
+    <div class="header-bg"></div>
+    <div class="header-overlay"></div>
+    
     <nav class="navbar">
       <div class="container navbar-container">
         <a href="index.html" class="nav-logo">
@@ -440,83 +621,88 @@
             <a href="index.html#expertise" class="nav-link">Expertise</a>
           </li>
           <li class="nav-item">
+            <a href="index.html#contact" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item">
             <a href="clients.html" class="nav-link">Clients</a>
           </li>
           <li class="nav-item">
             <a href="locations.html" class="nav-link">Locations</a>
           </li>
           <li class="nav-item">
-            <a href="legacy.html" class="nav-link active">Our Legacy</a> 
-          </li>
-          <li class="nav-item">
-            <a href="index.html#contact" class="nav-link">Contact</a>
+            <a href="legacy.html" class="nav-link active">Our Legacy</a>
           </li>
         </ul>
       </div>
     </nav>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="hero-title">OUR LEGACY</h1>
-        <p class="hero-subtitle">RA Logistics - Premium Warehouse Construction & Logistics Solutions</p>
+    
+    <div class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Our <span class="text-primary">Legacy</span></h1>
+          <p class="hero-subtitle">RA Logistics - Premium Warehouse Construction & Logistics Solutions</p>
+          <div class="hero-buttons">
+            <a href="#legacy" class="btn btn-primary btn-lg">
+              Explore Our Story <i class="fas fa-arrow-right btn-icon"></i>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
+  </header>
 
   <!-- Legacy Content Section -->
-  <section class="legacy-content">
+  <section id="legacy" class="legacy-content">
     <div class="container">
       <div class="legacy-intro">
         <h2>RA Logistics</h2>
         <p>RA Logistics stands at the forefront of warehouse construction and logistics solutions in India. With our expertise in industrial real estate, we deliver high-quality, customized warehouse spaces that meet the evolving needs of modern businesses. Our commitment to excellence, innovation, and customer satisfaction has made us a trusted partner for leading companies across industries.</p>
       </div>
-<div class="values-grid">
-  <div class="value-card">
-    <img src="trust.png" alt="Trust icon" class="value-icon">
-    <h3>Trust & Transparency</h3>
-    <p>Building relationships based on honesty and clear communication</p>
-  </div>
-  <div class="value-card">
-    <img src="customer-centricity.png" alt="Customer Focus icon" class="value-icon">
-    <h3>Customer Focus</h3>
-    <p>Putting our clients' needs at the center of everything we do</p>
-  </div>
-  <div class="value-card">
-    <img src="quality.png" alt="Quality Construction icon" class="value-icon">
-    <h3>Quality Construction</h3>
-    <p>Uncompromising standards in every project we undertake</p>
-  </div>
-  <div class="value-card">
-    <img src="sketch.png" alt="Superior Design icon" class="value-icon">
-    <h3>Superior Design</h3>
-    <p>Innovative architecture that stands the test of time</p>
-  </div>
-  <div class="value-card">
-    <img src="sustainable.png" alt="Sustainability icon" class="value-icon">
-    <h3>Sustainability</h3>
-    <p>Creating eco-friendly, efficient logistics spaces</p>
-  </div>
-  <div class="value-card">
-    <img src="checked.png" alt="Meticulous Process icon" class="value-icon">
-    <h3>Meticulous Process</h3>
-    <p>Detailed planning and execution at every stage</p>
-  </div>
-  <div class="value-card">
-    <img src="project-management.png" alt="Innovation icon" class="value-icon">
-    <h3>Innovation</h3>
-    <p>Pioneering new approaches in logistics infrastructure</p>
-  </div>
-  <div class="value-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/609/609361.png" alt="Timely Delivery icon" class="value-icon">
-    <h3>Timely Delivery</h3>
-    <p>Commitment to meeting project deadlines reliably</p>
-  </div>
-</div>
 
-
+      <div class="values-grid">
+        <div class="value-card">
+          <img src="trust.png" alt="Trust icon" class="value-icon">
+          <h3>Trust & Transparency</h3>
+          <p>Building relationships based on honesty and clear communication</p>
+        </div>
+        <div class="value-card">
+          <img src="customer-centricity.png" alt="Customer Focus icon" class="value-icon">
+          <h3>Customer Focus</h3>
+          <p>Putting our clients' needs at the center of everything we do</p>
+        </div>
+        <div class="value-card">
+          <img src="quality.png" alt="Quality Construction icon" class="value-icon">
+          <h3>Quality Construction</h3>
+          <p>Uncompromising standards in every project we undertake</p>
+        </div>
+        <div class="value-card">
+          <img src="sketch.png" alt="Superior Design icon" class="value-icon">
+          <h3>Superior Design</h3>
+          <p>Innovative architecture that stands the test of time</p>
+        </div>
+        <div class="value-card">
+          <img src="sustainable.png" alt="Sustainability icon" class="value-icon">
+          <h3>Sustainability</h3>
+          <p>Creating eco-friendly, efficient logistics spaces</p>
+        </div>
+        <div class="value-card">
+          <img src="checked.png" alt="Meticulous Process icon" class="value-icon">
+          <h3>Meticulous Process</h3>
+          <p>Detailed planning and execution at every stage</p>
+        </div>
+        <div class="value-card">
+          <img src="project-management.png" alt="Innovation icon" class="value-icon">
+          <h3>Innovation</h3>
+          <p>Pioneering new approaches in logistics infrastructure</p>
+        </div>
+        <div class="value-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/609/609361.png" alt="Timely Delivery icon" class="value-icon">
+          <h3>Timely Delivery</h3>
+          <p>Commitment to meeting project deadlines reliably</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Mission & Vision Section -->
   <section class="mission-vision-section">
@@ -562,10 +748,10 @@
           <li><a href="index.html#about">About Us</a></li>
           <li><a href="index.html#services">Services</a></li>
           <li><a href="index.html#expertise">Expertise</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
           <li><a href="clients.html">Clients</a></li>
           <li><a href="locations.html">Locations</a></li>
           <li><a href="legacy.html">Our Legacy</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </div>
 
@@ -573,7 +759,7 @@
         <h3>Contact Info</h3>
         <ul>
           <li><i class="fas fa-map-marker-alt"></i> Unit No-1007, 10 Th floor Supreme Headquater corner of 14th Road and 33rd Road Bandra West Mumbai-400050 Maharashtra, India</li>
-          <li><i class="fas fa-map-marker-alt"></i> R A LOGISTICS LLP, NEAR TO AMAZON M BOX, VILLAGE POGAON, CHAVINDRA, BHIWANDI 421302</li>
+          <li><i class="fas fa-map-marker-alt"></i>Survey No. 83/17, 83/18, 84/4, 84/8, 84/9, Survey No.30/01 to 30/6, 31/1 to 31/3, 32, 86/5/A/3, 86/11, POGAON, POGAON, BHIWANDI, Kharbav, Thane, Maharashtra, 421302</li>
           <li><i class="fas fa-envelope"></i> info@ra-logistics.in</li>
         </ul>
       </div>
