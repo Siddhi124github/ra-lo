@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hiranandani Industrial Park - RA Logistics</title>
+  <meta name="description" content="Details about Hiranandani Industrial Park warehouse development by RA Logistics">
+
+  <!-- Preload and optimize assets -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #0056b3;
+      --primary-light: #3a7fc4;
+      --primary-dark: #003d82;
+      --secondary: #102a43;
+      --secondary-light: #2d4a66;
+      --light: #f5f7fa;
+      --dark: #0b1c2c;
+      --text: #334e68;
+      --text-light: #627d98;
+      --white: #ffffff;
+      --gray: #e9edf2;
+      --accent: #ff7d00;
+      --success: #28a745;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+      --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+      --border-radius: 8px;
+      --border-radius-lg: 12px;
+      --max-width: 1400px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 100%;
+    }
+
+    body {
+      background-color: #f0f4f8;
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Header/Navbar - Same as locations.html */
+    .navbar {
+      width: 100%;
+      padding: 1rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.98);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .nav-logo img {
+      height: 50px;
+      transition: all 0.4s ease;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-item {
+      margin-left: 2rem;
+      position: relative;
+    }
+
+    .nav-link {
+      color: var(--dark);
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: width 0.4s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link.active {
+      color: var(--primary);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--dark);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-top: 80px;
+      padding: 4rem 0;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 2rem;
+    }
+
+    .project-hero {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .project-hero-image {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .project-title {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .project-location {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-overview {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 3rem;
+    }
+
+    .project-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .spec-card {
+      background: var(--light);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      text-align: center;
+    }
+
+    .spec-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .spec-label {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .project-features {
+      margin: 3rem 0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .feature-card {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      gap: 1rem;
+    }
+
+    .feature-icon {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-top: 0.3rem;
+    }
+
+    .gallery {
+      margin: 4rem 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-item {
+      height: 250px;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .gallery-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover .gallery-image {
+      transform: scale(1.05);
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--primary);
+      color: white;
+      border-radius: var(--border-radius);
+      margin-top: 2rem;
+      transition: var(--transition);
+    }
+
+    .back-button:hover {
+      background: var(--primary-dark);
+      transform: translateX(-5px);
+    }
+
+    /* Footer - Same as locations.html */
+    .footer {
+      background-color: var(--dark);
+      color: rgba(255, 255, 255, 0.8);
+      width: 100%;
+      margin: 0;
+      padding: 4rem 3rem 2rem;
+      box-sizing: border-box;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .project-hero-image {
+        height: 350px;
+      }
+      
+      .project-title {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .project-hero-image {
+        height: 250px;
+      }
+      
+      .project-specs-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar - Same as locations.html -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="nav-logo">
+        <img src="Screenshot 2025-05-26 203647.png" alt="RA Logistics Logo">
+      </a>
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="index.html#about" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="index.html#services" class="nav-link">Services</a>
+        </li>
+        <li class="nav-item">
+          <a href="index.html#expertise" class="nav-link">Expertise</a>
+        </li>
+        <li class="nav-item">
+          <a href="clients.html" class="nav-link">Clients</a> 
+        </li>
+        <li class="nav-item">
+          <a href="locations.html" class="nav-link">Locations</a>
+        </li>
+        <li class="nav-item">
+          <a href="legacy.html" class="nav-link">Our Legacy</a> 
+        </li>
+        <li class="nav-item">
+          <a href="index.html#contact" class="nav-link">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <a href="locations.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back to Locations
+      </a>
+      
+      <div class="project-hero">
+        <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+             alt="Hiranandani Industrial Park" class="project-hero-image">
+        
+        <div>
+          <h1 class="project-title">Hiranandani Industrial Park</h1>
+          <div class="project-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Bhiwandi, Maharashtra</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-overview">
+        <h2>Project Overview</h2>
+        <p>The Hiranandani Industrial Park represents RA Logistics' commitment to excellence in warehouse development. This state-of-the-art facility was completed in 2023 and has since become a benchmark for modern industrial warehousing in the Mumbai Metropolitan Region.</p>
+        <p>Strategically located in Bhiwandi, the warehouse offers unparalleled connectivity to major highways and ports, making it an ideal choice for e-commerce, manufacturing, and distribution companies looking to optimize their supply chain operations.</p>
+        
+        <div class="project-specs-grid">
+          <div class="spec-card">
+            <div class="spec-value">150,000 sq.ft</div>
+            <div class="spec-label">Total Area</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-value">40 ft</div>
+            <div class="spec-label">Clear Height</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-value">50+</div>
+            <div class="spec-label">Loading Docks</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-value">24/7</div>
+            <div class="spec-label">Security</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-features">
+        <h2>Key Features</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div>
+              <h3>Advanced Security</h3>
+              <p>24/7 monitored surveillance with access control systems and fire protection infrastructure.</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-truck-loading"></i>
+            </div>
+            <div>
+              <h3>Efficient Loading</h3>
+              <p>Dock levelers and multiple loading bays designed for high-throughput operations.</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <div>
+              <h3>Power Infrastructure</h3>
+              <p>100% power backup with dedicated substation and energy-efficient lighting systems.</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-road"></i>
+            </div>
+            <div>
+              <h3>Strategic Location</h3>
+              <p>Direct access to NH-48 and proximity to JNPT port and Mumbai International Airport.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="gallery">
+        <h2>Project Gallery</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80" 
+                 alt="Warehouse exterior" class="gallery-image">
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Loading docks" class="gallery-image">
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Storage area" class="gallery-image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer - Same as locations.html -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-column">
+        <p>
+          RA Logistics is a premier warehouse construction and logistics solutions provider in India,
+          delivering innovative infrastructure solutions since 2018.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#expertise">Expertise</a></li>
+          <li><a href="clients.html">Clients</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="legacy.html">Our Legacy</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> Unit No-1007, 10 Th floor Supreme Headquater corner of 14th Road and 33rd Road Bandra West Mumbai-400050 Maharashtra, India</li>
+          <li><i class="fas fa-map-marker-alt"></i> R A LOGISTICS LLP, NEAR TO AMAZON M BOX, VILLAGE POGAON, CHAVINDRA, BHIWANDI 421302</li>
+          <li><i class="fas fa-envelope"></i> info@ra-logistics.in</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; 2025 RA Logistics. All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle - Same as locations.html
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+  </script>
+</body>
+</html>
