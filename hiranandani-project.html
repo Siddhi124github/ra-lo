@@ -84,18 +84,12 @@
       font-weight: 600;
       box-shadow: var(--shadow-md);
       transition: var(--transition);
-      position: relative;
-      overflow: hidden;
     }
 
     .back-button:hover {
       background: var(--primary-dark);
       transform: translateY(-3px);
       box-shadow: var(--shadow-lg);
-    }
-
-    .back-button:active {
-      transform: translateY(0);
     }
 
     .back-button i {
@@ -139,7 +133,8 @@
       object-fit: cover;
     }
 
-    .slider-controls {
+    /* Custom slider controls */
+    .tns-controls {
       position: absolute;
       top: 50%;
       width: 100%;
@@ -150,7 +145,7 @@
       padding: 0 1rem;
     }
 
-    .control-btn {
+    .tns-controls button {
       background: rgba(255, 255, 255, 0.7);
       width: 40px;
       height: 40px;
@@ -164,7 +159,7 @@
       color: var(--primary);
     }
 
-    .control-btn:hover {
+    .tns-controls button:hover {
       background: var(--white);
       transform: scale(1.1);
     }
@@ -296,13 +291,9 @@
                    alt="Warehouse interior">
             </div>
             <div class="slide">
-              <img src="" 
+              <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
                    alt="Loading area">
             </div>
-          </div>
-          <div class="slider-controls">
-            <button class="control-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
-            <button class="control-btn next-btn"><i class="fas fa-chevron-right"></i></button>
           </div>
         </div>
         
@@ -344,7 +335,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
   <script>
-    // Initialize slider
+    // Initialize slider with custom controls
     const slider = tns({
       container: '#imageSlider',
       items: 1,
@@ -352,26 +343,13 @@
       autoplay: true,
       autoplayButtonOutput: false,
       autoplayTimeout: 5000,
-      controls: false,
+      controls: true,
+      controlsContainer: false,
       nav: false,
       speed: 500,
       mouseDrag: true,
       loop: true,
-      responsive: {
-        768: {
-          controls: true,
-          controlsText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>']
-        }
-      }
-    });
-
-    // Custom controls
-    document.querySelector('.prev-btn').addEventListener('click', () => {
-      slider.goTo('prev');
-    });
-
-    document.querySelector('.next-btn').addEventListener('click', () => {
-      slider.goTo('next');
+      controlsText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>']
     });
 
     // Simple script to handle back button animation
