@@ -10,6 +10,7 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
 
   <style>
     :root {
@@ -112,24 +113,60 @@
       margin-bottom: 4rem;
     }
 
-    .hero-images {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .hero-image {
+    /* Slider Styles */
+    .slider-container {
+      position: relative;
       width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow-md);
-      transition: transform 0.3s ease;
+      margin-bottom: 2rem;
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
     }
 
-    .hero-image:hover {
-      transform: scale(1.02);
+    .slider {
+      width: 100%;
+      height: 500px;
+    }
+
+    .slide {
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slider-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      z-index: 10;
+      padding: 0 1rem;
+    }
+
+    .control-btn {
+      background: rgba(255, 255, 255, 0.7);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      color: var(--primary);
+    }
+
+    .control-btn:hover {
+      background: var(--white);
+      transform: scale(1.1);
     }
 
     .project-title {
@@ -201,65 +238,10 @@
       font-size: 0.95rem;
     }
 
-    .project-features {
-      margin: 4rem 0;
-    }
-
-    .project-features h2 {
-      color: var(--secondary);
-      margin-bottom: 1.5rem;
-      font-size: 1.8rem;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .feature-card {
-      background: var(--white);
-      padding: 1.8rem;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      gap: 1.2rem;
-      transition: var(--transition);
-    }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .feature-icon {
-      color: var(--primary);
-      font-size: 1.8rem;
-      margin-top: 0.3rem;
-      flex-shrink: 0;
-    }
-
-    .feature-card h3 {
-      color: var(--secondary);
-      margin-bottom: 0.8rem;
-      font-size: 1.2rem;
-    }
-
-    .feature-card p {
-      color: var(--text-light);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
     /* Responsive styles */
     @media (max-width: 992px) {
-      .hero-images {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .hero-image:last-child {
-        grid-column: span 2;
+      .slider {
+        height: 400px;
       }
     }
 
@@ -268,16 +250,8 @@
         font-size: 2rem;
       }
       
-      .hero-images {
-        grid-template-columns: 1fr;
-      }
-      
-      .hero-image:last-child {
-        grid-column: span 1;
-      }
-      
-      .hero-image {
-        height: 200px;
+      .slider {
+        height: 350px;
       }
     }
 
@@ -294,8 +268,8 @@
         padding: 1.5rem;
       }
       
-      .feature-card {
-        flex-direction: column;
+      .slider {
+        height: 250px;
       }
     }
   </style>
@@ -311,13 +285,25 @@
       </div>
       
       <div class="project-hero">
-        <div class="hero-images">
-          <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-               alt="Hiranandani Industrial Park exterior" class="hero-image">
-          <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80" 
-               alt="Warehouse interior" class="hero-image">
-          <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-               alt="Loading area" class="hero-image">
+        <div class="slider-container">
+          <div class="slider" id="imageSlider">
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                   alt="Hiranandani Industrial Park exterior">
+            </div>
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80" 
+                   alt="Warehouse interior">
+            </div>
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                   alt="Loading area">
+            </div>
+          </div>
+          <div class="slider-controls">
+            <button class="control-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="control-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+          </div>
         </div>
         
         <div>
@@ -353,70 +339,41 @@
           </div>
         </div>
       </div>
-      
-      <div class="project-features">
-        <h2>Key Features</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-shield-alt"></i>
-            </div>
-            <div>
-              <h3>Advanced Security</h3>
-              <p>24/7 monitored surveillance with access control systems and fire protection infrastructure.</p>
-            </div>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-truck-loading"></i>
-            </div>
-            <div>
-              <h3>Efficient Loading</h3>
-              <p>Dock levelers and multiple loading bays designed for high-throughput operations.</p>
-            </div>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-bolt"></i>
-            </div>
-            <div>
-              <h3>Power Infrastructure</h3>
-              <p>100% power backup with dedicated substation and energy-efficient lighting systems.</p>
-            </div>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-road"></i>
-            </div>
-            <div>
-              <h3>Strategic Location</h3>
-              <p>Direct access to NH-48 and proximity to JNPT port and Mumbai International Airport.</p>
-            </div>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-temperature-low"></i>
-            </div>
-            <div>
-              <h3>Climate Control</h3>
-              <p>Optional temperature-controlled zones for sensitive goods storage.</p>
-            </div>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-warehouse"></i>
-            </div>
-            <div>
-              <h3>Custom Layouts</h3>
-              <p>Flexible space configurations to meet diverse operational requirements.</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </main>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
   <script>
+    // Initialize slider
+    const slider = tns({
+      container: '#imageSlider',
+      items: 1,
+      slideBy: 1,
+      autoplay: true,
+      autoplayButtonOutput: false,
+      autoplayTimeout: 5000,
+      controls: false,
+      nav: false,
+      speed: 500,
+      mouseDrag: true,
+      loop: true,
+      responsive: {
+        768: {
+          controls: true,
+          controlsText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>']
+        }
+      }
+    });
+
+    // Custom controls
+    document.querySelector('.prev-btn').addEventListener('click', () => {
+      slider.goTo('prev');
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', () => {
+      slider.goTo('next');
+    });
+
     // Simple script to handle back button animation
     document.querySelector('.back-button').addEventListener('mousedown', function() {
       this.style.transform = 'translateY(0)';
