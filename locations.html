@@ -473,10 +473,115 @@
       text-align: center;
       transition: var(--transition);
       width: 100%;
+      margin-bottom: 0.5rem;
     }
     
     .project-cta:hover {
       background-color: var(--primary-dark);
+    }
+    
+    /* NEW: Map Button Styles */
+    .map-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--accent);
+      color: white;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      text-align: center;
+      transition: var(--transition);
+      width: 100%;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .map-btn:hover {
+      background-color: #e66c00;
+    }
+    
+    .project-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    /* NEW: Map Modal Styles */
+    .map-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .map-modal.active {
+      display: flex;
+    }
+    
+    .map-modal-content {
+      background: white;
+      border-radius: var(--border-radius-lg);
+      width: 90%;
+      max-width: 800px;
+      max-height: 90vh;
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .map-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      background: var(--primary);
+      color: white;
+    }
+    
+    .map-modal-title {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    
+    .map-modal-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .map-modal-close:hover {
+      transform: scale(1.1);
+    }
+    
+    .map-modal-body {
+      padding: 0;
+      height: 500px;
+    }
+    
+    .map-placeholder {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--light);
+      color: var(--text-light);
+    }
+    
+    .map-placeholder i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--primary-light);
     }
 
     /* Footer */
@@ -605,6 +710,10 @@
       .footer-inner {
         padding: 0 1.5rem;
       }
+      
+      .project-actions {
+        flex-direction: column;
+      }
     }
 
     @media (max-width: 576px) {
@@ -635,6 +744,10 @@
       
       .project-specs {
         grid-template-columns: 1fr;
+      }
+      
+      .map-modal-content {
+        width: 95%;
       }
     }
   </style>
@@ -679,6 +792,24 @@
       </ul>
     </div>
   </nav>
+
+  <!-- NEW: Map Modal -->
+  <div class="map-modal" id="mapModal">
+    <div class="map-modal-content">
+      <div class="map-modal-header">
+        <h3 class="map-modal-title" id="mapModalTitle">Project Location</h3>
+        <button class="map-modal-close" id="mapModalClose">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="map-modal-body" id="mapModalBody">
+        <div class="map-placeholder" id="mapPlaceholder">
+          <i class="fas fa-map-marked-alt"></i>
+          <p>Opening Google Maps...</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Main Content -->
   <main class="main-content">
@@ -727,79 +858,89 @@
           <div class="project-card">
             <div class="project-details">
               <h3 class="project-title"><i class="fas fa-warehouse"></i> ZOMATO HYPERPURE</h3>
-              <p class="project-description">A next-generation, food-grade distribution facility designed to meet Hyperpure’s strict quality and safety benchmarks, integrating advanced cold-chain systems, streamlined material flow, and rapid fulfilment capabilities to power Zomato’s nationwide supply network.</p>
-              
-             
+              <p class="project-description">A next-generation, food-grade distribution facility designed to meet Hyperpure's strict quality and safety benchmarks, integrating advanced cold-chain systems, streamlined material flow, and rapid fulfilment capabilities to power Zomato's nationwide supply network.</p>
               
               <div class="project-specs">
                 <div class="spec-item">
                   <div class="spec-value">4,61,020 sq. ft.</div>
                   <div class="spec-label">Total Area</div>
                 </div>
-                
               </div>
               
-              <a href="zomato.html" class="project-cta">View Project Details</a>
-            </div>
-          </div>
-          <div class="project-card">
-            <div class="project-details">
-              <h3 class="project-title"><i class="fas fa-warehouse"></i> HIRANANDANI INDUSTRIAL PARK</h3>
-              <p class="project-description">Our flagship development in Bhiwandi represents the gold standard in modern warehousing, combining cutting-edge technology with strategic location advantages.</p>
-              
-             
-              
-              <div class="project-specs">
-                <div class="spec-item">
-                  <div class="spec-value">4,58,000 sq. ft.</div>
-                  <div class="spec-label">Total Area</div>
-                </div>
-                
+              <div class="project-actions">
+                <a href="zomato.html" class="project-cta">View Project Details</a>
+                <button class="map-btn" data-lat="19.3196258544922" data-lng="73.0969314575195" data-name="ZOMATO HYPERPURE">
+                  <i class="fas fa-map-marked-alt"></i> View on Google Maps
+                </button>
               </div>
-              
-              <a href="hiranandani-project.html" class="project-cta">View Project Details</a>
             </div>
           </div>
           
           <!-- Project 2 -->
           <div class="project-card">
             <div class="project-details">
-              <h3 class="project-title"><i class="fas fa-warehouse"></i> PAREKH </h3>
-              <p class="project-description">
-            This strategic facility, currently under development for a leading 3PL, will exemplify advanced logistics infrastructure, combining operational excellence with modern design for optimized supply chain flows.
-      .</p>
-              
-              
+              <h3 class="project-title"><i class="fas fa-warehouse"></i> HIRANANDANI INDUSTRIAL PARK</h3>
+              <p class="project-description">Our flagship development in Bhiwandi represents the gold standard in modern warehousing, combining cutting-edge technology with strategic location advantages.</p>
               
               <div class="project-specs">
                 <div class="spec-item">
-                  <div class="spec-value">2,53,000  sq.ft</div>
+                  <div class="spec-value">4,58,000 sq. ft.</div>
                   <div class="spec-label">Total Area</div>
                 </div>
-               
               </div>
               
-              <a href="parekh.html" class="project-cta">View Project Details</a>
+              <div class="project-actions">
+                <a href="hiranandani-project.html" class="project-cta">View Project Details</a>
+                <button class="map-btn" data-lat="19.300000" data-lng="73.100000" data-name="HIRANANDANI INDUSTRIAL PARK">
+                  <i class="fas fa-map-marked-alt"></i> View on Google Maps
+                </button>
+              </div>
             </div>
           </div>
           
           <!-- Project 3 -->
           <div class="project-card">
             <div class="project-details">
-              <h3 class="project-title"><i class="fas fa-warehouse"></i> DA BLOCK </h3>
-              <p class="project-description">A multimodal logistics hub featuring direct rail connectivity and cross-docking capabilities for high-volume distribution operations.</p>
+              <h3 class="project-title"><i class="fas fa-warehouse"></i> PAREKH</h3>
+              <p class="project-description">
+                This strategic facility, currently under development for a leading 3PL, will exemplify advanced logistics infrastructure, combining operational excellence with modern design for optimized supply chain flows.
+              </p>
               
-            
+              <div class="project-specs">
+                <div class="spec-item">
+                  <div class="spec-value">2,53,000 sq.ft</div>
+                  <div class="spec-label">Total Area</div>
+                </div>
+              </div>
+              
+              <div class="project-actions">
+                <a href="parekh.html" class="project-cta">View Project Details</a>
+                <button class="map-btn" data-lat="19.310000" data-lng="73.090000" data-name="PAREKH">
+                  <i class="fas fa-map-marked-alt"></i> View on Google Maps
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 4 -->
+          <div class="project-card">
+            <div class="project-details">
+              <h3 class="project-title"><i class="fas fa-warehouse"></i> DA BLOCK</h3>
+              <p class="project-description">A multimodal logistics hub featuring direct rail connectivity and cross-docking capabilities for high-volume distribution operations.</p>
               
               <div class="project-specs">
                 <div class="spec-item">
                   <div class="spec-value">4,10,385 sq. ft.</div>
                   <div class="spec-label">Total Area</div>
                 </div>
-                
               </div>
               
-              <a href="DA block.html" class="project-cta">View Project Details</a>
+              <div class="project-actions">
+                <a href="DA block.html" class="project-cta">View Project Details</a>
+                <button class="map-btn" data-lat="19.320000" data-lng="73.080000" data-name="DA BLOCK">
+                  <i class="fas fa-map-marked-alt"></i> View on Google Maps
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -897,6 +1038,60 @@
         dot.addEventListener('click', () => {
           showSlide(index);
         });
+      });
+    });
+
+    // NEW: Google Maps Integration
+    document.addEventListener('DOMContentLoaded', function() {
+      const mapButtons = document.querySelectorAll('.map-btn');
+      const mapModal = document.getElementById('mapModal');
+      const mapModalTitle = document.getElementById('mapModalTitle');
+      const mapModalBody = document.getElementById('mapModalBody');
+      const mapModalClose = document.getElementById('mapModalClose');
+      const mapPlaceholder = document.getElementById('mapPlaceholder');
+      
+      // Open Google Maps when a map button is clicked
+      mapButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const lat = this.getAttribute('data-lat');
+          const lng = this.getAttribute('data-lng');
+          const name = this.getAttribute('data-name');
+          
+          // Update modal title
+          mapModalTitle.textContent = name;
+          
+          // Show modal with loading state
+          mapModal.classList.add('active');
+          mapPlaceholder.innerHTML = `
+            <i class="fas fa-map-marked-alt"></i>
+            <p>Opening Google Maps...</p>
+          `;
+          
+          // Open Google Maps in a new tab after a short delay
+          setTimeout(() => {
+            window.open(`https://maps.google.com/?q=${lat},${lng}`, '_blank');
+            
+            // Update modal content to show success message
+            mapPlaceholder.innerHTML = `
+              <i class="fas fa-check-circle" style="color:#28a745;"></i>
+              <h4>Google Maps Opened</h4>
+              <p>${name} location opened in a new tab</p>
+              <p style="font-size:0.9rem; margin-top:10px;">If the map didn't open, check your pop-up blocker</p>
+            `;
+          }, 1000);
+        });
+      });
+      
+      // Close modal when close button is clicked
+      mapModalClose.addEventListener('click', function() {
+        mapModal.classList.remove('active');
+      });
+      
+      // Close modal when clicking outside the content
+      mapModal.addEventListener('click', function(e) {
+        if (e.target === mapModal) {
+          mapModal.classList.remove('active');
+        }
       });
     });
   </script>
