@@ -1,17 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DA Block - RA Logistics</title>
-  <meta name="description" content="Details about Hiranandani Industrial Park warehouse development by RA Logistics">
+  <meta name="description" content="Details about DA Block warehouse development by RA Logistics">
 
   <!-- Preload and optimize assets -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
 
   <style>
     :root {
@@ -108,63 +106,6 @@
       margin-bottom: 4rem;
     }
 
-    /* Slider Styles */
-    .slider-container {
-      position: relative;
-      width: 100%;
-      margin-bottom: 2rem;
-      border-radius: var(--border-radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .slider {
-      width: 100%;
-      height: 500px;
-    }
-
-    .slide {
-      width: 100%;
-      height: 100%;
-    }
-
-    .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Custom slider controls */
-    .tns-controls {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      z-index: 10;
-      padding: 0 1rem;
-    }
-
-    .tns-controls button {
-      background: rgba(255, 255, 255, 0.7);
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: var(--transition);
-      border: none;
-      color: var(--primary);
-    }
-
-    .tns-controls button:hover {
-      background: var(--white);
-      transform: scale(1.1);
-    }
-
     .project-title {
       font-size: 2.5rem;
       color: var(--secondary);
@@ -234,10 +175,56 @@
       font-size: 0.95rem;
     }
 
+    /* Project visualization section */
+    .project-visualization {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 3rem;
+    }
+
+    .project-visualization h2 {
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    .visualization-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .visualization-placeholder {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, var(--light) 0%, var(--gray) 100%);
+      border-radius: var(--border-radius);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .visualization-placeholder i {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      color: var(--primary-light);
+    }
+
+    .visualization-placeholder p {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
     /* Responsive styles */
     @media (max-width: 992px) {
-      .slider {
-        height: 400px;
+      .project-title {
+        font-size: 2.2rem;
       }
     }
 
@@ -246,8 +233,8 @@
         font-size: 2rem;
       }
       
-      .slider {
-        height: 350px;
+      .visualization-placeholder {
+        height: 250px;
       }
     }
 
@@ -264,14 +251,21 @@
         padding: 1.5rem;
       }
       
-      .slider {
-        height: 250px;
+      .visualization-placeholder {
+        height: 200px;
+      }
+      
+      .visualization-placeholder i {
+        font-size: 3rem;
+      }
+      
+      .visualization-placeholder p {
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Main Content -->
   <main class="main-content">
     <div class="container">
       <div class="back-button-container">
@@ -281,20 +275,6 @@
       </div>
       
       <div class="project-hero">
-        <div class="slider-container">
-          <div class="slider" id="imageSlider">
-            <div class="slide">
-              <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                   alt="Parekh">
-            </div>
-            <div class="slide">
-              <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80" 
-                   alt="Warehouse interior">
-            </div>
-            
-          </div>
-        </div>
-        
         <div>
           <h1 class="project-title">DA Block</h1>
           <div class="project-location">
@@ -304,14 +284,25 @@
         </div>
       </div>
       
+      <div class="project-visualization">
+        <h2>Project Visualization</h2>
+        <div class="visualization-content">
+          <div class="visualization-placeholder">
+            <i class="fas fa-warehouse"></i>
+            <p>Project Visualization Coming Soon</p>
+          </div>
+          <p>We're currently preparing detailed visualizations of the DA Block development. Check back soon for project renders and progress photos.</p>
+        </div>
+      </div>
+      
       <div class="project-overview">
         <h2>Project Overview</h2>
-      <p>The DA Block project is an ongoing development by RA Logistics, aimed at delivering a modern and efficient warehousing facility. Designed with a focus on operational fluidity and scalability, this facility reflects our forward-thinking approach to logistics infrastructure.</p>
-<p>Located in Bhiwandi, the site benefits from excellent connectivity, making it a strategic hub for streamlined distribution and supply chain operations.</p>
+        <p>The DA Block project is an ongoing development by RA Logistics, aimed at delivering a modern and efficient warehousing facility. Designed with a focus on operational fluidity and scalability, this facility reflects our forward-thinking approach to logistics infrastructure.</p>
+        <p>Located in Bhiwandi, the site benefits from excellent connectivity, making it a strategic hub for streamlined distribution and supply chain operations.</p>
 
         <div class="project-specs-grid">
           <div class="spec-card">
-            <div class="spec-value">4,10,385 sq ft </div>
+            <div class="spec-value">4,10,385 sq ft</div>
             <div class="spec-label">Total Area</div>
           </div>
           <div class="spec-card">
@@ -331,25 +322,7 @@
     </div>
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
   <script>
-    // Initialize slider with custom controls
-    const slider = tns({
-      container: '#imageSlider',
-      items: 1,
-      slideBy: 1,
-      autoplay: true,
-      autoplayButtonOutput: false,
-      autoplayTimeout: 5000,
-      controls: true,
-      controlsContainer: false,
-      nav: false,
-      speed: 500,
-      mouseDrag: true,
-      loop: true,
-      controlsText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>']
-    });
-
     // Simple script to handle back button animation
     document.querySelector('.back-button').addEventListener('mousedown', function() {
       this.style.transform = 'translateY(0)';
