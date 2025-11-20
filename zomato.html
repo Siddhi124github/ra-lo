@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zomato Hyperpure - RA Logistics</title>
+  <meta name="description" content="Details about Zomato Hyperpure warehouse development by RA Logistics">
+
+  <!-- Preload and optimize assets -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #e23744;
+      --primary-light: #eb6b75;
+      --primary-dark: #cb1d2b;
+      --secondary: #1f1f1f;
+      --secondary-light: #3a3a3a;
+      --light: #f8f9fa;
+      --dark: #0b1c2c;
+      --text: #333333;
+      --text-light: #666666;
+      --white: #ffffff;
+      --gray: #e9edf2;
+      --accent: #ff7d00;
+      --success: #28a745;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+      --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+      --border-radius: 8px;
+      --border-radius-lg: 12px;
+      --max-width: 1400px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 100%;
+    }
+
+    body {
+      background-color: #f0f4f8;
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Main Content */
+    .main-content {
+      padding: 4rem 0;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 2rem;
+    }
+
+    .back-button-container {
+      margin-bottom: 3rem;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: var(--primary);
+      color: white;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+    }
+
+    .back-button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .back-button i {
+      transition: transform 0.3s ease;
+    }
+
+    .back-button:hover i {
+      transform: translateX(-5px);
+    }
+
+    .project-hero {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .project-title {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .project-location {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .project-overview {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 3rem;
+    }
+
+    .project-overview h2 {
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    .project-overview p {
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .project-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .spec-card {
+      background: var(--light);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .spec-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .spec-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .spec-label {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    /* Project visualization section */
+    .project-visualization {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 3rem;
+    }
+
+    .project-visualization h2 {
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    .visualization-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .visualization-placeholder {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, var(--light) 0%, var(--gray) 100%);
+      border-radius: var(--border-radius);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .visualization-placeholder i {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      color: var(--primary-light);
+    }
+
+    .visualization-placeholder p {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    /* Features section */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .feature-card {
+      background: var(--light);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .feature-card i {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .feature-card p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 992px) {
+      .project-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .project-title {
+        font-size: 2rem;
+      }
+      
+      .visualization-placeholder {
+        height: 250px;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      
+      .project-specs-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .project-overview {
+        padding: 1.5rem;
+      }
+      
+      .visualization-placeholder {
+        height: 200px;
+      }
+      
+      .visualization-placeholder i {
+        font-size: 3rem;
+      }
+      
+      .visualization-placeholder p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="main-content">
+    <div class="container">
+      <div class="back-button-container">
+        <a href="locations.html" class="back-button">
+          <i class="fas fa-arrow-left"></i> Back to Locations
+        </a>
+      </div>
+      
+      <div class="project-hero">
+        <div>
+          <h1 class="project-title">Zomato Hyperpure</h1>
+          <div class="project-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Multiple Locations Across India</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-visualization">
+        <h2>Project Visualization</h2>
+        <div class="visualization-content">
+          <div class="visualization-placeholder">
+            <i class="fas fa-utensils"></i>
+            <p>Zomato Hyperpure Facility</p>
+          </div>
+          <p>We're currently preparing detailed visualizations of the Zomato Hyperpure facilities. Check back soon for project renders and progress photos.</p>
+        </div>
+      </div>
+      
+      <div class="project-overview">
+        <h2>Project Overview</h2>
+        <p>
+          RA Logistics is proud to partner with <strong>Zomato Hyperpure</strong>, India's leading B2B supply platform for restaurants. Our collaboration focuses on developing state-of-the-art warehousing and distribution facilities that support Hyperpure's mission to deliver high-quality, fresh ingredients to restaurants across the country.
+        </p>
+
+        <p>
+          These specialized facilities are designed with temperature-controlled zones, advanced inventory management systems, and efficient logistics workflows to ensure the freshness and quality of produce, dairy, and other perishable items. Our infrastructure enables Hyperpure to maintain their commitment to food safety standards while optimizing their supply chain operations.
+        </p>
+
+        <p>
+          Through this partnership, we're helping Zomato Hyperpure scale their operations efficiently while maintaining the quality and reliability that restaurants depend on for their daily operations.
+        </p>
+        
+        <div class="project-specs-grid">
+          <div class="spec-card">
+            <div class="spec-value">75,000+ sq ft</div>
+            <div class="spec-label">Total Area</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-value">5-8°C</div>
+            <div class="spec-label">Temperature Control</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-value">24+</div>
+            <div class="spec-label">Loading Docks</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-value">Real-time</div>
+            <div class="spec-label">Inventory Tracking</div>
+          </div>
+        </div>
+        
+        <h3 style="color: var(--secondary); margin-top: 2.5rem; margin-bottom: 1.5rem;">Key Features</h3>
+        <div class="features-grid">
+          <div class="feature-card">
+            <i class="fas fa-snowflake"></i>
+            <h3>Cold Storage</h3>
+            <p>Advanced temperature-controlled zones for perishable items with precise climate management.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-truck-loading"></i>
+            <h3>Efficient Distribution</h3>
+            <p>Optimized loading bays and dispatch systems for quick turnaround times.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Quality Assurance</h3>
+            <p>Dedicated quality check areas and food safety compliance protocols.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-clipboard-check"></i>
+            <h3>Inventory Management</h3>
+            <p>Real-time tracking systems with FIFO methodology for optimal stock rotation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Simple script to handle back button animation
+    document.querySelector('.back-button').addEventListener('mousedown', function() {
+      this.style.transform = 'translateY(0)';
+    });
+    
+    document.querySelector('.back-button').addEventListener('mouseup', function() {
+      this.style.transform = 'translateY(-3px)';
+    });
+  </script>
+</body>
+</html>
